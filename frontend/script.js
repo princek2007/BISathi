@@ -3,11 +3,12 @@
    FRONTEND LOGIC
    ========================================================= */
 
+
 /* =========================================================
    CONFIGURATION
    ========================================================= */
 
-const API_BASE_URL = "https://bisathi.onrender.com";
+const API_BASE_URL = "http://127.0.0.1:8000";
 
 const API_ASK_URL = `${API_BASE_URL}/api/ask`;
 const API_SEARCH_URL = `${API_BASE_URL}/api/search-standard`;
@@ -17,7 +18,7 @@ const API_ISI_URL = `${API_BASE_URL}/api/verify-isi`;
 
 
 /* =========================================================
-   DEBUG - REMOVE LATER IF NEEDED
+   DEBUG
    ========================================================= */
 
 console.log("BISathi API Base URL:", API_BASE_URL);
@@ -173,7 +174,10 @@ async function sendMessage() {
     showThinking();
 
     try {
-        console.log("Sending Ask AI request to:", API_ASK_URL);
+        console.log(
+            "Sending Ask AI request to:",
+            API_ASK_URL
+        );
 
         const response = await fetch(API_ASK_URL, {
             method: "POST",
@@ -268,7 +272,6 @@ function addUserMessage(message) {
 
     const messageBox = document.createElement("div");
     messageBox.className = "message-box";
-
     messageBox.textContent = message;
 
     wrapper.appendChild(messageBox);
@@ -289,8 +292,8 @@ function formatMarkdown(message) {
 
     const escaped = escapeHTML(message);
     const lines = escaped.split(/\r?\n/);
-
     const output = [];
+
     let insideList = false;
 
     function closeList() {
@@ -498,12 +501,12 @@ function showThinking() {
     const wrapper = document.createElement("div");
 
     wrapper.id = "thinking";
-
     wrapper.className =
         "message ai-message ai-response";
 
     wrapper.innerHTML = `
         <div class="small-avatar"></div>
+
         <div class="message-box loading-message">
             <span class="loading-dot"></span>
             <span>BISathi is thinking...</span>
@@ -628,6 +631,7 @@ async function searchProduct() {
         <div class="search-result-card">
             <div class="loading-message">
                 <span class="loading-dot"></span>
+
                 <span>
                     Searching official BIS information for
                     <strong>${escapeHTML(product)}</strong>
@@ -671,6 +675,11 @@ async function searchProduct() {
         const data =
             await response.json();
 
+        console.log(
+            "Standards Search Response:",
+            data
+        );
+
         if (!data.success) {
             result.innerHTML = `
                 <div class="search-result-card">
@@ -696,6 +705,7 @@ async function searchProduct() {
             return;
         }
 
+
         /* =================================================
            SOURCE LABEL
            ================================================= */
@@ -709,7 +719,6 @@ async function searchProduct() {
         ) {
             sourceLabel =
                 "Official BIS Live Search";
-
         } else if (
             data.source ===
             "local_knowledge_base"
@@ -820,6 +829,7 @@ async function searchProduct() {
                     totalRecords > 0
                         ? `
                             <div class="standards-count">
+
                                 ${totalRecords}
                                 BIS standard record${
                                     totalRecords === 1
@@ -827,6 +837,7 @@ async function searchProduct() {
                                         : "s"
                                 }
                                 found
+
                             </div>
                         `
                         : ""
@@ -862,8 +873,9 @@ async function searchProduct() {
                 </h3>
 
                 <p>
-                    BISathi could not connect to the backend.
-                    Please try again.
+                    BISathi could not connect to the local backend.
+                    Please make sure FastAPI is running on
+                    http://127.0.0.1:8000
                 </p>
 
             </div>
@@ -877,6 +889,7 @@ async function searchProduct() {
    ========================================================= */
 
 async function getCertificationGuidance() {
+
     const input =
         document.getElementById(
             "certificationProductInput"
@@ -895,6 +908,7 @@ async function getCertificationGuidance() {
         input.value.trim();
 
     if (!product) {
+
         result.innerHTML = `
             <div class="search-result-card">
                 <p>
@@ -908,16 +922,22 @@ async function getCertificationGuidance() {
 
     result.innerHTML = `
         <div class="search-result-card">
+
             <div class="loading-message">
+
                 <span class="loading-dot"></span>
+
                 <span>
                     BISathi is preparing certification guidance...
                 </span>
+
             </div>
+
         </div>
     `;
 
     try {
+
         console.log(
             "Sending Certification request to:",
             API_CERTIFICATION_URL
@@ -953,6 +973,7 @@ async function getCertificationGuidance() {
             await response.json();
 
         if (!data.success) {
+
             result.innerHTML = `
                 <div class="search-result-card error-box">
 
@@ -1009,8 +1030,7 @@ async function getCertificationGuidance() {
                 </h3>
 
                 <p>
-                    BISathi could not connect to the backend.
-                    Please try again.
+                    BISathi could not connect to the local backend.
                 </p>
 
             </div>
@@ -1024,6 +1044,7 @@ async function getCertificationGuidance() {
    ========================================================= */
 
 async function getDocumentChecklist() {
+
     const input =
         document.getElementById(
             "documentChecklistInput"
@@ -1042,11 +1063,14 @@ async function getDocumentChecklist() {
         input.value.trim();
 
     if (!product) {
+
         result.innerHTML = `
             <div class="search-result-card">
+
                 <p>
                     Please enter a product name.
                 </p>
+
             </div>
         `;
 
@@ -1055,16 +1079,22 @@ async function getDocumentChecklist() {
 
     result.innerHTML = `
         <div class="search-result-card">
+
             <div class="loading-message">
+
                 <span class="loading-dot"></span>
+
                 <span>
                     BISathi is preparing your document checklist...
                 </span>
+
             </div>
+
         </div>
     `;
 
     try {
+
         console.log(
             "Sending Document Checklist request to:",
             API_DOCUMENT_URL
@@ -1100,6 +1130,7 @@ async function getDocumentChecklist() {
             await response.json();
 
         if (!data.success) {
+
             result.innerHTML = `
                 <div class="search-result-card error-box">
 
@@ -1156,8 +1187,7 @@ async function getDocumentChecklist() {
                 </h3>
 
                 <p>
-                    BISathi could not connect to the backend.
-                    Please try again.
+                    BISathi could not connect to the local backend.
                 </p>
 
             </div>
@@ -1171,6 +1201,7 @@ async function getDocumentChecklist() {
    ========================================================= */
 
 async function verifyISI() {
+
     const input =
         document.getElementById(
             "isiVerificationInput"
@@ -1189,11 +1220,14 @@ async function verifyISI() {
         input.value.trim();
 
     if (!question) {
+
         result.innerHTML = `
             <div class="search-result-card">
+
                 <p>
                     Please enter your ISI Mark question.
                 </p>
+
             </div>
         `;
 
@@ -1202,16 +1236,22 @@ async function verifyISI() {
 
     result.innerHTML = `
         <div class="search-result-card">
+
             <div class="loading-message">
+
                 <span class="loading-dot"></span>
+
                 <span>
                     BISathi is checking ISI Mark guidance...
                 </span>
+
             </div>
+
         </div>
     `;
 
     try {
+
         console.log(
             "Sending ISI Verification request to:",
             API_ISI_URL
@@ -1247,6 +1287,7 @@ async function verifyISI() {
             await response.json();
 
         if (!data.success) {
+
             result.innerHTML = `
                 <div class="search-result-card error-box">
 
@@ -1303,8 +1344,7 @@ async function verifyISI() {
                 </h3>
 
                 <p>
-                    BISathi could not connect to the backend.
-                    Please try again.
+                    BISathi could not connect to the local backend.
                 </p>
 
             </div>
@@ -1318,6 +1358,7 @@ async function verifyISI() {
    ========================================================= */
 
 function attachEnterHandler(elementId, callback) {
+
     const element =
         document.getElementById(elementId);
 
@@ -1328,8 +1369,11 @@ function attachEnterHandler(elementId, callback) {
     element.addEventListener(
         "keydown",
         function (event) {
+
             if (event.key === "Enter") {
+
                 event.preventDefault();
+
                 callback();
             }
         }
@@ -1370,6 +1414,7 @@ const navLinks =
 window.addEventListener(
     "scroll",
     function () {
+
         let currentSection = "";
 
         document
@@ -1378,6 +1423,7 @@ window.addEventListener(
             )
             .forEach(
                 function (section) {
+
                     const sectionTop =
                         section.offsetTop - 180;
 
@@ -1385,6 +1431,7 @@ window.addEventListener(
                         window.scrollY >=
                         sectionTop
                     ) {
+
                         currentSection =
                             section.getAttribute(
                                 "id"
@@ -1395,6 +1442,7 @@ window.addEventListener(
 
         navLinks.forEach(
             function (link) {
+
                 link.classList.remove(
                     "active"
                 );
@@ -1405,6 +1453,7 @@ window.addEventListener(
                     ) ===
                     "#" + currentSection
                 ) {
+
                     link.classList.add(
                         "active"
                     );
@@ -1422,6 +1471,7 @@ window.addEventListener(
 document.addEventListener(
     "click",
     function (event) {
+
         const mobileNav =
             document.getElementById(
                 "mobileNav"
@@ -1444,6 +1494,7 @@ document.addEventListener(
                 event.target
             )
         ) {
+
             closeMobileNav();
         }
     }
