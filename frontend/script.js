@@ -8,30 +8,55 @@
    CONFIGURATION
    ========================================================= */
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+        ? "http://127.0.0.1:8000"
+        : "https://bisathi1.onrender.com";
 
-const API_ASK_URL = `${API_BASE_URL}/api/ask`;
-const API_SEARCH_URL = `${API_BASE_URL}/api/search-standard`;
-const API_CERTIFICATION_URL = `${API_BASE_URL}/api/certification-guide`;
-const API_DOCUMENT_URL = `${API_BASE_URL}/api/document-checklist`;
-const API_ISI_URL = `${API_BASE_URL}/api/verify-isi`;
+const API_ASK_URL =
+    `${API_BASE_URL}/api/ask`;
+
+const API_SEARCH_URL =
+    `${API_BASE_URL}/api/search-standard`;
+
+const API_CERTIFICATION_URL =
+    `${API_BASE_URL}/api/certification-guide`;
+
+const API_DOCUMENT_URL =
+    `${API_BASE_URL}/api/document-checklist`;
+
+const API_ISI_URL =
+    `${API_BASE_URL}/api/verify-isi`;
 
 
 /* =========================================================
    DEBUG
    ========================================================= */
 
-console.log("BISathi API Base URL:", API_BASE_URL);
-console.log("BISathi Search API:", API_SEARCH_URL);
+console.log(
+    "BISathi API Base URL:",
+    API_BASE_URL
+);
+
+console.log(
+    "BISathi Search API:",
+    API_SEARCH_URL
+);
 
 
 /* =========================================================
    ELEMENTS
    ========================================================= */
 
-const modal = document.getElementById("assistantModal");
-const chatArea = document.getElementById("chatArea");
-const userInput = document.getElementById("userInput");
+const modal =
+    document.getElementById("assistantModal");
+
+const chatArea =
+    document.getElementById("chatArea");
+
+const userInput =
+    document.getElementById("userInput");
 
 let selectedUserType = "consumer";
 
@@ -41,14 +66,17 @@ let selectedUserType = "consumer";
    ========================================================= */
 
 function openAssistant(initialQuestion = "") {
+
     if (!modal) {
         return;
     }
 
     modal.classList.add("show");
+
     document.body.classList.add("modal-open");
 
     if (userInput) {
+
         if (initialQuestion) {
             userInput.value = initialQuestion;
         }
@@ -65,11 +93,13 @@ function openAssistant(initialQuestion = "") {
    ========================================================= */
 
 function closeAssistant() {
+
     if (!modal) {
         return;
     }
 
     modal.classList.remove("show");
+
     document.body.classList.remove("modal-open");
 }
 
@@ -79,11 +109,17 @@ function closeAssistant() {
    ========================================================= */
 
 if (modal) {
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            closeAssistant();
+
+    modal.addEventListener(
+        "click",
+        function (event) {
+
+            if (event.target === modal) {
+                closeAssistant();
+            }
+
         }
-    });
+    );
 }
 
 
@@ -91,11 +127,16 @@ if (modal) {
    ESC KEY
    ========================================================= */
 
-document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-        closeAssistant();
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+            closeAssistant();
+        }
+
     }
-});
+);
 
 
 /* =========================================================
@@ -103,7 +144,9 @@ document.addEventListener("keydown", function (event) {
    ========================================================= */
 
 function toggleMobileNav() {
-    const mobileNav = document.getElementById("mobileNav");
+
+    const mobileNav =
+        document.getElementById("mobileNav");
 
     if (!mobileNav) {
         return;
@@ -114,7 +157,9 @@ function toggleMobileNav() {
 
 
 function closeMobileNav() {
-    const mobileNav = document.getElementById("mobileNav");
+
+    const mobileNav =
+        document.getElementById("mobileNav");
 
     if (!mobileNav) {
         return;
@@ -129,10 +174,14 @@ function closeMobileNav() {
    ========================================================= */
 
 function selectUserType(type) {
+
     selectedUserType = type;
 
-    const consumerBtn = document.getElementById("consumerBtn");
-    const industryBtn = document.getElementById("industryBtn");
+    const consumerBtn =
+        document.getElementById("consumerBtn");
+
+    const industryBtn =
+        document.getElementById("industryBtn");
 
     if (consumerBtn) {
         consumerBtn.classList.remove("active");
@@ -143,13 +192,17 @@ function selectUserType(type) {
     }
 
     if (type === "consumer") {
+
         if (consumerBtn) {
             consumerBtn.classList.add("active");
         }
+
     } else {
+
         if (industryBtn) {
             industryBtn.classList.add("active");
         }
+
     }
 }
 
@@ -159,55 +212,75 @@ function selectUserType(type) {
    ========================================================= */
 
 async function sendMessage() {
+
     if (!userInput) {
         return;
     }
 
-    const message = userInput.value.trim();
+    const message =
+        userInput.value.trim();
 
     if (!message) {
         return;
     }
 
     addUserMessage(message);
+
     userInput.value = "";
+
     showThinking();
 
     try {
+
         console.log(
             "Sending Ask AI request to:",
             API_ASK_URL
         );
 
-        const response = await fetch(API_ASK_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                question: message,
-                user_type: selectedUserType
-            })
-        });
+        const response =
+            await fetch(
+                API_ASK_URL,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        question: message,
+                        user_type:
+                            selectedUserType
+                    })
+                }
+            );
 
         if (!response.ok) {
+
             throw new Error(
-                "Server returned HTTP " + response.status
+                "Server returned HTTP " +
+                response.status
             );
+
         }
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
         removeThinking();
 
         if (data.success) {
+
             addAIMessage(
                 data.answer,
                 data.official_sources ||
                 data.sources ||
                 []
             );
+
         } else {
+
             addAIMessage(
                 data.answer ||
                 "Sorry, I could not process your question right now.",
@@ -215,16 +288,22 @@ async function sendMessage() {
                 data.sources ||
                 []
             );
+
         }
 
     } catch (error) {
-        console.error("BISathi API Error:", error);
+
+        console.error(
+            "BISathi API Error:",
+            error
+        );
 
         removeThinking();
 
         addAIMessage(
             "I could not connect to the BISathi AI service. Please try again."
         );
+
     }
 }
 
@@ -234,9 +313,13 @@ async function sendMessage() {
    ========================================================= */
 
 function handleEnter(event) {
+
     if (event.key === "Enter") {
+
         event.preventDefault();
+
         sendMessage();
+
     }
 }
 
@@ -246,14 +329,17 @@ function handleEnter(event) {
    ========================================================= */
 
 function askQuestion(question) {
+
     openAssistant();
 
     if (userInput) {
+
         userInput.value = question;
 
         setTimeout(function () {
             sendMessage();
         }, 100);
+
     }
 }
 
@@ -263,18 +349,28 @@ function askQuestion(question) {
    ========================================================= */
 
 function addUserMessage(message) {
+
     if (!chatArea) {
         return;
     }
 
-    const wrapper = document.createElement("div");
-    wrapper.className = "message user-message";
+    const wrapper =
+        document.createElement("div");
 
-    const messageBox = document.createElement("div");
-    messageBox.className = "message-box";
-    messageBox.textContent = message;
+    wrapper.className =
+        "message user-message";
+
+    const messageBox =
+        document.createElement("div");
+
+    messageBox.className =
+        "message-box";
+
+    messageBox.textContent =
+        message;
 
     wrapper.appendChild(messageBox);
+
     chatArea.appendChild(wrapper);
 
     scrollChat();
@@ -286,119 +382,171 @@ function addUserMessage(message) {
    ========================================================= */
 
 function formatMarkdown(message) {
+
     if (!message) {
         return "";
     }
 
-    const escaped = escapeHTML(message);
-    const lines = escaped.split(/\r?\n/);
+    const escaped =
+        escapeHTML(message);
+
+    const lines =
+        escaped.split(/\r?\n/);
+
     const output = [];
 
     let insideList = false;
 
     function closeList() {
+
         if (insideList) {
+
             output.push("</ul>");
+
             insideList = false;
         }
+
     }
 
     lines.forEach(function (rawLine) {
-        const line = rawLine.trim();
+
+        const line =
+            rawLine.trim();
 
         if (!line) {
+
             closeList();
+
             return;
         }
 
         if (/^---+$/.test(line)) {
+
             closeList();
+
             return;
         }
 
         if (/^###\s+/.test(line)) {
+
             closeList();
 
-            const heading = line.replace(
-                /^###\s+/,
-                ""
+            const heading =
+                line.replace(
+                    /^###\s+/,
+                    ""
+                );
+
+            output.push(
+                `<h4>${heading}</h4>`
             );
 
-            output.push(`<h4>${heading}</h4>`);
             return;
         }
 
         if (/^##\s+/.test(line)) {
+
             closeList();
 
-            const heading = line.replace(
-                /^##\s+/,
-                ""
+            const heading =
+                line.replace(
+                    /^##\s+/,
+                    ""
+                );
+
+            output.push(
+                `<h3>${heading}</h3>`
             );
 
-            output.push(`<h3>${heading}</h3>`);
             return;
         }
 
         if (/^[-*]\s+/.test(line)) {
-            const item = line
-                .replace(/^[-*]\s+/, "")
-                .trim();
+
+            const item =
+                line
+                    .replace(
+                        /^[-*]\s+/,
+                        ""
+                    )
+                    .trim();
 
             if (!item) {
                 return;
             }
 
             if (!insideList) {
+
                 output.push("<ul>");
+
                 insideList = true;
             }
 
-            output.push(`<li>${item}</li>`);
+            output.push(
+                `<li>${item}</li>`
+            );
+
             return;
         }
 
         if (/^\d+[.)]\s+/.test(line)) {
-            const item = line
-                .replace(/^\d+[.)]\s+/, "")
-                .trim();
+
+            const item =
+                line
+                    .replace(
+                        /^\d+[.)]\s+/,
+                        ""
+                    )
+                    .trim();
 
             if (!item) {
                 return;
             }
 
             if (!insideList) {
+
                 output.push("<ul>");
+
                 insideList = true;
             }
 
-            output.push(`<li>${item}</li>`);
+            output.push(
+                `<li>${item}</li>`
+            );
+
             return;
         }
 
         closeList();
 
-        output.push(`<p>${line}</p>`);
+        output.push(
+            `<p>${line}</p>`
+        );
+
     });
 
     closeList();
 
-    let formatted = output.join("");
+    let formatted =
+        output.join("");
 
-    formatted = formatted.replace(
-        /\*\*(.*?)\*\*/g,
-        "<strong>$1</strong>"
-    );
+    formatted =
+        formatted.replace(
+            /\*\*(.*?)\*\*/g,
+            "<strong>$1</strong>"
+        );
 
-    formatted = formatted.replace(
-        /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-        '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
-    );
+    formatted =
+        formatted.replace(
+            /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+            '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
 
-    formatted = formatted.replace(
-        /\\([*_])/g,
-        "$1"
-    );
+    formatted =
+        formatted.replace(
+            /\\([*_])/g,
+            "$1"
+        );
 
     return formatted.trim();
 }
@@ -409,6 +557,7 @@ function formatMarkdown(message) {
    ========================================================= */
 
 function formatOfficialSources(sources) {
+
     if (
         !sources ||
         !Array.isArray(sources) ||
@@ -424,6 +573,7 @@ function formatOfficialSources(sources) {
     `;
 
     sources.forEach(function (source) {
+
         if (!source || !source.url) {
             return;
         }
@@ -443,6 +593,7 @@ function formatOfficialSources(sources) {
                 <span>${escapeHTML(title)}</span>
             </a>
         `;
+
     });
 
     html += `
@@ -458,14 +609,20 @@ function formatOfficialSources(sources) {
    ADD AI MESSAGE
    ========================================================= */
 
-function addAIMessage(message, sources = []) {
+function addAIMessage(
+    message,
+    sources = []
+) {
+
     if (!chatArea) {
         return;
     }
 
-    const wrapper = document.createElement("div");
+    const wrapper =
+        document.createElement("div");
 
-    wrapper.className = "message ai-message";
+    wrapper.className =
+        "message ai-message";
 
     wrapper.innerHTML = `
         <div class="small-avatar"></div>
@@ -473,12 +630,16 @@ function addAIMessage(message, sources = []) {
     `;
 
     const messageBox =
-        wrapper.querySelector(".message-box");
+        wrapper.querySelector(
+            ".message-box"
+        );
 
     if (messageBox) {
+
         messageBox.innerHTML =
             formatMarkdown(message) +
             formatOfficialSources(sources);
+
     }
 
     chatArea.appendChild(wrapper);
@@ -492,21 +653,23 @@ function addAIMessage(message, sources = []) {
    ========================================================= */
 
 function showThinking() {
+
     if (!chatArea) {
         return;
     }
 
     removeThinking();
 
-    const wrapper = document.createElement("div");
+    const wrapper =
+        document.createElement("div");
 
     wrapper.id = "thinking";
+
     wrapper.className =
         "message ai-message ai-response";
 
     wrapper.innerHTML = `
         <div class="small-avatar"></div>
-
         <div class="message-box loading-message">
             <span class="loading-dot"></span>
             <span>BISathi is thinking...</span>
@@ -524,8 +687,11 @@ function showThinking() {
    ========================================================= */
 
 function removeThinking() {
+
     const thinking =
-        document.getElementById("thinking");
+        document.getElementById(
+            "thinking"
+        );
 
     if (thinking) {
         thinking.remove();
@@ -538,6 +704,7 @@ function removeThinking() {
    ========================================================= */
 
 function scrollChat() {
+
     if (!chatArea) {
         return;
     }
@@ -552,6 +719,7 @@ function scrollChat() {
    ========================================================= */
 
 function scrollToSection(id) {
+
     const section =
         document.getElementById(id);
 
@@ -573,10 +741,12 @@ function scrollToSection(id) {
    ========================================================= */
 
 function escapeHTML(text) {
+
     const div =
         document.createElement("div");
 
-    div.textContent = String(text);
+    div.textContent =
+        String(text);
 
     return div.innerHTML;
 }
@@ -587,6 +757,7 @@ function escapeHTML(text) {
    ========================================================= */
 
 async function searchProduct() {
+
     const input =
         document.getElementById(
             "productSearchInput"
@@ -605,6 +776,7 @@ async function searchProduct() {
         input.value.trim();
 
     if (!product) {
+
         result.innerHTML = `
             <div class="search-result-card">
                 <p>
@@ -623,6 +795,7 @@ async function searchProduct() {
         selectedUserType === "industry" ||
         selectedUserType === "manufacturer"
     ) {
+
         guidanceLabel =
             "Industry / Manufacturer Guidance";
     }
@@ -631,7 +804,6 @@ async function searchProduct() {
         <div class="search-result-card">
             <div class="loading-message">
                 <span class="loading-dot"></span>
-
                 <span>
                     Searching official BIS information for
                     <strong>${escapeHTML(product)}</strong>
@@ -641,6 +813,7 @@ async function searchProduct() {
     `;
 
     try {
+
         console.log(
             "Sending Standards Search request to:",
             API_SEARCH_URL
@@ -666,10 +839,12 @@ async function searchProduct() {
             );
 
         if (!response.ok) {
+
             throw new Error(
                 "Server returned HTTP " +
                 response.status
             );
+
         }
 
         const data =
@@ -681,6 +856,7 @@ async function searchProduct() {
         );
 
         if (!data.success) {
+
             result.innerHTML = `
                 <div class="search-result-card">
                     <h3>
@@ -699,6 +875,7 @@ async function searchProduct() {
                         data.sources ||
                         []
                     )}
+
                 </div>
             `;
 
@@ -717,12 +894,15 @@ async function searchProduct() {
             data.source ===
             "official_bis_live_search"
         ) {
+
             sourceLabel =
                 "Official BIS Live Search";
+
         } else if (
             data.source ===
             "local_knowledge_base"
         ) {
+
             sourceLabel =
                 "BISathi Product Knowledge Base";
         }
@@ -766,6 +946,7 @@ async function searchProduct() {
             data.source ===
             "official_bis_live_search"
         ) {
+
             liveBadge = `
                 <div class="live-bis-badge">
                     <span class="live-bis-dot"></span>
@@ -829,7 +1010,6 @@ async function searchProduct() {
                     totalRecords > 0
                         ? `
                             <div class="standards-count">
-
                                 ${totalRecords}
                                 BIS standard record${
                                     totalRecords === 1
@@ -837,7 +1017,6 @@ async function searchProduct() {
                                         : "s"
                                 }
                                 found
-
                             </div>
                         `
                         : ""
@@ -873,9 +1052,8 @@ async function searchProduct() {
                 </h3>
 
                 <p>
-                    BISathi could not connect to the local backend.
-                    Please make sure FastAPI is running on
-                    http://127.0.0.1:8000
+                    BISathi could not connect to the backend.
+                    Please check that the BISathi service is running.
                 </p>
 
             </div>
@@ -963,10 +1141,12 @@ async function getCertificationGuidance() {
             );
 
         if (!response.ok) {
+
             throw new Error(
                 "Server returned HTTP " +
                 response.status
             );
+
         }
 
         const data =
@@ -1030,7 +1210,7 @@ async function getCertificationGuidance() {
                 </h3>
 
                 <p>
-                    BISathi could not connect to the local backend.
+                    BISathi could not connect to the backend.
                 </p>
 
             </div>
@@ -1120,10 +1300,12 @@ async function getDocumentChecklist() {
             );
 
         if (!response.ok) {
+
             throw new Error(
                 "Server returned HTTP " +
                 response.status
             );
+
         }
 
         const data =
@@ -1187,7 +1369,7 @@ async function getDocumentChecklist() {
                 </h3>
 
                 <p>
-                    BISathi could not connect to the local backend.
+                    BISathi could not connect to the backend.
                 </p>
 
             </div>
@@ -1277,10 +1459,12 @@ async function verifyISI() {
             );
 
         if (!response.ok) {
+
             throw new Error(
                 "Server returned HTTP " +
                 response.status
             );
+
         }
 
         const data =
@@ -1344,7 +1528,7 @@ async function verifyISI() {
                 </h3>
 
                 <p>
-                    BISathi could not connect to the local backend.
+                    BISathi could not connect to the backend.
                 </p>
 
             </div>
@@ -1357,10 +1541,15 @@ async function verifyISI() {
    GENERIC ENTER KEY SUPPORT
    ========================================================= */
 
-function attachEnterHandler(elementId, callback) {
+function attachEnterHandler(
+    elementId,
+    callback
+) {
 
     const element =
-        document.getElementById(elementId);
+        document.getElementById(
+            elementId
+        );
 
     if (!element) {
         return;
@@ -1376,6 +1565,7 @@ function attachEnterHandler(elementId, callback) {
 
                 callback();
             }
+
         }
     );
 }
@@ -1437,6 +1627,7 @@ window.addEventListener(
                                 "id"
                             );
                     }
+
                 }
             );
 
@@ -1458,8 +1649,10 @@ window.addEventListener(
                         "active"
                     );
                 }
+
             }
         );
+
     }
 );
 
@@ -1497,6 +1690,7 @@ document.addEventListener(
 
             closeMobileNav();
         }
+
     }
 );
 
@@ -1514,4 +1708,6 @@ modalStyle.textContent = `
     }
 `;
 
-document.head.appendChild(modalStyle);
+document.head.appendChild(
+    modalStyle
+);
