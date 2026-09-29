@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="BISathi Certification Guidance - Understand BIS certification requirements and next steps."
+    >
+
+    <title>Certification Guidance | BISathi</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- MAIN WEBSITE CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CERTIFICATION PAGE ONLY CSS -->
+    <style>
+        /* =========================================================
+           CERTIFICATION PAGE
+        ========================================================= */
+
+        .cert-page {
+            min-height: calc(100vh - 135px);
+            padding: 40px 24px 70px;
+            background:
+                radial-gradient(
+                    circle at 82% 12%,
+                    rgba(40, 105, 210, 0.055),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    180deg,
+                    #f7faff 0%,
+                    #ffffff 52%,
+                    #ffffff 100%
+                );
+        }
+
+        .cert-container {
+            width: min(1080px, 100%);
+            margin: 0 auto;
+        }
+
+        /* =========================================================
+           BACK LINK
+        ========================================================= */
+
+        .page-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 52px;
+            color: #5b708c;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .page-back:hover {
+            color: #125ed0;
+            transform: translateX(-2px);
+        }
+
+        .page-back svg {
+            width: 17px;
+            height: 17px;
+        }
+
+        /* =========================================================
+           CERTIFICATION HERO
+        ========================================================= */
+
+        .cert-hero {
+            position: relative;
+            display: grid;
+            grid-template-columns: 76px minmax(0, 1fr);
+            gap: 20px;
+            align-items: start;
+            margin-bottom: 42px;
+        }
+
+        .cert-hero::after {
+            content: "";
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            top: -85px;
+            right: -100px;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(52, 111, 219, 0.075),
+                    rgba(52, 111, 219, 0) 70%
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cert-hero-icon {
+            position: relative;
+            z-index: 1;
+            width: 72px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            background: #eaf2ff;
+            color: #1263d6;
+        }
+
+        .cert-hero-icon svg {
+            width: 34px;
+            height: 34px;
+        }
+
+        .cert-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 7px 0 13px;
+            color: #075bd0;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+        }
+
+        .cert-label::before {
+            content: "";
+            width: 23px;
+            height: 1px;
+            background: #075bd0;
+        }
+
+        .cert-hero h1 {
+            margin: 0;
+            max-width: 800px;
+            color: #0d1d3a;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.08;
+            letter-spacing: -0.045em;
+        }
+
+        .cert-hero h1 span {
+            color: #1263d6;
+        }
+
+        .cert-hero p {
+            max-width: 720px;
+            margin: 18px 0 0;
+            color: #60728a;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           SEARCH AREA
+        ========================================================= */
+
+        .cert-search-wrapper {
+            position: relative;
+            z-index: 2;
+            margin-top: 42px;
+        }
+
+        .cert-search-box {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            min-height: 88px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.97);
+            border: 1px solid #d8e3f0;
+            border-radius: 18px;
+            box-shadow:
+                0 18px 50px rgba(18, 49, 89, 0.08),
+                0 2px 8px rgba(18, 49, 89, 0.03);
+            transition: 0.25s ease;
+        }
+
+        .cert-search-box:focus-within {
+            border-color: #a9c5ea;
+            box-shadow:
+                0 20px 55px rgba(18, 49, 89, 0.1),
+                0 0 0 4px rgba(18, 99, 214, 0.06);
+        }
+
+        .cert-search-icon {
+            width: 54px;
+            height: 54px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #89a0bb;
+        }
+
+        .cert-search-icon svg {
+            width: 23px;
+            height: 23px;
+        }
+
+        .cert-input {
+            flex: 1;
+            min-width: 0;
+            height: 64px;
+            padding: 0 10px;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #193554;
+            font-family: "DM Sans", sans-serif;
+            font-size: 16px;
+        }
+
+        .cert-input::placeholder {
+            color: #9aaabd;
+        }
+
+        .cert-search-btn {
+            flex-shrink: 0;
+            height: 66px;
+            padding: 0 27px;
+            border: none;
+            border-radius: 15px;
+            background: #1263d6;
+            color: #ffffff;
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .cert-search-btn:hover {
+            background: #0755c2;
+            transform: translateY(-1px);
+            box-shadow:
+                0 8px 20px rgba(18, 99, 214, 0.2);
+        }
+
+        .cert-search-btn:disabled {
+            opacity: 0.65;
+            cursor: wait;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* =========================================================
+           SUGGESTION CHIPS
+        ========================================================= */
+
+        .cert-suggestions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 17px;
+            padding-left: 8px;
+        }
+
+        .suggestion-label {
+            margin-right: 3px;
+            color: #8a9aae;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .suggestion-chip {
+            padding: 7px 12px;
+            border: 1px solid #dce5ef;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #56708d;
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .suggestion-chip:hover {
+            border-color: #abc5e6;
+            background: #f3f7fc;
+            color: #1559a4;
+        }
+
+        /* =========================================================
+           EMPTY STATE
+        ========================================================= */
+
+        .cert-empty {
+            padding: 42px 20px 20px;
+            text-align: center;
+        }
+
+        .cert-empty-icon {
+            width: 46px;
+            height: 46px;
+            margin: 0 auto 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: #edf4ff;
+            color: #2668c9;
+        }
+
+        .cert-empty-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .cert-empty h3 {
+            margin: 0;
+            color: #304968;
+            font-family: "Manrope", sans-serif;
+            font-size: 16px;
+        }
+
+        .cert-empty p {
+            max-width: 440px;
+            margin: 7px auto 0;
+            color: #8594a6;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           LOADING
+        ========================================================= */
+
+        .cert-loading {
+            display: none;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        .cert-loading.active {
+            display: block;
+        }
+
+        .loading-spinner {
+            width: 29px;
+            height: 29px;
+            margin: 0 auto 13px;
+            border: 3px solid #dce8f6;
+            border-top-color: #1263d6;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        .cert-loading p {
+            margin: 0;
+            color: #71839a;
+            font-size: 13px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =========================================================
+           RESULT
+        ========================================================= */
+
+        .cert-result {
+            display: none;
+            margin-top: 36px;
+            padding: 30px;
+            background: #ffffff;
+            border: 1px solid #dce5ef;
+            border-radius: 18px;
+            box-shadow:
+                0 14px 40px rgba(16, 43, 76, 0.06);
+        }
+
+        .cert-result.active {
+            display: block;
+        }
+
+        .result-product {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid #e8edf3;
+        }
+
+        .result-label {
+            margin-bottom: 5px;
+            color: #8492a3;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .result-product h2 {
+            margin: 0;
+            color: #183858;
+            font-family: "Manrope", sans-serif;
+            font-size: 23px;
+        }
+
+        .result-standard {
+            flex-shrink: 0;
+            padding: 9px 13px;
+            border: 1px solid #cbdced;
+            border-radius: 8px;
+            background: #f4f8fc;
+            color: #245b91;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           GUIDANCE
+        ========================================================= */
+
+        .guidance-content {
+            padding-top: 24px;
+            color: #53677d;
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .guidance-content h2,
+        .guidance-content h3 {
+            margin: 22px 0 9px;
+            color: #244766;
+            font-family: "Manrope", sans-serif;
+        }
+
+        .guidance-content h2 {
+            font-size: 19px;
+        }
+
+        .guidance-content h3 {
+            font-size: 16px;
+        }
+
+        .guidance-content h2:first-child,
+        .guidance-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .guidance-content p {
+            margin: 0 0 12px;
+        }
+
+        .guidance-content ul {
+            margin: 8px 0 16px;
+            padding-left: 20px;
+        }
+
+        .guidance-content li {
+            margin-bottom: 7px;
+        }
+
+        .guidance-content strong {
+            color: #294d70;
+        }
+
+        /* =========================================================
+           SOURCES
+        ========================================================= */
+
+        .cert-sources {
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px solid #e8edf3;
+        }
+
+        .sources-title {
+            margin: 0 0 12px;
+            color: #284663;
+            font-family: "Manrope", sans-serif;
+            font-size: 15px;
+        }
+
+        .source-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .source-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 11px 13px;
+            border: 1px solid #e0e7ee;
+            border-radius: 9px;
+            background: #fbfcfd;
+            color: #315d8f;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .source-link:hover {
+            border-color: #adc4da;
+            background: #f4f8fc;
+        }
+
+        .source-link svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        /* =========================================================
+           ERROR
+        ========================================================= */
+
+        .cert-error {
+            display: none;
+            margin-top: 25px;
+            padding: 16px 18px;
+            border: 1px solid #f0d5d5;
+            border-radius: 10px;
+            background: #fff8f8;
+            color: #8a4b4b;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .cert-error.active {
+            display: block;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .cert-footer {
+            min-height: 110px;
+            background:
+                linear-gradient(
+                    105deg,
+                    #123e78,
+                    #1765d1
+                );
+            color: #ffffff;
+        }
+
+        .cert-footer-inner {
+            width: min(1180px, calc(100% - 48px));
+            min-height: 110px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .footer-mark {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+        }
+
+        /* UPDATED BISathi LOGO */
+        .footer-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .footer-brand-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .footer-brand-copy strong {
+            font-family: "Manrope", sans-serif;
+            font-size: 17px;
+        }
+
+        .footer-brand-copy span {
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 11px;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+        }
+
+        .footer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-link svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        /* =========================================================
+           MOBILE CERTIFICATION PAGE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+            .cert-page {
+                padding: 30px 18px 60px;
+            }
+
+            .page-back {
+                margin-bottom: 38px;
+            }
+
+            .cert-hero {
+                grid-template-columns: 58px minmax(0, 1fr);
+                gap: 15px;
+            }
+
+            .cert-hero-icon {
+                width: 58px;
+                height: 58px;
+                border-radius: 15px;
+            }
+
+            .cert-hero-icon svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .cert-label {
+                margin-top: 3px;
+            }
+
+            .cert-hero h1 {
+                font-size: clamp(34px, 9vw, 46px);
+            }
+
+            .cert-hero p {
+                font-size: 14px;
+            }
+
+            .cert-search-wrapper {
+                margin-top: 34px;
+            }
+
+            .cert-search-box {
+                min-height: auto;
+                padding: 8px;
+                border-radius: 15px;
+            }
+
+            .cert-search-icon {
+                width: 45px;
+            }
+
+            .cert-input {
+                height: 58px;
+                font-size: 14px;
+            }
+
+            .cert-search-btn {
+                height: 58px;
+                padding: 0 17px;
+                border-radius: 12px;
+                font-size: 13px;
+            }
+
+            .cert-suggestions {
+                padding-left: 0;
+            }
+
+            .cert-result {
+                padding: 22px;
+            }
+
+            .result-product {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .result-standard {
+                align-self: flex-start;
+            }
+
+            .cert-footer-inner {
+                width: min(100% - 36px, 1180px);
+                min-height: auto;
+                padding: 24px 0;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                width: 100%;
+                justify-content: space-between;
+                gap: 15px;
+            }
+
+            .footer-description {
+                display: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .cert-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-hero-icon {
+                margin-bottom: 4px;
+            }
+
+            .cert-label {
+                margin-top: 0;
+            }
+
+            .cert-search-box {
+                flex-wrap: wrap;
+            }
+
+            .cert-search-icon {
+                width: 42px;
+            }
+
+            .cert-input {
+                flex: 1;
+                width: calc(100% - 42px);
+            }
+
+            .cert-search-btn {
+                width: 100%;
+                margin-top: 6px;
+            }
+
+            .cert-suggestions {
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         SAME TOP STRIP AS INDEX.HTML
+    ========================================================= -->
+
+    <div class="top-strip">
+        <div class="top-strip-inner">
+
+            <span class="top-strip-status">
+                <span class="live-dot"></span>
+                BISathi AI Assistant
+            </span>
+
+            <span class="top-strip-divider"></span>
+
+            <span>
+                Intelligent guidance for Indian Standards & BIS Services
+            </span>
+
+            <a
+                href="https://www.bis.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Official BIS Portal
+
+                <svg class="tiny-icon">
+                    <use href="#icon-external"></use>
+                </svg>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- =========================================================
+         SVG ICON SYSTEM
+    ========================================================= -->
+
+    <svg
+        aria-hidden="true"
+        width="0"
+        height="0"
+        style="position:absolute"
+    >
+        <defs>
+
+            <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+                <path
+                    d="M5 12h13M13 6l6 6-6 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+
+            <symbol id="icon-spark" viewBox="0 0 24 24">
+                <path
+                    d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                />
+            </symbol>
+
+            <symbol id="icon-menu" viewBox="0 0 24 24">
+                <path
+                    d="M4 7h16M4 12h16M4 17h16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </symbol>
+
+            <symbol id="icon-close" viewBox="0 0 24 24">
+                <path
+                    d="M6 6l12 12M18 6L6 18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </symbol>
+
+            <symbol id="icon-external" viewBox="0 0 24 24">
+                <path
+                    d="M14 5h5v5M19 5l-8 8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                />
+            </symbol>
+
+            <symbol id="icon-shield" viewBox="0 0 24 24">
+                <path
+                    d="M12 3l7 3v5c0 4.6-2.8 8.3-7 10-4.2-1.7-7-5.4-7-10V6z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M8.5 12l2.2 2.2 4.8-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+
+        </defs>
+    </svg>
+
+    <!-- =========================================================
+         SAME NAVBAR AS INDEX.HTML
+    ========================================================= -->
+
+    <header class="navbar">
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="BISathi Home"
+        >
+
+            <!-- UPDATED BISathi LOGO -->
+            <div class="brand-mark">
+                <img
+                    src="BISathi.jpeg"
+                    alt="BISathi Logo"
+                >
+            </div>
+
+            <div class="brand-copy">
+                <strong>BISathi</strong>
+                <span>AI-Powered Standards Assistant</span>
+            </div>
+
+        </a>
+
+        <!-- DESKTOP NAV -->
+        <nav class="main-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a
+                href="index.html#services"
+                class="active"
+            >
+                Services
+            </a>
+
+            <a href="index.html#how">
+                How It Works
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+        </nav>
+
+        <!-- NAV ACTIONS -->
+        <div class="nav-actions">
+
+            <a
+                class="official-nav-link"
+                href="https://www.bis.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                BIS.gov.in
+
+                <svg class="tiny-icon">
+                    <use href="#icon-external"></use>
+                </svg>
+            </a>
+
+            <button
+                class="ask-nav-btn"
+                type="button"
+                onclick="openAssistant()"
+            >
+                <svg class="button-icon">
+                    <use href="#icon-spark"></use>
+                </svg>
+
+                Ask BISathi
+
+                <svg class="button-arrow">
+                    <use href="#icon-arrow-right"></use>
+                </svg>
+            </button>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button
+                class="mobile-menu-btn"
+                type="button"
+                onclick="toggleMobileNav()"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+                <svg>
+                    <use href="#icon-menu"></use>
+                </svg>
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- =========================================================
+         MOBILE NAV
+    ========================================================= -->
+
+    <div
+        class="mobile-nav"
+        id="mobileNav"
+    >
+
+        <a
+            href="index.html"
+            onclick="closeMobileNav()"
+        >
+            Home
+        </a>
+
+        <a
+            href="index.html#services"
+            onclick="closeMobileNav()"
+        >
+            Services
+        </a>
+
+        <a
+            href="index.html#how"
+            onclick="closeMobileNav()"
+        >
+            How It Works
+        </a>
+
+        <a
+            href="index.html#about"
+            onclick="closeMobileNav()"
+        >
+            About
+        </a>
+
+        <a
+            href="https://www.bis.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="closeMobileNav()"
+        >
+            Official BIS Portal
+        </a>
+
+        <button
+            type="button"
+            onclick="openAssistant(); closeMobileNav();"
+        >
+            Ask BISathi AI
+        </button>
+
+    </div>
+
+    <!-- =========================================================
+         MAIN CERTIFICATION CONTENT
+    ========================================================= -->
+
+    <main class="cert-page">
+
+        <div class="cert-container">
+
+            <!-- BACK -->
+            <a
+                href="index.html"
+                class="page-back"
+            >
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M19 12H5M12 19L5 12L12 5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+                Back to BISathi
+            </a>
+
+            <!-- HERO -->
+            <section class="cert-hero">
+
+                <div class="cert-hero-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M12 3L19 6V11C19 15.5 16.1 19.1 12 21C7.9 19.1 5 15.5 5 11V6L12 3Z"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M9 12L11 14L15 10"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+                </div>
+
+                <div class="cert-hero-content">
+
+                    <div class="cert-label">
+                        CERTIFICATION GUIDANCE
+                    </div>
+
+                    <h1>
+                        Understand the
+                        <span>BIS certification process.</span>
+                    </h1>
+
+                    <p>
+                        Enter a product and BISathi will help you understand
+                        its certification requirements, applicable standard
+                        and the next steps.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- SEARCH -->
+            <section class="cert-search-wrapper">
+
+                <div class="cert-search-box">
+
+                    <div
+                        class="cert-search-icon"
+                        aria-hidden="true"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="6.5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M16 16L21 21"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </div>
+
+                    <input
+                        type="text"
+                        id="certificationInput"
+                        class="cert-input"
+                        placeholder="Try “Pressure Cooker”, “Electric Iron” ..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="button"
+                        id="certificationButton"
+                        class="cert-search-btn"
+                    >
+                        Check Certification
+                    </button>
+
+                </div>
+
+                <!-- SUGGESTIONS -->
+                <div class="cert-suggestions">
+
+                    <span class="suggestion-label">
+                        Try:
+                    </span>
+
+                    <button
+                        type="button"
+                        class="suggestion-chip"
+                        data-product="Pressure Cooker"
+                    >
+                        Pressure Cooker
+                    </button>
+
+                    <button
+                        type="button"
+                        class="suggestion-chip"
+                        data-product="Electric Iron"
+                    >
+                        Electric Iron
+                    </button>
+
+                    <button
+                        type="button"
+                        class="suggestion-chip"
+                        data-product="Cement"
+                    >
+                        Cement
+                    </button>
+
+                    <button
+                        type="button"
+                        class="suggestion-chip"
+                        data-product="Room Heater"
+                    >
+                        Room Heater
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- EMPTY -->
+            <div
+                class="cert-empty"
+                id="certEmpty"
+            >
+
+                <div class="cert-empty-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
+                        <path
+                            d="M12 3L19 6V11C19 15.5 16.1 19.1 12 21C7.9 19.1 5 15.5 5 11V6L12 3Z"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M9 12L11 14L15 10"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                </div>
+
+                <h3>
+                    Certification guidance will appear here
+                </h3>
+
+                <p>
+                    Enter a product name above to see the available
+                    BIS certification guidance.
+                </p>
+
+            </div>
+
+            <!-- LOADING -->
+            <div
+                class="cert-loading"
+                id="certLoading"
+            >
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Checking BIS certification information...
+                </p>
+
+            </div>
+
+            <!-- ERROR -->
+            <div
+                class="cert-error"
+                id="certError"
+            ></div>
+
+            <!-- RESULT -->
+            <section
+                class="cert-result"
+                id="certResult"
+            >
+
+                <div class="result-product">
+
+                    <div>
+
+                        <div class="result-label">
+                            PRODUCT
+                        </div>
+
+                        <h2 id="resultProductName">
+                            -
+                        </h2>
+
+                    </div>
+
+                    <div
+                        class="result-standard"
+                        id="resultStandard"
+                    >
+                        -
+                    </div>
+
+                </div>
+
+                <div
+                    class="guidance-content"
+                    id="guidanceContent"
+                ></div>
+
+                <!-- SOURCES -->
+                <div class="cert-sources">
+
+                    <h3 class="sources-title">
+                        Official BIS sources
+                    </h3>
+
+                    <div
+                        class="source-list"
+                        id="sourceList"
+                    ></div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer class="cert-footer">
+
+        <div class="cert-footer-inner">
+
+            <div class="footer-brand">
+
+                <!-- UPDATED BISathi LOGO -->
+                <div class="footer-mark">
+                    <img
+                        src="BISathi.jpeg"
+                        alt="BISathi Logo"
+                    >
+                </div>
+
+                <div class="footer-brand-copy">
+
+                    <strong>
+                        BISathi
+                    </strong>
+
+                    <span>
+                        AI-Powered Standards Assistant
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <span class="footer-description">
+                    Built around BIS information and services.
+                </span>
+
+                <a
+                    href="https://www.bis.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link"
+                >
+                    Visit BIS.gov.in
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
+                        <path
+                            d="M14 5H19V10"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M19 5L11 13"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+
+                        <path
+                            d="M19 14V18C19 18.55 18.55 19 18 19H6C5.45 19 5 18.55 5 18V6C5 5.45 5.45 5 6 5H10"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- =========================================================
+         MAIN WEBSITE SCRIPT
+    ========================================================= -->
+
+    <script src="script.js"></script>
+
+    <!-- =========================================================
+         CERTIFICATION PAGE SCRIPT
+    ========================================================= -->
+
+    <script>
+
+        const CERTIFICATION_API =
+            "http://127.0.0.1:8000/api/certification-guide";
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
+
+        const certificationInput =
+            document.getElementById(
+                "certificationInput"
+            );
+
+        const certificationButton =
+            document.getElementById(
+                "certificationButton"
+            );
+
+        const certEmpty =
+            document.getElementById(
+                "certEmpty"
+            );
+
+        const certLoading =
+            document.getElementById(
+                "certLoading"
+            );
+
+        const certError =
+            document.getElementById(
+                "certError"
+            );
+
+        const certResult =
+            document.getElementById(
+                "certResult"
+            );
+
+        const resultProductName =
+            document.getElementById(
+                "resultProductName"
+            );
+
+        const resultStandard =
+            document.getElementById(
+                "resultStandard"
+            );
+
+        const guidanceContent =
+            document.getElementById(
+                "guidanceContent"
+            );
+
+        const sourceList =
+            document.getElementById(
+                "sourceList"
+            );
+
+        /* =====================================================
+           HTML ESCAPE
+        ===================================================== */
+
+        function escapeHTML(value) {
+
+            if (
+                value === null ||
+                value === undefined
+            ) {
+                return "";
+            }
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        /* =====================================================
+           FORMAT AI ANSWER
+        ===================================================== */
+
+        function formatAnswer(text) {
+
+            if (!text) {
+                return "";
+            }
+
+            let safe =
+                escapeHTML(text);
+
+            safe = safe.replace(
+                /^### (.*)$/gm,
+                "<h3>$1</h3>"
+            );
+
+            safe = safe.replace(
+                /^## (.*)$/gm,
+                "<h2>$1</h2>"
+            );
+
+            safe = safe.replace(
+                /\*\*(.*?)\*\*/g,
+                "<strong>$1</strong>"
+            );
+
+            safe = safe.replace(
+                /^\s*[-•]\s+(.*)$/gm,
+                "<li>$1</li>"
+            );
+
+            safe = safe.replace(
+                /(<li>.*?<\/li>)/gs,
+                "<ul>$1</ul>"
+            );
+
+            safe = safe.replace(
+                /\n\n+/g,
+                "</p><p>"
+            );
+
+            safe = safe.replace(
+                /\n/g,
+                "<br>"
+            );
+
+            return "<p>" + safe + "</p>";
+        }
+
+        /* =====================================================
+           GET PRODUCT DATA
+        ===================================================== */
+
+        function getProductData(data) {
+
+            if (!data) {
+                return null;
+            }
+
+            if (data.product_data) {
+                return data.product_data;
+            }
+
+            if (data.product) {
+                return data.product;
+            }
+
+            return null;
+        }
+
+        /* =====================================================
+           GET PRODUCT NAME
+        ===================================================== */
+
+        function getProductName(data) {
+
+            const productData =
+                getProductData(data);
+
+            if (
+                productData &&
+                typeof productData === "object" &&
+                productData.product
+            ) {
+                return productData.product;
+            }
+
+            if (
+                productData &&
+                typeof productData === "object" &&
+                productData.name
+            ) {
+                return productData.name;
+            }
+
+            if (data.product_name) {
+                return data.product_name;
+            }
+
+            if (
+                typeof data.product === "string"
+            ) {
+                return data.product;
+            }
+
+            return certificationInput.value.trim();
+        }
+
+        /* =====================================================
+           GET STANDARD
+        ===================================================== */
+
+        function getStandardNumber(data) {
+
+            const productData =
+                getProductData(data);
+
+            if (
+                productData &&
+                typeof productData === "object" &&
+                productData.standard
+            ) {
+                return productData.standard;
+            }
+
+            if (
+                productData &&
+                typeof productData === "object" &&
+                productData.standard_number
+            ) {
+                return productData.standard_number;
+            }
+
+            if (
+                data.standard_number
+            ) {
+                return data.standard_number;
+            }
+
+            if (
+                Array.isArray(data.standards) &&
+                data.standards.length > 0
+            ) {
+                return (
+                    data.standards[0].standard_number ||
+                    data.standards[0].standardNumber ||
+                    "BIS Standard"
+                );
+            }
+
+            return "BIS Standard";
+        }
+
+        /* =====================================================
+           GET GUIDANCE
+        ===================================================== */
+
+        function getGuidance(data) {
+
+            if (data.guidance) {
+                return data.guidance;
+            }
+
+            if (data.answer) {
+                return data.answer;
+            }
+
+            if (data.message) {
+                return data.message;
+            }
+
+            const productData =
+                getProductData(data);
+
+            if (
+                productData &&
+                typeof productData === "object" &&
+                productData.certification
+            ) {
+                return productData.certification;
+            }
+
+            if (
+                productData &&
+                typeof productData === "object" &&
+                productData.industry_guidance
+            ) {
+                return productData.industry_guidance;
+            }
+
+            return "Certification guidance is not available for this product.";
+        }
+
+        /* =====================================================
+           GET SOURCES
+        ===================================================== */
+
+        function getSources(data) {
+
+            if (
+                Array.isArray(
+                    data.official_sources
+                )
+            ) {
+                return data.official_sources;
+            }
+
+            if (
+                Array.isArray(
+                    data.sources
+                )
+            ) {
+                return data.sources;
+            }
+
+            return [];
+        }
+
+        /* =====================================================
+           NORMALIZE SOURCE
+        ===================================================== */
+
+        function normalizeSource(source) {
+
+            if (!source) {
+                return null;
+            }
+
+            if (
+                typeof source === "string"
+            ) {
+                return {
+                    title: "BIS Official Source",
+                    url: source
+                };
+            }
+
+            return {
+                title:
+                    source.title ||
+                    source.name ||
+                    source.label ||
+                    "BIS Official Source",
+
+                url:
+                    source.url ||
+                    source.link ||
+                    source.href ||
+                    ""
+            };
+        }
+
+        /* =====================================================
+           RENDER SOURCES
+        ===================================================== */
+
+        function renderSources(data) {
+
+            const sources =
+                getSources(data)
+                    .map(normalizeSource)
+                    .filter(
+                        source =>
+                            source &&
+                            source.url
+                    );
+
+            if (!sources.length) {
+
+                sourceList.innerHTML = `
+                    <a
+                        class="source-link"
+                        href="https://www.bis.gov.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span>
+                            Bureau of Indian Standards
+                        </span>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M14 5H19V10"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+
+                            <path
+                                d="M19 5L11 13"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </a>
+                `;
+
+                return;
+            }
+
+            sourceList.innerHTML =
+                sources
+                    .map(source => `
+                        <a
+                            class="source-link"
+                            href="${escapeHTML(source.url)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span>
+                                ${escapeHTML(source.title)}
+                            </span>
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M14 5H19V10"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+
+                                <path
+                                    d="M19 5L11 13"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+
+                                <path
+                                    d="M19 14V18C19 18.55 18.55 19 18 19H6C5.45 19 5 18.55 5 18V6C5 5.45 5.45 5 6 5H10"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+
+                        </a>
+                    `)
+                    .join("");
+        }
+
+        /* =====================================================
+           RENDER RESULT
+        ===================================================== */
+
+        function renderCertificationResult(data) {
+
+            const product =
+                certificationInput.value.trim();
+
+            const productName =
+                getProductName(data) ||
+                product;
+
+            const standard =
+                getStandardNumber(data);
+
+            const guidance =
+                getGuidance(data);
+
+            resultProductName.textContent =
+                productName;
+
+            resultStandard.textContent =
+                standard;
+
+            guidanceContent.innerHTML =
+                formatAnswer(guidance);
+
+            renderSources(data);
+
+            certEmpty.style.display =
+                "none";
+
+            certLoading.classList.remove(
+                "active"
+            );
+
+            certError.classList.remove(
+                "active"
+            );
+
+            certResult.classList.add(
+                "active"
+            );
+
+            setTimeout(() => {
+
+                certResult.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }, 100);
+        }
+
+        /* =====================================================
+           CHECK CERTIFICATION
+        ===================================================== */
+
+        async function checkCertification() {
+
+            const product =
+                certificationInput.value.trim();
+
+            if (!product) {
+                certificationInput.focus();
+                return;
+            }
+
+            certEmpty.style.display =
+                "none";
+
+            certResult.classList.remove(
+                "active"
+            );
+
+            certError.classList.remove(
+                "active"
+            );
+
+            certLoading.classList.add(
+                "active"
+            );
+
+            certificationButton.disabled =
+                true;
+
+            try {
+
+                const response =
+                    await fetch(
+                        CERTIFICATION_API,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                product: product,
+                                user_type:
+                                    "manufacturer"
+                            })
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.detail ||
+                        data.message ||
+                        "Unable to get certification guidance."
+                    );
+                }
+
+                renderCertificationResult(
+                    data
+                );
+
+            } catch (error) {
+
+                certLoading.classList.remove(
+                    "active"
+                );
+
+                certError.textContent =
+                    error.message ||
+                    "Unable to connect to BISathi backend.";
+
+                certError.classList.add(
+                    "active"
+                );
+
+            } finally {
+
+                certificationButton.disabled =
+                    false;
+            }
+        }
+
+        /* =====================================================
+           SEARCH BUTTON
+        ===================================================== */
+
+        certificationButton.addEventListener(
+            "click",
+            checkCertification
+        );
+
+        /* =====================================================
+           ENTER KEY
+        ===================================================== */
+
+        certificationInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    event.preventDefault();
+
+                    checkCertification();
+                }
+            }
+        );
+
+        /* =====================================================
+           SUGGESTION BUTTONS
+        ===================================================== */
+
+        document
+            .querySelectorAll(
+                ".suggestion-chip"
+            )
+            .forEach(chip => {
+
+                chip.addEventListener(
+                    "click",
+                    function() {
+
+                        certificationInput.value =
+                            this.dataset.product;
+
+                        checkCertification();
+                    }
+                );
+            });
+
+        /* =====================================================
+           SAFETY FALLBACK FOR MOBILE NAV
+        ===================================================== */
+
+        const mobileNav =
+            document.getElementById(
+                "mobileNav"
+            );
+
+        const mobileMenuButton =
+            document.querySelector(
+                ".mobile-menu-btn"
+            );
+
+        if (
+            typeof window.toggleMobileNav !==
+            "function"
+        ) {
+
+            window.toggleMobileNav =
+                function() {
+
+                    if (!mobileNav) {
+                        return;
+                    }
+
+                    const isOpen =
+                        mobileNav.classList.toggle(
+                            "open"
+                        );
+
+                    if (mobileMenuButton) {
+
+                        mobileMenuButton.setAttribute(
+                            "aria-expanded",
+                            isOpen
+                                ? "true"
+                                : "false"
+                        );
+                    }
+                };
+        }
+
+        if (
+            typeof window.closeMobileNav !==
+            "function"
+        ) {
+
+            window.closeMobileNav =
+                function() {
+
+                    if (mobileNav) {
+
+                        mobileNav.classList.remove(
+                            "open"
+                        );
+                    }
+
+                    if (mobileMenuButton) {
+
+                        mobileMenuButton.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+                    }
+                };
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document Checklist | BISathi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================================
+           DOCUMENT CHECKLIST PAGE
+        ========================================================== */
+
+        .documents-page {
+            min-height: calc(100vh - 120px);
+            padding: 42px 24px 80px;
+        }
+
+        .documents-container {
+            width: min(1080px, 100%);
+            margin: 0 auto;
+        }
+
+        /* Back */
+        .page-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 28px;
+
+            color: #24476f;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .page-back:hover {
+            color: #0b5cad;
+            transform: translateX(-2px);
+        }
+
+        .page-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Header */
+        .documents-header {
+            margin-bottom: 32px;
+        }
+
+        .documents-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 12px;
+
+            color: #315d8f;
+
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+
+        .documents-label::before {
+            content: "";
+
+            width: 22px;
+            height: 1px;
+
+            background: #315d8f;
+        }
+
+        .documents-header h1 {
+            margin: 0;
+
+            color: #102b4c;
+
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.12;
+
+            letter-spacing: -0.035em;
+        }
+
+        .documents-header h1 span {
+            color: #0b5cad;
+        }
+
+        .documents-header p {
+            max-width: 650px;
+
+            margin: 14px 0 0;
+
+            color: #64748b;
+
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Workspace */
+        .documents-workspace {
+            overflow: hidden;
+
+            background: #ffffff;
+
+            border: 1px solid #dfe7f0;
+            border-radius: 20px;
+
+            box-shadow:
+                0 16px 45px rgba(16, 43, 76, 0.07);
+        }
+
+        .workspace-head {
+            padding: 24px 28px 20px;
+
+            background: #fbfcfe;
+
+            border-bottom: 1px solid #e8edf3;
+        }
+
+        .workspace-label {
+            margin-bottom: 6px;
+
+            color: #315d8f;
+
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+
+        .workspace-title {
+            margin: 0;
+
+            color: #183858;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 22px;
+        }
+
+        .workspace-description {
+            margin: 7px 0 0;
+
+            color: #718096;
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Search */
+        .document-search {
+            padding: 26px 28px;
+
+            border-bottom: 1px solid #e8edf3;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .document-input {
+            flex: 1;
+
+            min-width: 0;
+            height: 52px;
+
+            padding: 0 16px;
+
+            border: 1px solid #ccd8e5;
+            border-radius: 10px;
+
+            background: #ffffff;
+            color: #183858;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.2s ease;
+        }
+
+        .document-input::placeholder {
+            color: #9aa8b8;
+        }
+
+        .document-input:focus {
+            border-color: #4f82b8;
+
+            box-shadow:
+                0 0 0 3px rgba(79, 130, 184, 0.1);
+        }
+
+        .document-button {
+            height: 52px;
+
+            padding: 0 24px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #123e6b;
+            color: #ffffff;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .document-button:hover {
+            background: #0b5cad;
+            transform: translateY(-1px);
+        }
+
+        .document-button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+            transform: none;
+        }
+
+        /* Suggestions */
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+
+            margin-top: 15px;
+        }
+
+        .suggestion-label {
+            margin-right: 4px;
+
+            color: #8a98a8;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .suggestion-chip {
+            padding: 7px 12px;
+
+            border: 1px solid #d9e2ec;
+            border-radius: 999px;
+
+            background: #f8fafc;
+            color: #49627c;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .suggestion-chip:hover {
+            border-color: #9db8d4;
+            background: #f1f6fb;
+            color: #174d82;
+        }
+
+        /* Empty */
+        .document-empty {
+            padding: 48px 24px;
+
+            text-align: center;
+        }
+
+        .empty-icon {
+            width: 46px;
+            height: 46px;
+
+            margin: 0 auto 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background: #edf4fb;
+            color: #245b91;
+        }
+
+        .empty-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .document-empty h3 {
+            margin: 0;
+
+            color: #284663;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 16px;
+        }
+
+        .document-empty p {
+            max-width: 440px;
+
+            margin: 7px auto 0;
+
+            color: #8492a3;
+
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* Loading */
+        .document-loading {
+            display: none;
+
+            padding: 42px 24px;
+
+            text-align: center;
+        }
+
+        .document-loading.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 28px;
+            height: 28px;
+
+            margin: 0 auto 12px;
+
+            border: 3px solid #dce7f2;
+            border-top-color: #245b91;
+
+            border-radius: 50%;
+
+            animation: spin 0.8s linear infinite;
+        }
+
+        .document-loading p {
+            margin: 0;
+
+            color: #718096;
+
+            font-size: 13px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Result */
+        .document-result {
+            display: none;
+
+            padding: 28px;
+        }
+
+        .document-result.active {
+            display: block;
+        }
+
+        /* Result top */
+        .result-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding-bottom: 22px;
+
+            border-bottom: 1px solid #e8edf3;
+        }
+
+        .result-label {
+            margin-bottom: 5px;
+
+            color: #8492a3;
+
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .result-top h2 {
+            margin: 0;
+
+            color: #183858;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 23px;
+        }
+
+        .standard-badge {
+            flex-shrink: 0;
+
+            padding: 9px 12px;
+
+            border: 1px solid #cdddea;
+            border-radius: 8px;
+
+            background: #f5f9fc;
+            color: #245b91;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Progress */
+        .progress-section {
+            padding: 24px 0 26px;
+
+            border-bottom: 1px solid #e8edf3;
+        }
+
+        .progress-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 10px;
+        }
+
+        .progress-title {
+            color: #284663;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .progress-count {
+            color: #315d8f;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 7px;
+
+            overflow: hidden;
+
+            border-radius: 999px;
+
+            background: #e8eef4;
+        }
+
+        .progress-bar {
+            width: 0;
+            height: 100%;
+
+            border-radius: inherit;
+
+            background: #245b91;
+
+            transition: width 0.4s ease;
+        }
+
+        /* Checklist */
+        .checklist-section {
+            padding-top: 25px;
+        }
+
+        .checklist-title {
+            margin: 0 0 14px;
+
+            color: #284663;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 17px;
+        }
+
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 13px;
+
+            padding: 14px 15px;
+
+            border: 1px solid #e0e7ee;
+            border-radius: 10px;
+
+            background: #fbfcfd;
+
+            transition: 0.2s ease;
+        }
+
+        .check-item:hover {
+            border-color: #c8d7e5;
+            background: #f8fafc;
+        }
+
+        .check-box {
+            position: relative;
+
+            flex-shrink: 0;
+
+            width: 20px;
+            height: 20px;
+
+            margin-top: 1px;
+
+            border: 1.5px solid #aebdcb;
+            border-radius: 5px;
+
+            background: #ffffff;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .check-box.checked {
+            border-color: #245b91;
+            background: #245b91;
+        }
+
+        .check-box.checked::after {
+            content: "";
+
+            position: absolute;
+
+            left: 5px;
+            top: 2px;
+
+            width: 6px;
+            height: 11px;
+
+            border-right: 2px solid #ffffff;
+            border-bottom: 2px solid #ffffff;
+
+            transform: rotate(45deg);
+        }
+
+        .check-content {
+            flex: 1;
+        }
+
+        .check-name {
+            margin: 0;
+
+            color: #294d70;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .check-description {
+            margin: 4px 0 0;
+
+            color: #7a8999;
+
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+        /* Guidance */
+        .guidance-box {
+            margin-top: 24px;
+            padding: 17px;
+
+            border: 1px solid #dce6ef;
+            border-radius: 10px;
+
+            background: #f7fafc;
+
+            color: #60758b;
+
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        .guidance-box strong {
+            color: #294d70;
+        }
+
+        /* Error */
+        .document-error {
+            display: none;
+
+            padding: 17px 28px;
+
+            border-top: 1px solid #edf1f5;
+
+            background: #fff8f8;
+
+            color: #8a4b4b;
+
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .document-error.active {
+            display: block;
+        }
+
+        /* =========================================================
+           LOGO STYLING
+        ========================================================= */
+
+        .brand-mark img,
+        .footer-mark img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            border-radius: inherit;
+        }
+
+        /* =========================================================
+           COMPLIANCE FOOTER STYLE
+        ========================================================= */
+
+        .compliance-footer {
+            min-height: 110px;
+            background: linear-gradient(105deg, #123e78, #1765d1);
+            color: #ffffff;
+        }
+
+        .compliance-footer-inner {
+            width: min(1180px, calc(100% - 48px));
+            min-height: 110px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .footer-mark {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            font-family: "Manrope", sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            overflow: hidden;
+        }
+
+        .footer-brand-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .footer-brand-copy strong {
+            font-family: "Manrope", sans-serif;
+            font-size: 17px;
+        }
+
+        .footer-brand-copy span {
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 11px;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+        }
+
+        .footer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-link svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .compliance-footer-inner {
+                width: min(100% - 36px, 1180px);
+                min-height: auto;
+                padding: 24px 0;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                width: 100%;
+                justify-content: space-between;
+                gap: 15px;
+            }
+
+            .footer-description {
+                display: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .documents-page {
+                padding: 30px 16px 60px;
+            }
+
+            .documents-header {
+                margin-bottom: 25px;
+            }
+
+            .documents-header p {
+                font-size: 14px;
+            }
+
+            .workspace-head,
+            .document-search,
+            .document-result {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .search-row {
+                flex-direction: column;
+            }
+
+            .document-button {
+                width: 100%;
+            }
+
+            .result-top {
+                flex-direction: column;
+            }
+
+            .standard-badge {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         TOP INFORMATION STRIP
+    ========================================================== -->
+
+    <div class="top-strip">
+
+        <div class="top-strip-inner">
+
+            <span class="top-strip-status">
+                <span class="live-dot"></span>
+                BISathi AI Assistant
+            </span>
+
+            <span class="top-strip-divider"></span>
+
+            <span>
+                Intelligent guidance for Indian Standards &amp; BIS Services
+            </span>
+
+            <a
+                href="https://www.bis.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Official BIS Portal
+
+                <svg
+                    class="tiny-icon"
+                    aria-hidden="true"
+                >
+                    <use href="#icon-external"></use>
+                </svg>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <header class="navbar">
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="BISathi Home"
+        >
+
+            <div class="brand-mark">
+                <img
+                    src="BISathi.jpeg"
+                    alt="BISathi logo"
+                >
+                <i></i>
+            </div>
+
+            <div class="brand-copy">
+
+                <strong>
+                    BISathi
+                </strong>
+
+                <span>
+                    AI-Powered Standards Assistant
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="main-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a
+                href="index.html#services"
+                class="active"
+            >
+                Services
+            </a>
+
+            <a href="index.html#how">
+                How It Works
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a
+                class="official-nav-link"
+                href="https://www.bis.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                BIS.gov.in
+
+                <svg
+                    class="tiny-icon"
+                    aria-hidden="true"
+                >
+                    <use href="#icon-external"></use>
+                </svg>
+
+            </a>
+
+
+            <button
+                class="ask-nav-btn"
+                type="button"
+                onclick="openAssistant()"
+            >
+
+                <svg
+                    class="button-icon"
+                    aria-hidden="true"
+                >
+                    <use href="#icon-spark"></use>
+                </svg>
+
+                Ask BISathi
+
+                <svg
+                    class="button-arrow"
+                    aria-hidden="true"
+                >
+                    <use href="#icon-arrow-right"></use>
+                </svg>
+
+            </button>
+
+
+            <button
+                class="mobile-menu-btn"
+                type="button"
+                onclick="toggleMobileNav()"
+                aria-label="Open menu"
+            >
+
+                <svg aria-hidden="true">
+                    <use href="#icon-menu"></use>
+                </svg>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MOBILE NAVIGATION
+    ========================================================== -->
+
+    <div
+        class="mobile-nav"
+        id="mobileNav"
+    >
+
+        <a
+            href="index.html"
+            onclick="closeMobileNav()"
+        >
+            Home
+        </a>
+
+        <a
+            href="index.html#services"
+            onclick="closeMobileNav()"
+        >
+            Services
+        </a>
+
+        <a
+            href="index.html#how"
+            onclick="closeMobileNav()"
+        >
+            How It Works
+        </a>
+
+        <a
+            href="index.html#about"
+            onclick="closeMobileNav()"
+        >
+            About
+        </a>
+
+        <button
+            type="button"
+            onclick="openAssistant(); closeMobileNav()"
+        >
+            Ask BISathi AI
+        </button>
+
+    </div>
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main class="documents-page">
+
+        <div class="documents-container">
+
+            <!-- Back -->
+
+            <a
+                href="index.html"
+                class="page-back"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M19 12H5M12 19L5 12L12 5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
+                </svg>
+
+                Back to BISathi
+
+            </a>
+
+
+            <!-- Header -->
+
+            <section class="documents-header">
+
+                <div class="documents-label">
+                    DOCUMENT CHECKLIST
+                </div>
+
+                <h1>
+                    Know what documents
+                    <span>you need.</span>
+                </h1>
+
+                <p>
+                    Select a product to see the documents and
+                    information commonly required for its BIS
+                    certification process.
+                </p>
+
+            </section>
+
+
+            <!-- Workspace -->
+
+            <section class="documents-workspace">
+
+
+                <!-- Workspace Header -->
+
+                <div class="workspace-head">
+
+                    <div class="workspace-label">
+                        BIS DOCUMENTS
+                    </div>
+
+                    <h2 class="workspace-title">
+                        Generate a document checklist
+                    </h2>
+
+                    <p class="workspace-description">
+                        Enter a product name to get a product-specific
+                        checklist.
+                    </p>
+
+                </div>
+
+
+                <!-- Search -->
+
+                <div class="document-search">
+
+                    <div class="search-row">
+
+                        <input
+                            type="text"
+                            id="documentInput"
+                            class="document-input"
+                            placeholder="Try “Pressure Cooker”, “Electric Iron” ..."
+                            autocomplete="off"
+                        >
+
+                        <button
+                            type="button"
+                            id="documentButton"
+                            class="document-button"
+                        >
+                            Get Checklist
+                        </button>
+
+                    </div>
+
+
+                    <div class="suggestions">
+
+                        <span class="suggestion-label">
+                            Try:
+                        </span>
+
+                        <button
+                            type="button"
+                            class="suggestion-chip"
+                            data-product="Pressure Cooker"
+                        >
+                            Pressure Cooker
+                        </button>
+
+                        <button
+                            type="button"
+                            class="suggestion-chip"
+                            data-product="Electric Iron"
+                        >
+                            Electric Iron
+                        </button>
+
+                        <button
+                            type="button"
+                            class="suggestion-chip"
+                            data-product="Cement"
+                        >
+                            Cement
+                        </button>
+
+                        <button
+                            type="button"
+                            class="suggestion-chip"
+                            data-product="Room Heater"
+                        >
+                            Room Heater
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Empty State -->
+
+                <div
+                    class="document-empty"
+                    id="documentEmpty"
+                >
+
+                    <div class="empty-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M7 3H14L19 8V20C19 20.55 18.55 21 18 21H7C5.9 21 5 20.1 5 19V5C5 3.9 5.9 3 7 3Z"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"
+                            />
+
+                            <path
+                                d="M14 3V8H19"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"
+                            />
+
+                            <path
+                                d="M8.5 12H15.5M8.5 15H15.5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+
+                        </svg>
+
+                    </div>
+
+
+                    <h3>
+                        Your checklist will appear here
+                    </h3>
+
+                    <p>
+                        Enter a product name above to generate
+                        the relevant document checklist.
+                    </p>
+
+                </div>
+
+
+                <!-- Loading -->
+
+                <div
+                    class="document-loading"
+                    id="documentLoading"
+                >
+
+                    <div class="spinner"></div>
+
+                    <p>
+                        Preparing your document checklist...
+                    </p>
+
+                </div>
+
+
+                <!-- Error -->
+
+                <div
+                    class="document-error"
+                    id="documentError"
+                ></div>
+
+
+                <!-- Result -->
+
+                <div
+                    class="document-result"
+                    id="documentResult"
+                >
+
+                    <!-- Product -->
+
+                    <div class="result-top">
+
+                        <div>
+
+                            <div class="result-label">
+                                PRODUCT
+                            </div>
+
+                            <h2 id="resultProduct">
+                                -
+                            </h2>
+
+                        </div>
+
+
+                        <div
+                            class="standard-badge"
+                            id="resultStandard"
+                        >
+                            -
+                        </div>
+
+                    </div>
+
+
+                    <!-- Progress -->
+
+                    <div class="progress-section">
+
+                        <div class="progress-header">
+
+                            <span class="progress-title">
+                                Checklist progress
+                            </span>
+
+                            <span
+                                class="progress-count"
+                                id="progressCount"
+                            >
+                                0 / 0
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-bar"
+                                id="progressBar"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Checklist -->
+
+                    <div class="checklist-section">
+
+                        <h3 class="checklist-title">
+                            Required documents &amp; information
+                        </h3>
+
+                        <div
+                            class="checklist"
+                            id="checklist"
+                        ></div>
+
+
+                        <div class="guidance-box">
+
+                            <strong>Note:</strong>
+                            The checklist is intended as guidance.
+                            Confirm the latest applicable requirements
+                            with official BIS information before submission.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER (COMPLIANCE STYLE)
+    ========================================================== -->
+
+    <footer class="compliance-footer">
+
+        <div class="compliance-footer-inner">
+
+            <div class="footer-brand">
+
+                <div class="footer-mark">
+                    <img
+                        src="BISathi.jpeg"
+                        alt="BISathi logo"
+                    >
+                </div>
+
+                <div class="footer-brand-copy">
+
+                    <strong>
+                        BISathi
+                    </strong>
+
+                    <span>
+                        AI-Powered Standards Assistant
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-right">
+
+                <span class="footer-description">
+                    Built around BIS information and services.
+                </span>
+
+                <a
+                    href="https://www.bis.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link"
+                >
+
+                    Visit BIS.gov.in
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
+
+                        <path
+                            d="M14 5H19V10"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M19 5L11 13"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+
+                        <path
+                            d="M19 14V18C19 18.55 18.55 19 18 19H6C5.45 19 5 18.55 5 18V6C5 5.45 5.45 5 6 5H10"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+
+                    </svg>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         ICON DEFINITIONS
+    ========================================================== -->
+
+    <svg
+        width="0"
+        height="0"
+        style="position:absolute"
+        aria-hidden="true"
+    >
+
+        <defs>
+
+            <symbol
+                id="icon-external"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+
+                <path
+                    d="M14 5H19V10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M19 5L11 13"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+                <path
+                    d="M19 14V18C19 18.55 18.55 19 18 19H6C5.45 19 5 18.55 5 18V6C5 5.45 5.45 5 6 5H10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+            </symbol>
+
+
+            <symbol
+                id="icon-spark"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+
+                <path
+                    d="M12 3L13.5 8.5L19 10L13.5 11.5L12 17L10.5 11.5L5 10L10.5 8.5L12 3Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M19 15L19.7 17.3L22 18L19.7 18.7L19 21L18.3 18.7L16 18L18.3 17.3L19 15Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                />
+
+            </symbol>
+
+
+            <symbol
+                id="icon-arrow-right"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+
+                <path
+                    d="M5 12H19"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+                <path
+                    d="M13 6L19 12L13 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+            </symbol>
+
+
+            <symbol
+                id="icon-menu"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+
+                <path
+                    d="M4 7H20"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+                <path
+                    d="M4 12H20"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+                <path
+                    d="M4 17H20"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+            </symbol>
+
+        </defs>
+
+    </svg>
+
+
+    <!-- Existing BISathi script -->
+
+    <script src="script.js"></script>
+
+
+    <!-- =========================================================
+         DOCUMENT CHECKLIST SCRIPT
+    ========================================================== -->
+
+    <script>
+
+        const DOCUMENT_API =
+            "http://127.0.0.1:8000/api/document-checklist";
+
+
+        const documentInput =
+            document.getElementById("documentInput");
+
+        const documentButton =
+            document.getElementById("documentButton");
+
+        const documentEmpty =
+            document.getElementById("documentEmpty");
+
+        const documentLoading =
+            document.getElementById("documentLoading");
+
+        const documentError =
+            document.getElementById("documentError");
+
+        const documentResult =
+            document.getElementById("documentResult");
+
+        const resultProduct =
+            document.getElementById("resultProduct");
+
+        const resultStandard =
+            document.getElementById("resultStandard");
+
+        const progressCount =
+            document.getElementById("progressCount");
+
+        const progressBar =
+            document.getElementById("progressBar");
+
+        const checklist =
+            document.getElementById("checklist");
+
+
+        /* =========================================================
+           ESCAPE HTML
+        ========================================================== */
+
+        function escapeHTML(value) {
+
+            if (
+                value === null ||
+                value === undefined
+            ) {
+                return "";
+            }
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /* =========================================================
+           GET PRODUCT DATA
+        ========================================================== */
+
+        function getProductData(data) {
+
+            if (!data) {
+                return null;
+            }
+
+            if (data.product_data) {
+                return data.product_data;
+            }
+
+            if (data.product) {
+                return data.product;
+            }
+
+            return null;
+
+        }
+
+
+        function getProductName(data) {
+
+            const productData =
+                getProductData(data);
+
+
+            if (
+                productData &&
+                productData.product
+            ) {
+                return productData.product;
+            }
+
+
+            if (
+                productData &&
+                productData.name
+            ) {
+                return productData.name;
+            }
+
+
+            if (data.product_name) {
+                return data.product_name;
+            }
+
+
+            return documentInput.value.trim();
+
+        }
+
+
+        function getStandard(data) {
+
+            const productData =
+                getProductData(data);
+
+
+            if (
+                productData &&
+                productData.standard
+            ) {
+                return productData.standard;
+            }
+
+
+            if (
+                productData &&
+                productData.standard_number
+            ) {
+                return productData.standard_number;
+            }
+
+
+            return "BIS Standard";
+
+        }
+
+
+        /* =========================================================
+           GET CHECKLIST
+        ========================================================== */
+
+        function getChecklist(data) {
+
+            if (
+                data &&
+                Array.isArray(data.checklist)
+            ) {
+                return data.checklist;
+            }
+
+
+            if (
+                data &&
+                Array.isArray(data.documents)
+            ) {
+                return data.documents;
+            }
+
+
+            const productData =
+                getProductData(data);
+
+
+            if (
+                productData &&
+                Array.isArray(productData.documents)
+            ) {
+                return productData.documents;
+            }
+
+
+            if (
+                productData &&
+                Array.isArray(productData.document_checklist)
+            ) {
+                return productData.document_checklist;
+            }
+
+
+            return [];
+
+        }
+
+
+        /* =========================================================
+           NORMALIZE CHECKLIST ITEM
+        ========================================================== */
+
+        function normalizeChecklistItem(item) {
+
+            if (typeof item === "string") {
+
+                return {
+                    name: item,
+                    description:
+                        "Document or information required for the BIS process."
+                };
+
+            }
+
+
+            return {
+
+                name:
+                    item.name ||
+                    item.title ||
+                    item.document ||
+                    item.label ||
+                    "Required document",
+
+                description:
+                    item.description ||
+                    item.details ||
+                    "Document or information required for the BIS process."
+
+            };
+
+        }
+
+
+        /* =========================================================
+           RENDER CHECKLIST
+        ========================================================== */
+
+        function renderChecklist(items) {
+
+            const normalized =
+                items
+                    .map(normalizeChecklistItem)
+                    .filter(item => item.name);
+
+
+            if (!normalized.length) {
+
+                checklist.innerHTML = `
+                    <div class="check-item">
+
+                        <div class="check-content">
+
+                            <p class="check-name">
+                                No specific checklist available
+                            </p>
+
+                            <p class="check-description">
+                                Please refer to the official BIS
+                                certification requirements for this product.
+                            </p>
+
+                        </div>
+
+                    </div>
+                `;
+
+                progressCount.textContent =
+                    "0 / 0";
+
+                progressBar.style.width =
+                    "0%";
+
+                return;
+
+            }
+
+
+            checklist.innerHTML =
+                normalized
+                    .map((item, index) => `
+
+                        <div
+                            class="check-item"
+                            data-index="${index}"
+                        >
+
+                            <div
+                                class="check-box"
+                                role="checkbox"
+                                aria-checked="false"
+                                tabindex="0"
+                            ></div>
+
+                            <div class="check-content">
+
+                                <p class="check-name">
+                                    ${escapeHTML(item.name)}
+                                </p>
+
+                                <p class="check-description">
+                                    ${escapeHTML(item.description)}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    `)
+                    .join("");
+
+
+            updateProgress();
+
+
+            document
+                .querySelectorAll(".check-box")
+                .forEach(box => {
+
+                    box.addEventListener(
+                        "click",
+                        function() {
+
+                            toggleCheck(this);
+
+                        }
+                    );
+
+
+                    box.addEventListener(
+                        "keydown",
+                        function(event) {
+
+                            if (
+                                event.key === "Enter" ||
+                                event.key === " "
+                            ) {
+
+                                event.preventDefault();
+
+                                toggleCheck(this);
+
+                            }
+
+                        }
+                    );
+
+                });
+
+        }
+
+
+        /* =========================================================
+           TOGGLE CHECK
+        ========================================================== */
+
+        function toggleCheck(box) {
+
+            const checked =
+                box.classList.toggle("checked");
+
+
+            box.setAttribute(
+                "aria-checked",
+                checked
+                    ? "true"
+                    : "false"
+            );
+
+
+            updateProgress();
+
+        }
+
+
+        /* =========================================================
+           UPDATE PROGRESS
+        ========================================================== */
+
+        function updateProgress() {
+
+            const boxes =
+                Array.from(
+                    document.querySelectorAll(
+                        ".check-box"
+                    )
+                );
+
+
+            const total =
+                boxes.length;
+
+
+            const completed =
+                boxes.filter(
+                    box =>
+                        box.classList.contains(
+                            "checked"
+                        )
+                ).length;
+
+
+            progressCount.textContent =
+                `${completed} / ${total}`;
+
+
+            const percentage =
+                total
+                    ? (completed / total) * 100
+                    : 0;
+
+
+            progressBar.style.width =
+                `${percentage}%`;
+
+        }
+
+
+        /* =========================================================
+           SHOW RESULT
+        ========================================================== */
+
+        function renderDocumentResult(data) {
+
+            const product =
+                documentInput.value.trim();
+
+
+            resultProduct.textContent =
+                getProductName(data) ||
+                product;
+
+
+            resultStandard.textContent =
+                getStandard(data);
+
+
+            renderChecklist(
+                getChecklist(data)
+            );
+
+
+            documentEmpty.style.display =
+                "none";
+
+            documentLoading.classList.remove(
+                "active"
+            );
+
+            documentError.classList.remove(
+                "active"
+            );
+
+            documentResult.classList.add(
+                "active"
+            );
+
+        }
+
+
+        /* =========================================================
+           GET DOCUMENT CHECKLIST
+        ========================================================== */
+
+        async function getDocumentChecklist() {
+
+            const product =
+                documentInput.value.trim();
+
+
+            if (!product) {
+
+                documentInput.focus();
+
+                return;
+
+            }
+
+
+            documentEmpty.style.display =
+                "none";
+
+            documentResult.classList.remove(
+                "active"
+            );
+
+            documentError.classList.remove(
+                "active"
+            );
+
+            documentLoading.classList.add(
+                "active"
+            );
+
+
+            documentButton.disabled =
+                true;
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        DOCUMENT_API,
+                        {
+
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify({
+                                    product:
+                                        product,
+
+                                    user_type:
+                                        "manufacturer"
+                                })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.detail ||
+                        data.message ||
+                        "Unable to generate document checklist."
+                    );
+
+                }
+
+
+                renderDocumentResult(data);
+
+
+            } catch (error) {
+
+                documentLoading.classList.remove(
+                    "active"
+                );
+
+
+                documentError.textContent =
+                    error.message ||
+                    "Unable to connect to BISathi backend.";
+
+
+                documentError.classList.add(
+                    "active"
+                );
+
+
+            } finally {
+
+                documentButton.disabled =
+                    false;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           BUTTON
+        ========================================================== */
+
+        documentButton.addEventListener(
+            "click",
+            getDocumentChecklist
+        );
+
+
+        /* =========================================================
+           ENTER
+        ========================================================== */
+
+        documentInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    event.preventDefault();
+
+                    getDocumentChecklist();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           SUGGESTION CHIPS
+        ========================================================== */
+
+        document
+            .querySelectorAll(".suggestion-chip")
+            .forEach(chip => {
+
+                chip.addEventListener(
+                    "click",
+                    function() {
+
+                        documentInput.value =
+                            this.dataset.product;
+
+                        getDocumentChecklist();
+
+                    }
+                );
+
+            });
+
+    </script>
+
+</body>
+</html>

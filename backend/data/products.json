@@ -1,0 +1,281 @@
+[
+  {
+    "product": "Domestic Pressure Cooker",
+    "keywords": [
+      "pressure cooker",
+      "pressure cookers",
+      "domestic pressure cooker"
+    ],
+    "standard": "IS 2347",
+    "standard_title": "Domestic Pressure Cookers - Specification",
+    "certification": "Applicable BIS certification and marking requirements should be verified against the current BIS requirements for the product.",
+    "consumer_checks": [
+      "Look for applicable BIS marking on the product.",
+      "Check the relevant Indian Standard number.",
+      "Check certification or licence information where applicable.",
+      "Verify certification details through official BIS resources."
+    ],
+    "industry_guidance": [
+      "Identify the applicable Indian Standard.",
+      "Check the current Quality Control Order or other applicable requirement.",
+      "Review applicable testing and certification requirements.",
+      "Verify the current BIS licensing requirements."
+    ],
+    "verification": "Verify current requirements through official BIS sources."
+  },
+  {
+    "product": "Electric Iron",
+    "keywords": [
+      "electric iron",
+      "electric irons",
+      "iron",
+      "clothes iron",
+      "steam iron",
+      "dry iron"
+    ],
+    "standard": "IS 302 (Part 2): Section 3 (2024)",
+    "standard_title": "Household and Similar Electrical Appliances — Safety Part 2 Particular Requirements Section 3 Electric Irons",
+    "certification": "Applicable BIS certification requirements should be verified against the current BIS requirements.",
+    "consumer_checks": [
+      "Look for applicable BIS marking or certification information.",
+      "Check the relevant Indian Standard details.",
+      "Check certification or licence information where applicable.",
+      "Verify the information through official BIS resources."
+    ],
+    "industry_guidance": [
+      "Identify the applicable Indian Standard and product category.",
+      "Check current certification and testing requirements.",
+      "Review applicable regulatory requirements.",
+      "Verify the current BIS licensing requirements."
+    ],
+    "verification": "BIS currently lists IS 302 (Part 2): Section 3 (2024) for electric irons. Verify the latest applicable requirements through official BIS resources."
+  },
+  {
+    "product": "Cement",
+    "keywords": [
+      "cement",
+      "cement product",
+      "building cement",
+      "construction cement"
+    ],
+    "standard": "Product-specific Indian Standard",
+    "standard_title": "Cement requirements depend on the type of cement",
+    "certification": "BIS certification requirements depend on the specific type of cement and applicable regulations.",
+    "consumer_checks": [
+      "Identify the exact type of cement.",
+      "Check the applicable Indian Standard.",
+      "Check product marking and applicable BIS information.",
+      "Verify certification details through official BIS resources."
+    ],
+    "industry_guidance": [
+      "Identify the exact type and grade of cement.",
+      "Determine the applicable Indian Standard.",
+      "Check the current Quality Control Order and certification requirements.",
+      "Review applicable testing and licensing requirements."
+    ],
+    "verification": "For example, BIS identifies IS 269:2015 for Ordinary Portland Cement. The exact standard must be determined from the cement type."
+  },
+  {
+    "product": "Electric Water Heater",
+    "keywords": [
+      "water heater",
+      "electric water heater",
+      "geyser",
+      "storage water heater",
+      "electric geyser"
+    ],
+    "standard": "IS 302 (Part 2): Section 21",
+    "standard_title": "Household and Similar Electrical Appliances — Safety Part 2 Particular Requirements Section 21 Storage Water Heaters",
+    "certification": "Applicable BIS certification requirements should be verified against the current BIS requirements.",
+    "consumer_checks": [
+      "Check the applicable BIS marking or certification information.",
+      "Check the relevant Indian Standard.",
+      "Verify certification or licence information where applicable.",
+      "Confirm the product information through official BIS resources."
+    ],
+    "industry_guidance": [
+      "Identify the exact water-heater category.",
+      "Determine the applicable Indian Standard.",
+      "Check current testing and certification requirements.",
+      "Verify current regulatory requirements with BIS."
+    ],
+    "verification": "BIS currently lists IS 302 (Part 2): Section 21 for storage water heaters. Verify the current applicability and requirements through official BIS resources."
+  },
+  {
+    "product": "Room Heater",
+    "keywords": [
+      "room heater",
+      "room heaters",
+      "electric room heater",
+      "heater"
+    ],
+    "standard": "IS 302 (Part 2): Section 30",
+    "standard_title": "Safety of Household and Similar Electrical Appliances — Part 2 Particular Requirements — Section 30 Room Heaters",
+    "certification": "Applicable BIS certification requirements should be verified against the current BIS requirements.",
+    "consumer_checks": [
+      "Check applicable BIS marking or certification information.",
+      "Check the relevant Indian Standard.",
+      "Verify certification or licence information where applicable.",
+      "Check the product information through official BIS resources."
+    ],
+    "industry_guidance": [
+      "Identify the exact room-heater category.",
+      "Determine the applicable Indian Standard.",
+      "Review current testing and certification requirements.",
+      "Verify current BIS requirements."
+    ],
+    "verification": "BIS currently lists IS 302 (Part 2): Section 30 for room heaters. Verify the latest applicable requirements through official BIS resources."
+  },
+  {
+    "product": "Electric Stove",
+    "keywords": [
+      "electric stove",
+      "electric stoves",
+      "electric cooker",
+      "electric cooking stove"
+    ],
+    "standard": "IS 302 (Part 2): Section 202",
+    "standard_title": "Safety of Household and Similar Electrical Appliances — Part 2 Particular Requirements — Section 202 Electric Stoves",
+    "certification": "Applicable BIS certification requirements should be verified against the current BIS requirements.",
+    "consumer_checks": [
+      "Check applicable BIS marking or certification information.",
+      "Check the relevant Indian Standard.",
+      "Verify certification or licence information where applicable.",
+      "Confirm current requirements through official BIS resources."
+    ],
+    "industry_guidance": [
+      "Identify the exact appliance category.",
+      "Determine the applicable Indian Standard.",
+      "Review applicable testing and certification requirements.",
+      "Verify current BIS regulatory requirements."
+    ],
+    "verification": "BIS currently lists IS 302 (Part 2): Section 202 for electric stoves. Verify the latest applicable requirements through official BIS resources."
+  },
+  {
+    "product": "Electric Food Mixer",
+    "keywords": [
+      "electric mixer",
+      "food mixer",
+      "mixer grinder",
+      "mixer",
+      "liquidizer",
+      "grinder"
+    ],
+    "standard": "IS 4250",
+    "standard_title": "Electric Food-Mixers (Liquidizers and Grinders) and related appliances — Specification",
+    "certification": "Applicable BIS certification requirements should be verified against the current BIS requirements.",
+    "consumer_checks": [
+      "Check applicable BIS marking or certification information.",
+      "Check the relevant Indian Standard.",
+      "Verify certification or licence information where applicable.",
+      "Check product details and safety information."
+    ],
+    "industry_guidance": [
+      "Identify the exact product category.",
+      "Determine the applicable Indian Standard.",
+      "Review current testing and certification requirements.",
+      "Verify applicable BIS licensing requirements."
+    ],
+    "verification": "BIS laboratory information currently includes IS 4250 for electric food-mixers, liquidizers and grinders. Verify the latest standard revision and applicability through official BIS resources."
+  },
+  {
+    "product": "Electric Immersion Water Heater",
+    "keywords": [
+      "immersion heater",
+      "immersion rod",
+      "electric immersion water heater",
+      "immersion water heater",
+      "water heating rod"
+    ],
+    "standard": "IS 302 (Part 2): Section 201",
+    "standard_title": "Safety of Household and Similar Electrical Appliances — Part 2 Particular Requirements — Section 201 Electric Immersion Water Heaters",
+    "certification": "Applicable BIS certification requirements should be verified against the current BIS requirements.",
+    "consumer_checks": [
+      "Check applicable BIS marking or certification information.",
+      "Check the relevant Indian Standard.",
+      "Verify certification or licence information where applicable.",
+      "Check product safety and electrical information."
+    ],
+    "industry_guidance": [
+      "Identify the exact immersion-heater category.",
+      "Determine the applicable Indian Standard.",
+      "Review current testing requirements.",
+      "Verify applicable BIS certification and regulatory requirements."
+    ],
+    "verification": "BIS laboratory information lists IS 302 (Part 2): Section 201 for electric immersion water heaters. Verify current applicability through official BIS resources."
+  },
+  {
+    "product": "Electric Instantaneous Water Heater",
+    "keywords": [
+      "instantaneous water heater",
+      "instant water heater",
+      "instant geyser",
+      "electric instant geyser"
+    ],
+    "standard": "IS 302 (Part 2): Section 35",
+    "standard_title": "Safety of Household and Similar Electrical Appliances — Part 2 Particular Requirements — Section 35 Electric Instantaneous Water Heaters",
+    "certification": "Applicable BIS certification requirements should be verified against the current BIS requirements.",
+    "consumer_checks": [
+      "Check applicable BIS marking or certification information.",
+      "Check the relevant Indian Standard.",
+      "Verify certification or licence information where applicable.",
+      "Confirm the latest product requirements through official BIS resources."
+    ],
+    "industry_guidance": [
+      "Identify the exact water-heater category.",
+      "Determine the applicable Indian Standard.",
+      "Review current testing and certification requirements.",
+      "Verify current BIS requirements."
+    ],
+    "verification": "BIS currently lists IS 302 (Part 2): Section 35 for electric instantaneous water heaters. Verify the latest applicable requirements through official BIS resources."
+  },
+  {
+    "product": "Electric Steam Cooker",
+    "keywords": [
+      "electric steam cooker",
+      "steam cooker",
+      "electric steamer",
+      "food steamer"
+    ],
+    "standard": "IS 302 (Part 2): Section 46",
+    "standard_title": "Safety of Household and Similar Electrical Appliances — Part 2 Particular Requirements — Section 46 Electric Steam Cookers",
+    "certification": "Applicable BIS certification requirements should be verified against the current BIS requirements.",
+    "consumer_checks": [
+      "Check applicable BIS marking or certification information.",
+      "Check the relevant Indian Standard.",
+      "Verify certification or licence information where applicable.",
+      "Confirm current requirements through official BIS resources."
+    ],
+    "industry_guidance": [
+      "Identify the exact appliance category.",
+      "Determine the applicable Indian Standard.",
+      "Review current testing and certification requirements.",
+      "Verify applicable BIS licensing requirements."
+    ],
+    "verification": "BIS laboratory information lists IS 302 (Part 2): Section 46 for electric steam cookers. Verify the current applicable requirements through official BIS resources."
+  },
+  {
+    "product": "Toaster",
+    "keywords": [
+      "toaster",
+      "electric toaster",
+      "bread toaster"
+    ],
+    "standard": "IS 302 (Part 2): Section 9",
+    "standard_title": "Safety of Household and Similar Electrical Appliances — Part 2 Particular Requirements — Section 9 Toasters, Grills, Roasters and Similar Appliances",
+    "certification": "Applicable BIS certification requirements should be verified against the current BIS requirements.",
+    "consumer_checks": [
+      "Check applicable BIS marking or certification information.",
+      "Check the relevant Indian Standard.",
+      "Verify certification or licence information where applicable.",
+      "Check product safety information."
+    ],
+    "industry_guidance": [
+      "Identify the exact appliance category.",
+      "Determine the applicable Indian Standard.",
+      "Review current testing and certification requirements.",
+      "Verify current BIS requirements."
+    ],
+    "verification": "BIS laboratory information lists IS 302 (Part 2): Section 9 for toasters, grills, roasters and similar appliances. Verify current applicability through official BIS resources."
+  }
+]

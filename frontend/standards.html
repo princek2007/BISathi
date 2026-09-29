@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="BISathi Standards Intelligence - Find relevant Indian Standards."
+    >
+
+    <title>Find Indian Standards | BISathi</title>
+
+    <link rel="icon" type="image/jpeg" href="BISathi.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =====================================================
+           STANDARDS PAGE
+           ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "DM Sans", sans-serif;
+            background: #f7faff;
+            color: #101828;
+        }
+
+        /* =====================================================
+           ICON SYSTEM
+           ===================================================== */
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* =====================================================
+           TOP INFORMATION BAR
+           ===================================================== */
+
+        .standards-topbar {
+            width: 100%;
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            background: #0b1f3a;
+            color: #d9e5f7;
+            font-size: 11px;
+        }
+
+        .standards-topbar-inner {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .standards-topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .standards-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .standards-live-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .standards-topbar-divider {
+            width: 1px;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .standards-topbar-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+
+        .standards-topbar-link:hover {
+            opacity: 0.8;
+        }
+
+        .standards-topbar-link svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* =====================================================
+           FULL BISATHI NAVBAR
+           ===================================================== */
+
+        .standards-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #e7edf5;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .standards-navbar-inner {
+            width: 100%;
+            max-width: 1280px;
+            min-height: 76px;
+            margin: 0 auto;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+        }
+
+        /* =====================================================
+           NAVBAR LOGO
+           ===================================================== */
+
+        .standards-navbar-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            color: #0b1730;
+            text-decoration: none;
+            flex: 0 0 auto;
+        }
+
+        .standards-navbar-logo {
+            width: 42px;
+            height: 42px;
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #ffffff;
+            border: 1px solid #e4eaf2;
+            box-shadow:
+                0 7px 18px rgba(18, 97, 220, 0.12);
+        }
+
+        .standards-navbar-logo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .standards-navbar-brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .standards-navbar-brand-text strong {
+            font-family: "Manrope", sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .standards-navbar-brand-text span {
+            margin-top: 4px;
+            color: #7b8799;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        /* =====================================================
+           NAVIGATION LINKS
+           ===================================================== */
+
+        .standards-navbar-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-left: auto;
+        }
+
+        .standards-navbar-links a {
+            position: relative;
+            padding: 8px 0;
+            color: #667085;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .standards-navbar-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 1px;
+            height: 2px;
+            border-radius: 999px;
+            background: #1261dc;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.2s ease;
+        }
+
+        .standards-navbar-links a:hover {
+            color: #1261dc;
+        }
+
+        .standards-navbar-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* =====================================================
+           NAVBAR ACTIONS
+           ===================================================== */
+
+        .standards-navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 0 0 auto;
+        }
+
+        .standards-bis-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            height: 38px;
+            padding: 0 13px;
+            border: 1px solid #dce5f0;
+            border-radius: 9px;
+            background: #ffffff;
+            color: #344054;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .standards-bis-link:hover {
+            border-color: #b8cce8;
+            background: #f6f9fd;
+            color: #1261dc;
+        }
+
+        .standards-bis-link svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        .standards-ask-button {
+            height: 38px;
+            padding: 0 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            border: 0;
+            border-radius: 9px;
+            background: #1261dc;
+            color: #ffffff;
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow:
+                0 7px 18px rgba(18, 97, 220, 0.17);
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .standards-ask-button:hover {
+            background: #0d52bd;
+            transform: translateY(-1px);
+            box-shadow:
+                0 10px 22px rgba(18, 97, 220, 0.23);
+        }
+
+        .standards-ask-button svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* =====================================================
+           MOBILE NAV BUTTON
+           ===================================================== */
+
+        .standards-mobile-toggle {
+            display: none;
+            width: 38px;
+            height: 38px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #dce5f0;
+            border-radius: 9px;
+            background: #ffffff;
+            color: #344054;
+            cursor: pointer;
+        }
+
+        .standards-mobile-toggle svg {
+            width: 19px;
+            height: 19px;
+        }
+
+        /* =====================================================
+           MOBILE NAVIGATION
+           ===================================================== */
+
+        .standards-mobile-menu {
+            display: none;
+            padding: 0 20px 18px;
+            border-top: 1px solid #edf1f6;
+            background: #ffffff;
+        }
+
+        .standards-mobile-menu.active {
+            display: block;
+        }
+
+        .standards-mobile-menu a {
+            display: block;
+            padding: 13px 0;
+            border-bottom: 1px solid #edf1f6;
+            color: #344054;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .standards-mobile-menu a:last-child {
+            border-bottom: 0;
+        }
+
+        .standards-mobile-menu a:hover {
+            color: #1261dc;
+        }
+
+        .standards-mobile-actions {
+            display: flex;
+            gap: 9px;
+            padding-top: 14px;
+        }
+
+        .standards-mobile-actions a,
+        .standards-mobile-actions button {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            border-radius: 9px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .standards-mobile-actions a {
+            border: 1px solid #dce5f0;
+            background: #ffffff;
+            color: #344054;
+        }
+
+        .standards-mobile-actions button {
+            border: 0;
+            background: #1261dc;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        /* =====================================================
+           BACK LINK
+           ===================================================== */
+
+        .standards-back-wrap {
+            width: 100%;
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 28px 24px 0;
+        }
+
+        .standards-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #667085;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .standards-back:hover {
+            color: #1261dc;
+            transform: translateX(-2px);
+        }
+
+        .standards-back svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        /* =====================================================
+           MAIN
+           ===================================================== */
+
+        .standards-main {
+            min-height: calc(100vh - 38px - 230px);
+            display: flex;
+            justify-content: center;
+            padding: 35px 24px 90px;
+            background:
+                radial-gradient(
+                    circle at 80% 5%,
+                    rgba(37, 99, 235, 0.055),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    180deg,
+                    #f7faff 0%,
+                    #ffffff 72%,
+                    #f8fbff 100%
+                );
+        }
+
+        /* =====================================================
+           SEARCH FEATURE
+           ===================================================== */
+
+        .standards-feature {
+            width: 100%;
+            max-width: 880px;
+        }
+
+        /* =====================================================
+           FEATURE HEADER
+           ===================================================== */
+
+        .standards-feature-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 38px;
+        }
+
+        /* =====================================================
+           SEARCH ICON BOX
+           ===================================================== */
+
+        .standards-feature-icon {
+            width: 58px;
+            height: 58px;
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            border-radius: 15px;
+            background: #eaf2ff;
+            color: #0f5bd7;
+        }
+
+        .standards-feature-icon svg {
+            width: 25px;
+            height: 25px;
+        }
+
+        /* =====================================================
+           LABEL
+           ===================================================== */
+
+        .standards-feature-label {
+            display: block;
+            margin: 5px 0 10px;
+            color: #0f5bd7;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+        }
+
+        /* =====================================================
+           HEADING
+           ===================================================== */
+
+        .standards-feature h1 {
+            margin: 0;
+            color: #0b1730;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(34px, 4vw, 40px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.045em;
+        }
+
+        /* =====================================================
+           DESCRIPTION
+           ===================================================== */
+
+        .standards-feature-description {
+            margin: 13px 0 0;
+            color: #667085;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           SEARCH BOX
+           ===================================================== */
+
+        .standards-search {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            min-height: 72px;
+            padding: 7px;
+            border: 1px solid #d6e0ee;
+            border-radius: 15px;
+            background: #ffffff;
+            box-shadow:
+                0 18px 45px rgba(16, 24, 40, 0.055),
+                0 3px 8px rgba(16, 24, 40, 0.025);
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .standards-search:focus-within {
+            border-color: #8eb4f5;
+            box-shadow:
+                0 0 0 4px rgba(37, 99, 235, 0.06),
+                0 18px 45px rgba(16, 24, 40, 0.055);
+        }
+
+        /* =====================================================
+           SEARCH ICON
+           ===================================================== */
+
+        .standards-search-icon {
+            width: 21px;
+            height: 21px;
+            margin-left: 17px;
+            margin-right: 16px;
+            flex: 0 0 auto;
+            color: #98a6ba;
+        }
+
+        /* =====================================================
+           INPUT
+           ===================================================== */
+
+        .standards-search input {
+            min-width: 0;
+            flex: 1;
+            height: 56px;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #101828;
+            font-family: "DM Sans", sans-serif;
+            font-size: 15px;
+        }
+
+        .standards-search input::placeholder {
+            color: #98a2b3;
+        }
+
+        /* =====================================================
+           SEARCH BUTTON
+           ===================================================== */
+
+        .standards-search-button {
+            height: 54px;
+            padding: 0 21px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 0 0 auto;
+            border: 0;
+            border-radius: 11px;
+            background: #1261dc;
+            color: #ffffff;
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .standards-search-button:hover {
+            background: #0d52bd;
+            transform: translateY(-1px);
+            box-shadow:
+                0 8px 20px rgba(18, 97, 220, 0.20);
+        }
+
+        .standards-search-button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+            transform: none;
+        }
+
+        .standards-search-button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* =====================================================
+           RESULTS
+           ===================================================== */
+
+        .standards-result {
+            margin-top: 24px;
+        }
+
+        .result-card {
+            overflow: hidden;
+            border: 1px solid #dce5f0;
+            border-radius: 16px;
+            background: #ffffff;
+            box-shadow:
+                0 15px 40px rgba(16, 24, 40, 0.06);
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 22px;
+            border-bottom: 1px solid #edf1f6;
+        }
+
+        .result-product {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .result-icon {
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: #edf4ff;
+            color: #1261dc;
+        }
+
+        .result-icon svg {
+            width: 19px;
+            height: 19px;
+        }
+
+        .result-label {
+            display: block;
+            color: #98a2b3;
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+        }
+
+        .result-product h2 {
+            margin: 4px 0 0;
+            color: #101828;
+            font-family: "Manrope", sans-serif;
+            font-size: 17px;
+        }
+
+        .result-match {
+            padding: 6px 9px;
+            border-radius: 7px;
+            background: #ecfdf3;
+            color: #027a48;
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        .result-body {
+            display: grid;
+            grid-template-columns: 0.75fr 1.25fr;
+        }
+
+        .result-standard {
+            padding: 22px;
+            border-right: 1px solid #edf1f6;
+            background: #f9fbff;
+        }
+
+        .result-standard-label {
+            color: #98a2b3;
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+        }
+
+        .result-standard-number {
+            margin-top: 8px;
+            color: #1261dc;
+            font-family: "Manrope", sans-serif;
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .result-standard-title {
+            margin-top: 5px;
+            color: #667085;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .result-information {
+            padding: 22px;
+            color: #667085;
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+        .result-information h3,
+        .result-information h4 {
+            margin: 0 0 9px;
+            color: #344054;
+            font-family: "Manrope", sans-serif;
+        }
+
+        .result-information h3 {
+            font-size: 14px;
+        }
+
+        .result-information h4 {
+            font-size: 12px;
+        }
+
+        .result-information p {
+            margin: 6px 0;
+        }
+
+        .result-information ul {
+            margin: 7px 0 10px;
+            padding-left: 18px;
+        }
+
+        .result-information li {
+            margin: 4px 0;
+        }
+
+        .result-information strong {
+            color: #344054;
+        }
+
+        /* =====================================================
+           OFFICIAL SOURCES
+           ===================================================== */
+
+        .result-sources {
+            padding: 15px 22px;
+            border-top: 1px solid #edf1f6;
+            background: #f8fbff;
+        }
+
+        .result-sources-title {
+            margin-bottom: 9px;
+            color: #344054;
+            font-family: "Manrope", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .result-source-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .result-source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 7px 9px;
+            border: 1px solid #dce7f6;
+            border-radius: 7px;
+            background: #ffffff;
+            color: #1261dc;
+            font-size: 9px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .result-source-link:hover {
+            background: #edf4ff;
+        }
+
+        .result-source-link svg {
+            width: 11px;
+            height: 11px;
+        }
+
+        /* =====================================================
+           LOADING
+           ===================================================== */
+
+        .result-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 80px;
+            color: #667085;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .loading-spinner {
+            width: 17px;
+            height: 17px;
+            border: 2px solid #dbe7fb;
+            border-top-color: #1261dc;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =====================================================
+           BLUE FOOTER
+           ===================================================== */
+
+        .standards-footer {
+            background:
+                linear-gradient(
+                    135deg,
+                    #082b66 0%,
+                    #0b4da2 55%,
+                    #1261dc 100%
+                );
+            color: #ffffff;
+        }
+
+        .standards-footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 34px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .standards-footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .standards-footer-mark {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 9px;
+            background: rgba(255, 255, 255, 0.10);
+        }
+
+        .standards-footer-mark img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .standards-footer-brand strong {
+            display: block;
+            font-family: "Manrope", sans-serif;
+            font-size: 15px;
+        }
+
+        .standards-footer-brand span {
+            display: block;
+            margin-top: 2px;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 9px;
+        }
+
+        .standards-footer-right {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .standards-footer-note {
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 10px;
+        }
+
+        .standards-footer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .standards-footer-link:hover {
+            opacity: 0.8;
+        }
+
+        .standards-footer-link svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 900px) {
+            .standards-navbar-links,
+            .standards-navbar-actions {
+                display: none;
+            }
+
+            .standards-mobile-toggle {
+                display: inline-flex;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .standards-topbar-inner {
+                padding: 0 16px;
+            }
+
+            .standards-topbar-left > span:last-child {
+                display: none;
+            }
+
+            .standards-navbar-inner {
+                min-height: 68px;
+                padding: 0 17px;
+            }
+
+            .standards-navbar-logo {
+                width: 37px;
+                height: 37px;
+            }
+
+            .standards-navbar-brand-text strong {
+                font-size: 16px;
+            }
+
+            .standards-navbar-brand-text span {
+                font-size: 7px;
+            }
+
+            .standards-back-wrap {
+                padding: 22px 17px 0;
+            }
+
+            .standards-main {
+                padding: 32px 17px 65px;
+            }
+
+            .standards-feature-header {
+                gap: 14px;
+                margin-bottom: 28px;
+            }
+
+            .standards-feature-icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 13px;
+            }
+
+            .standards-feature-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .standards-feature h1 {
+                font-size: 32px;
+            }
+
+            .standards-feature-description {
+                font-size: 13px;
+            }
+
+            .standards-search {
+                min-height: 64px;
+            }
+
+            .standards-search-icon {
+                margin-left: 13px;
+                margin-right: 10px;
+            }
+
+            .standards-search input {
+                height: 48px;
+                font-size: 13px;
+            }
+
+            .standards-search-button {
+                height: 48px;
+                padding: 0 15px;
+            }
+
+            .result-body {
+                grid-template-columns: 1fr;
+            }
+
+            .result-standard {
+                border-right: 0;
+                border-bottom: 1px solid #edf1f6;
+            }
+
+            .result-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .standards-footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 28px 20px;
+            }
+
+            .standards-footer-right {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         TOP INFORMATION BAR
+         ===================================================== -->
+
+    <div class="standards-topbar">
+        <div class="standards-topbar-inner">
+
+            <div class="standards-topbar-left">
+                <span class="standards-live">
+                    <span class="standards-live-dot"></span>
+                    BISathi AI Assistant
+                </span>
+
+                <span class="standards-topbar-divider"></span>
+
+                <span>
+                    Intelligent guidance for Indian Standards & BIS Services
+                </span>
+            </div>
+
+            <a
+                class="standards-topbar-link"
+                href="https://www.bis.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Official BIS Portal
+
+                <svg class="icon">
+                    <use href="#icon-external"></use>
+                </svg>
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         FULL NAVBAR
+         ===================================================== -->
+
+    <nav class="standards-navbar">
+
+        <div class="standards-navbar-inner">
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="standards-navbar-brand"
+            >
+
+                <div class="standards-navbar-logo">
+                    <img
+                        src="BISathi.jpeg"
+                        alt="BISathi Logo"
+                    >
+                </div>
+
+                <div class="standards-navbar-brand-text">
+                    <strong>BISathi</strong>
+                    <span>AI-Powered BIS Assistant</span>
+                </div>
+
+            </a>
+
+
+            <!-- DESKTOP NAVIGATION -->
+
+            <div class="standards-navbar-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#services">
+                    Services
+                </a>
+
+                <a href="index.html#how-it-works">
+                    How It Works
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+            </div>
+
+
+            <!-- DESKTOP ACTIONS -->
+
+            <div class="standards-navbar-actions">
+
+                <a
+                    href="https://www.bis.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="standards-bis-link"
+                >
+                    BIS Portal
+
+                    <svg class="icon">
+                        <use href="#icon-external"></use>
+                    </svg>
+                </a>
+
+                <a
+                    href="index.html#assistant"
+                    class="standards-ask-button"
+                >
+                    <svg class="icon">
+                        <use href="#icon-spark"></use>
+                    </svg>
+
+                    Ask BISathi
+                </a>
+
+            </div>
+
+
+            <!-- MOBILE MENU BUTTON -->
+
+            <button
+                type="button"
+                class="standards-mobile-toggle"
+                id="standardsMobileToggle"
+                aria-label="Open navigation"
+                aria-expanded="false"
+            >
+                <svg
+                    class="icon"
+                    id="mobileMenuIcon"
+                >
+                    <use href="#icon-menu"></use>
+                </svg>
+            </button>
+
+        </div>
+
+
+        <!-- MOBILE NAVIGATION -->
+
+        <div
+            class="standards-mobile-menu"
+            id="standardsMobileMenu"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#services">
+                Services
+            </a>
+
+            <a href="index.html#how-it-works">
+                How It Works
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+
+            <div class="standards-mobile-actions">
+
+                <a
+                    href="https://www.bis.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    BIS Portal
+                </a>
+
+                <button
+                    type="button"
+                    onclick="window.location.href='index.html#assistant'"
+                >
+                    Ask BISathi
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         BACK TO BISATHI
+         ===================================================== -->
+
+    <div class="standards-back-wrap">
+
+        <a
+            href="index.html"
+            class="standards-back"
+        >
+
+            <svg class="icon">
+                <use href="#icon-arrow-left"></use>
+            </svg>
+
+            Back to BISathi
+
+        </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN FEATURE
+         ===================================================== -->
+
+    <main class="standards-main">
+
+        <section class="standards-feature">
+
+            <!-- HEADER -->
+
+            <div class="standards-feature-header">
+
+                <div class="standards-feature-icon">
+
+                    <svg class="icon">
+                        <use href="#icon-search"></use>
+                    </svg>
+
+                </div>
+
+
+                <div>
+
+                    <span class="standards-feature-label">
+                        BIS INTELLIGENCE
+                    </span>
+
+                    <h1>
+                        Find an Indian Standard
+                    </h1>
+
+                    <p class="standards-feature-description">
+                        Enter a product and BISathi will look for relevant
+                        standard and compliance information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="standards-search">
+
+                <svg
+                    class="standards-search-icon icon"
+                    aria-hidden="true"
+                >
+                    <use href="#icon-search"></use>
+                </svg>
+
+
+                <input
+                    type="text"
+                    id="standardsProductInput"
+                    placeholder='Try “Pressure Cooker”, “Electric Iron” ...'
+                    autocomplete="off"
+                    aria-label="Search for an Indian Standard"
+                >
+
+
+                <button
+                    type="button"
+                    id="standardsSearchButton"
+                    class="standards-search-button"
+                    onclick="findStandard()"
+                >
+                    Search
+
+                    <svg class="icon">
+                        <use href="#icon-arrow-right"></use>
+                    </svg>
+                </button>
+
+            </div>
+
+
+            <!-- RESULTS -->
+
+            <div
+                id="standardsResultArea"
+                class="standards-result"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         BLUE FOOTER
+         ===================================================== -->
+
+    <footer class="standards-footer">
+
+        <div class="standards-footer-inner">
+
+            <div class="standards-footer-brand">
+
+                <div class="standards-footer-mark">
+                    <img
+                        src="BISathi.jpeg"
+                        alt="BISathi Logo"
+                    >
+                </div>
+
+                <div>
+
+                    <strong>
+                        BISathi
+                    </strong>
+
+                    <span>
+                        AI-Powered Standards Assistant
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="standards-footer-right">
+
+                <span class="standards-footer-note">
+                    Built around BIS information and services.
+                </span>
+
+                <a
+                    class="standards-footer-link"
+                    href="https://www.bis.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit BIS.gov.in
+
+                    <svg class="icon">
+                        <use href="#icon-external"></use>
+                    </svg>
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         ICON DEFINITIONS
+         ===================================================== -->
+
+    <svg
+        aria-hidden="true"
+        width="0"
+        height="0"
+        style="position:absolute"
+    >
+
+        <defs>
+
+            <symbol
+                id="icon-search"
+                viewBox="0 0 24 24"
+            >
+                <circle
+                    cx="11"
+                    cy="11"
+                    r="6.5"
+                />
+
+                <path d="M16 16l5 5" />
+            </symbol>
+
+
+            <symbol
+                id="icon-arrow-right"
+                viewBox="0 0 24 24"
+            >
+                <path d="M5 12h13" />
+                <path d="M13 6l6 6-6 6" />
+            </symbol>
+
+
+            <symbol
+                id="icon-arrow-left"
+                viewBox="0 0 24 24"
+            >
+                <path d="M19 12H5" />
+                <path d="M11 18l-6-6 6-6" />
+            </symbol>
+
+
+            <symbol
+                id="icon-external"
+                viewBox="0 0 24 24"
+            >
+                <path d="M14 5h5v5" />
+                <path d="M19 5l-8 8" />
+                <path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+            </symbol>
+
+
+            <symbol
+                id="icon-document"
+                viewBox="0 0 24 24"
+            >
+                <path d="M7 3h7l4 4v14H7z" />
+                <path d="M14 3v5h4" />
+                <path d="M10 12h5" />
+                <path d="M10 16h5" />
+            </symbol>
+
+
+            <symbol
+                id="icon-spark"
+                viewBox="0 0 24 24"
+            >
+                <path d="M12 2l1.7 6.3L20 10l-6.3 1.7L12 18l-1.7-6.3L4 10l6.3-1.7L12 2z" />
+                <path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z" />
+            </symbol>
+
+
+            <symbol
+                id="icon-menu"
+                viewBox="0 0 24 24"
+            >
+                <path d="M4 7h16" />
+                <path d="M4 12h16" />
+                <path d="M4 17h16" />
+            </symbol>
+
+
+            <symbol
+                id="icon-close"
+                viewBox="0 0 24 24"
+            >
+                <path d="M6 6l12 12" />
+                <path d="M18 6L6 18" />
+            </symbol>
+
+        </defs>
+
+    </svg>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        const STANDARDS_API_BASE =
+            "http://127.0.0.1:8000";
+
+        const standardsInput =
+            document.getElementById(
+                "standardsProductInput"
+            );
+
+        const standardsResultArea =
+            document.getElementById(
+                "standardsResultArea"
+            );
+
+        const standardsSearchButton =
+            document.getElementById(
+                "standardsSearchButton"
+            );
+
+
+        /* =====================================================
+           MOBILE NAVIGATION
+           ===================================================== */
+
+        const standardsMobileToggle =
+            document.getElementById(
+                "standardsMobileToggle"
+            );
+
+        const standardsMobileMenu =
+            document.getElementById(
+                "standardsMobileMenu"
+            );
+
+        const mobileMenuIcon =
+            document.getElementById(
+                "mobileMenuIcon"
+            );
+
+
+        standardsMobileToggle.addEventListener(
+            "click",
+            function () {
+
+                const isOpen =
+                    standardsMobileMenu.classList.toggle(
+                        "active"
+                    );
+
+                standardsMobileToggle.setAttribute(
+                    "aria-expanded",
+                    isOpen ? "true" : "false"
+                );
+
+                mobileMenuIcon.innerHTML =
+                    isOpen
+                        ? '<use href="#icon-close"></use>'
+                        : '<use href="#icon-menu"></use>';
+
+            }
+        );
+
+
+        /* =====================================================
+           CLOSE MOBILE MENU AFTER NAVIGATION
+           ===================================================== */
+
+        document
+            .querySelectorAll(
+                ".standards-mobile-menu a"
+            )
+            .forEach(
+                function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            standardsMobileMenu
+                                .classList
+                                .remove("active");
+
+                            standardsMobileToggle
+                                .setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+
+                            mobileMenuIcon.innerHTML =
+                                '<use href="#icon-menu"></use>';
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* =====================================================
+           ENTER KEY
+           ===================================================== */
+
+        standardsInput.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Enter") {
+
+                    event.preventDefault();
+
+                    findStandard();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           ESCAPE HTML
+           ===================================================== */
+
+        function escapeHTML(value) {
+
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /* =====================================================
+           MARKDOWN FORMATTER
+           ===================================================== */
+
+        function formatAnswer(text) {
+
+            if (!text) {
+                return "";
+            }
+
+            let html =
+                escapeHTML(text);
+
+
+            html = html.replace(
+                /^### (.+)$/gm,
+                "<h4>$1</h4>"
+            );
+
+
+            html = html.replace(
+                /^## (.+)$/gm,
+                "<h3>$1</h3>"
+            );
+
+
+            html = html.replace(
+                /\*\*(.*?)\*\*/g,
+                "<strong>$1</strong>"
+            );
+
+
+            html = html.replace(
+                /^[•*-] (.+)$/gm,
+                "<li>$1</li>"
+            );
+
+
+            html = html.replace(
+                /(<li>.*?<\/li>)/gs,
+                function (match) {
+
+                    return "<ul>" +
+                        match +
+                        "</ul>";
+
+                }
+            );
+
+
+            html = html.replace(
+                /^\d+\.\s+(.+)$/gm,
+                "<li>$1</li>"
+            );
+
+
+            html =
+                html
+                    .split(/\n{2,}/)
+                    .map(
+                        function (block) {
+
+                            block =
+                                block.trim();
+
+                            if (!block) {
+                                return "";
+                            }
+
+
+                            if (
+                                block.startsWith("<h3>") ||
+                                block.startsWith("<h4>") ||
+                                block.startsWith("<ul>")
+                            ) {
+                                return block;
+                            }
+
+
+                            return (
+                                "<p>" +
+                                block.replace(
+                                    /\n/g,
+                                    "<br>"
+                                ) +
+                                "</p>"
+                            );
+
+                        }
+                    )
+                    .join("");
+
+
+            return html;
+
+        }
+
+
+        /* =====================================================
+           PRODUCT DATA
+           ===================================================== */
+
+        function getProductData(data) {
+
+            return (
+                data.product_data ||
+                data.product_info ||
+                data.matched_product ||
+                data.productDetails ||
+                data.product_details ||
+                (
+                    data.product &&
+                    typeof data.product === "object"
+                        ? data.product
+                        : null
+                ) ||
+                null
+            );
+
+        }
+
+
+        /* =====================================================
+           PRODUCT NAME
+           ===================================================== */
+
+        function getProductName(
+            data,
+            productData
+        ) {
+
+            if (
+                productData &&
+                typeof productData === "object"
+            ) {
+
+                return (
+                    productData.name ||
+                    productData.product_name ||
+                    productData.product ||
+                    productData.title ||
+                    ""
+                );
+
+            }
+
+
+            if (
+                typeof data.product === "string"
+            ) {
+
+                return data.product;
+
+            }
+
+
+            return standardsInput.value.trim();
+
+        }
+
+
+        /* =====================================================
+           STANDARD NUMBER
+           ===================================================== */
+
+        function getStandardNumber(
+            data,
+            productData
+        ) {
+
+            if (
+                productData &&
+                typeof productData === "object"
+            ) {
+
+                return (
+                    productData.standard ||
+                    productData.standard_number ||
+                    productData.is_number ||
+                    productData.IS ||
+                    ""
+                );
+
+            }
+
+
+            return (
+                data.standard ||
+                data.standard_number ||
+                data.is_number ||
+                ""
+            );
+
+        }
+
+
+        /* =====================================================
+           STANDARD TITLE
+           ===================================================== */
+
+        function getStandardTitle(
+            data,
+            productData
+        ) {
+
+            if (
+                productData &&
+                typeof productData === "object"
+            ) {
+
+                return (
+                    productData.standard_title ||
+                    productData.title ||
+                    productData.standard_name ||
+                    ""
+                );
+
+            }
+
+
+            return (
+                data.standard_title ||
+                data.standard_name ||
+                data.title ||
+                ""
+            );
+
+        }
+
+
+        /* =====================================================
+           ANSWER
+           ===================================================== */
+
+        function getAnswer(data) {
+
+            return (
+                data.answer ||
+                data.response ||
+                data.message ||
+                data.guidance ||
+                ""
+            );
+
+        }
+
+
+        /* =====================================================
+           SOURCES
+           ===================================================== */
+
+        function getSources(data) {
+
+            const sources =
+                data.official_sources ||
+                data.sources ||
+                [];
+
+            if (!Array.isArray(sources)) {
+                return [];
+            }
+
+            return sources;
+
+        }
+
+
+        /* =====================================================
+           NORMALIZE SOURCE
+           ===================================================== */
+
+        function normalizeSource(source) {
+
+            if (typeof source === "string") {
+
+                return {
+                    title: "BIS Official Source",
+                    url: source
+                };
+
+            }
+
+
+            if (
+                source &&
+                typeof source === "object"
+            ) {
+
+                return {
+                    title:
+                        source.title ||
+                        source.name ||
+                        source.label ||
+                        "BIS Official Source",
+
+                    url:
+                        source.url ||
+                        source.link ||
+                        source.href ||
+                        ""
+                };
+
+            }
+
+
+            return null;
+
+        }
+
+
+        /* =====================================================
+           RENDER SOURCES
+           ===================================================== */
+
+        function renderSources(data) {
+
+            const sources =
+                getSources(data)
+                    .map(normalizeSource)
+                    .filter(
+                        function (source) {
+
+                            return (
+                                source &&
+                                source.url
+                            );
+
+                        }
+                    );
+
+
+            if (sources.length === 0) {
+                return "";
+            }
+
+
+            return `
+                <div class="result-sources">
+
+                    <div class="result-sources-title">
+                        Official BIS Sources
+                    </div>
+
+                    <div class="result-source-links">
+
+                        ${sources.map(
+                            function (source) {
+
+                                return `
+                                    <a
+                                        class="result-source-link"
+                                        href="${escapeHTML(source.url)}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        ${escapeHTML(source.title)}
+
+                                        <svg class="icon">
+                                            <use href="#icon-external"></use>
+                                        </svg>
+                                    </a>
+                                `;
+
+                            }
+                        ).join("")}
+
+                    </div>
+
+                </div>
+            `;
+
+        }
+
+
+        /* =====================================================
+           FIRST SOURCE
+           ===================================================== */
+
+        function getFirstSource(data) {
+
+            const sources =
+                getSources(data)
+                    .map(normalizeSource)
+                    .filter(
+                        function (source) {
+
+                            return (
+                                source &&
+                                source.url
+                            );
+
+                        }
+                    );
+
+
+            if (sources.length > 0) {
+                return sources[0].url;
+            }
+
+
+            return "https://standards.bis.gov.in/";
+
+        }
+
+
+        /* =====================================================
+           SEARCH
+           ===================================================== */
+
+        async function findStandard() {
+
+            const product =
+                standardsInput.value.trim();
+
+
+            if (!product) {
+
+                standardsInput.focus();
+
+                return;
+
+            }
+
+
+            standardsSearchButton.disabled =
+                true;
+
+
+            standardsSearchButton.innerHTML = `
+                Searching...
+            `;
+
+
+            standardsResultArea.innerHTML = `
+                <div class="result-card">
+
+                    <div class="result-loading">
+
+                        <span class="loading-spinner"></span>
+
+                        Searching BISathi...
+
+                    </div>
+
+                </div>
+            `;
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${STANDARDS_API_BASE}/api/search-standard`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                product: product,
+                                user_type: "consumer"
+                            })
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.detail ||
+                        "Unable to search the standard."
+                    );
+
+                }
+
+
+                console.log(
+                    "BISathi Standards Response:",
+                    data
+                );
+
+
+                renderStandardResult(data);
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Standards search error:",
+                    error
+                );
+
+
+                standardsResultArea.innerHTML = `
+                    <div class="result-card">
+
+                        <div class="result-information">
+
+                            <h3>
+                                Search unavailable
+                            </h3>
+
+                            <p>
+                                ${escapeHTML(
+                                    error.message ||
+                                    "Please make sure the BISathi backend is running."
+                                )}
+                            </p>
+
+                        </div>
+
+                    </div>
+                `;
+
+            }
+
+            finally {
+
+                standardsSearchButton.disabled =
+                    false;
+
+
+                standardsSearchButton.innerHTML = `
+                    Search
+
+                    <svg class="icon">
+                        <use href="#icon-arrow-right"></use>
+                    </svg>
+                `;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           RENDER RESULT
+           ===================================================== */
+
+        function renderStandardResult(data) {
+
+            const product =
+                standardsInput.value.trim();
+
+
+            const productData =
+                getProductData(data);
+
+
+            const productName =
+                getProductName(
+                    data,
+                    productData
+                );
+
+
+            const standardNumber =
+                getStandardNumber(
+                    data,
+                    productData
+                );
+
+
+            const standardTitle =
+                getStandardTitle(
+                    data,
+                    productData
+                );
+
+
+            const answer =
+                getAnswer(data);
+
+
+            const standardDisplay =
+                standardNumber ||
+                "See BISathi guidance";
+
+
+            const titleDisplay =
+                standardTitle ||
+                "Relevant Indian Standard";
+
+
+            let informationHTML = "";
+
+
+            if (answer) {
+
+                informationHTML = `
+                    <div>
+                        ${formatAnswer(answer)}
+                    </div>
+                `;
+
+            }
+
+            else {
+
+                informationHTML = `
+                    <h3>
+                        BISathi guidance
+                    </h3>
+
+                    <p>
+                        Relevant information was found.
+                        Review the official BIS sources
+                        for detailed requirements.
+                    </p>
+                `;
+
+            }
+
+
+            const firstSource =
+                getFirstSource(data);
+
+
+            const sourcesHTML =
+                renderSources(data);
+
+
+            standardsResultArea.innerHTML = `
+
+                <article class="result-card">
+
+
+                    <div class="result-header">
+
+                        <div class="result-product">
+
+                            <div class="result-icon">
+
+                                <svg class="icon">
+                                    <use href="#icon-document"></use>
+                                </svg>
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="result-label">
+                                    PRODUCT MATCH
+                                </span>
+
+                                <h2>
+                                    ${escapeHTML(
+                                        productName ||
+                                        product
+                                    )}
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <span class="result-match">
+                            Information found
+                        </span>
+
+                    </div>
+
+
+                    <div class="result-body">
+
+
+                        <div class="result-standard">
+
+                            <span class="result-standard-label">
+                                INDIAN STANDARD
+                            </span>
+
+
+                            <div class="result-standard-number">
+                                ${escapeHTML(
+                                    standardDisplay
+                                )}
+                            </div>
+
+
+                            <div class="result-standard-title">
+                                ${escapeHTML(
+                                    titleDisplay
+                                )}
+                            </div>
+
+                        </div>
+
+
+                        <div class="result-information">
+
+                            ${informationHTML}
+
+                        </div>
+
+
+                    </div>
+
+
+                    ${sourcesHTML}
+
+
+                    <div class="result-sources">
+
+                        <a
+                            class="result-source-link"
+                            href="${escapeHTML(firstSource)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Open BIS Source
+
+                            <svg class="icon">
+                                <use href="#icon-external"></use>
+                            </svg>
+                        </a>
+
+                    </div>
+
+
+                </article>
+
+            `;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

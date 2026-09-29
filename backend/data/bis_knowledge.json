@@ -1,0 +1,643 @@
+[
+  {
+    "id": "bis-overview",
+    "category": "General BIS",
+    "title": "What is BIS?",
+    "keywords": [
+      "bis",
+      "bureau of indian standards",
+      "what is bis",
+      "about bis",
+      "bis organization",
+      "national standards body"
+    ],
+    "answer": "BIS stands for Bureau of Indian Standards. BIS is India's national standards body and works in areas including Indian Standards, conformity assessment, product certification, hallmarking, consumer engagement and related quality activities.",
+    "user_guidance": {
+      "consumer": [
+        "BIS information can help consumers understand standards, product certification and quality-related markings.",
+        "Consumers can use BIS resources to check relevant standards and certification-related information."
+      ],
+      "industry": [
+        "Industries and manufacturers can use BIS resources to identify applicable Indian Standards and understand relevant conformity-assessment requirements.",
+        "Manufacturers should identify the exact product category and applicable standard before starting a certification process."
+      ]
+    },
+    "official_sources": [
+      "home",
+      "standards"
+    ]
+  },
+  {
+    "id": "indian-standards",
+    "category": "Indian Standards",
+    "title": "What are Indian Standards?",
+    "keywords": [
+      "indian standard",
+      "indian standards",
+      "is standard",
+      "is number",
+      "what is an indian standard",
+      "standards",
+      "bis standard",
+      "product standard"
+    ],
+    "answer": "Indian Standards are standards developed through the BIS standards system for products, services, processes, materials and other areas. A particular product may have one or more applicable standards depending on its type, characteristics and intended use.",
+    "user_guidance": {
+      "consumer": [
+        "Identify the exact product before looking for its Indian Standard.",
+        "Use the official BIS Standards portal to search standards by product keywords or IS number."
+      ],
+      "industry": [
+        "Identify the exact product category and intended use.",
+        "Search the applicable Indian Standard through the official BIS Standards portal.",
+        "Review the current standard and any applicable amendments, product manuals or regulatory requirements."
+      ]
+    },
+    "official_sources": [
+      "standards",
+      "home"
+    ]
+  },
+  {
+    "id": "know-your-standards",
+    "category": "Standards Discovery",
+    "title": "Know Your Standards",
+    "keywords": [
+      "know your standards",
+      "search standard",
+      "find standard",
+      "find indian standard",
+      "search indian standard",
+      "standard search",
+      "standards portal",
+      "search by keyword",
+      "search by is number"
+    ],
+    "answer": "BIS provides a Know Your Standards facility through its Standards portal. Users can search Indian Standards using an IS number or keywords such as a product name. The portal provides access to information associated with standards.",
+    "user_guidance": {
+      "consumer": [
+        "Search using the product name or an IS number when known.",
+        "Use the result to identify the relevant standard before checking certification or marking information."
+      ],
+      "industry": [
+        "Search by product name, technical term or known IS number.",
+        "Review the applicable standard and associated information before preparing for certification or compliance."
+      ]
+    },
+    "official_sources": [
+      "standards"
+    ]
+  },
+  {
+    "id": "product-certification",
+    "category": "Certification",
+    "title": "BIS Product Certification",
+    "keywords": [
+      "bis certification",
+      "product certification",
+      "bis certificate",
+      "bis licence",
+      "bis license",
+      "certification",
+      "product certification scheme",
+      "how to get bis certification"
+    ],
+    "answer": "BIS operates product conformity-assessment schemes for products covered by applicable requirements. The exact certification pathway depends on the product, applicable Indian Standard and current regulatory requirements.",
+    "user_guidance": {
+      "consumer": [
+        "Check whether the product is covered by an applicable BIS certification or marking requirement.",
+        "Check the relevant standard and certification information where applicable.",
+        "Use official BIS resources when verifying certification-related information."
+      ],
+      "industry": [
+        "Identify the exact product and applicable Indian Standard.",
+        "Determine whether a BIS certification, registration or Certificate of Conformity requirement applies.",
+        "Review applicable testing, documentation, assessment and licensing requirements.",
+        "Follow the current BIS application process applicable to the product."
+      ]
+    },
+    "official_sources": [
+      "certification_process",
+      "apply_license",
+      "compulsory_certification"
+    ]
+  },
+  {
+    "id": "certification-process",
+    "category": "Certification",
+    "title": "General BIS Certification Process",
+    "keywords": [
+      "certification process",
+      "bis certification process",
+      "certification procedure",
+      "how bis certification works",
+      "steps for bis certification",
+      "apply for bis licence",
+      "apply for bis license"
+    ],
+    "answer": "For product certification, the manufacturer first identifies the applicable Indian Standard. The manufacturer then needs to understand the relevant manufacturing infrastructure, process controls, quality-control and testing capabilities and follow the applicable BIS assessment and application process.",
+    "user_guidance": {
+      "industry": [
+        "Identify the Indian Standard applicable to the product.",
+        "Analyse the manufacturing infrastructure and relevant process controls.",
+        "Review quality-control and testing capabilities.",
+        "Review product-specific technical guidance where applicable.",
+        "Complete the applicable assessment and testing requirements.",
+        "Submit the application through the applicable BIS online process.",
+        "Maintain compliance with the applicable requirements after certification."
+      ],
+      "consumer": [
+        "Consumers generally do not apply for product certification.",
+        "Consumers can instead check whether a product is covered by applicable BIS certification or marking requirements."
+      ]
+    },
+    "official_sources": [
+      "apply_license",
+      "certification_process"
+    ]
+  },
+  {
+    "id": "compulsory-certification",
+    "category": "Regulatory Requirements",
+    "title": "Compulsory BIS Certification",
+    "keywords": [
+      "compulsory certification",
+      "mandatory bis",
+      "mandatory certification",
+      "is bis mandatory",
+      "bis mandatory",
+      "compulsory bis",
+      "qco",
+      "quality control order",
+      "quality control orders"
+    ],
+    "answer": "BIS certification is generally voluntary in nature. However, for certain products, compliance with Indian Standards is made compulsory by the Central Government through applicable Quality Control Orders (QCOs) and related regulatory requirements. The exact applicability must be checked for the specific product and current requirements.",
+    "user_guidance": {
+      "consumer": [
+        "Do not assume that every product has the same BIS certification requirement.",
+        "Check the exact product and applicable BIS information."
+      ],
+      "industry": [
+        "Identify the exact product and applicable Indian Standard.",
+        "Check whether the product is covered by a current Quality Control Order or another compulsory requirement.",
+        "Check the implementation date and current applicability of the relevant requirement."
+      ]
+    },
+    "official_sources": [
+      "compulsory_certification",
+      "standards"
+    ]
+  },
+  {
+    "id": "isi-mark",
+    "category": "ISI Mark",
+    "title": "What is the ISI Mark?",
+    "keywords": [
+      "isi mark",
+      "what is isi mark",
+      "isi meaning",
+      "isi certification",
+      "isi logo",
+      "standard mark",
+      "bis isi mark"
+    ],
+    "answer": "The ISI Mark is associated with the BIS product certification scheme for products covered by the applicable certification requirements. The applicable Indian Standard and certification requirements depend on the product.",
+    "user_guidance": {
+      "consumer": [
+        "Look for the applicable BIS marking information on the product or packaging.",
+        "Check the relevant Indian Standard and certification information where applicable.",
+        "Use official BIS resources when verifying certification-related details."
+      ],
+      "industry": [
+        "Identify the applicable Indian Standard.",
+        "Determine whether the product falls under applicable BIS product certification requirements.",
+        "Review the applicable conformity-assessment, testing and marking requirements."
+      ]
+    },
+    "official_sources": [
+      "certification_process",
+      "bis_care"
+    ]
+  },
+  {
+    "id": "bis-care",
+    "category": "Consumer Services",
+    "title": "BIS CARE App",
+    "keywords": [
+      "bis care",
+      "bis care app",
+      "verify licence",
+      "verify license",
+      "verify licence details",
+      "verify product",
+      "consumer bis app",
+      "bis consumer app"
+    ],
+    "answer": "BIS CARE is a BIS consumer-focused mobile application. BIS states that the app provides features including verification of licence details, verification of hallmarked jewellery using HUID, access to Know Your Standards and information related to BIS services.",
+    "user_guidance": {
+      "consumer": [
+        "Consumers can use BIS CARE features to access BIS-related verification and standards information.",
+        "For an actual verification, use the current official BIS verification facility rather than relying only on a third-party explanation."
+      ],
+      "industry": [
+        "Manufacturers can use relevant BIS resources to understand certification and standards information.",
+        "Official BIS portals should be used for actual licence and certification information."
+      ]
+    },
+    "official_sources": [
+      "bis_care",
+      "standards"
+    ]
+  },
+  {
+    "id": "bis-application",
+    "category": "Manufacturer Services",
+    "title": "Applying for a BIS Licence",
+    "keywords": [
+      "apply for bis licence",
+      "apply for bis license",
+      "bis application",
+      "bis licence application",
+      "bis license application",
+      "how to apply bis",
+      "manufacturer bis application",
+      "bis online application"
+    ],
+    "answer": "BIS provides an online process for applicable product certification applications. The application process starts with identifying the Indian Standard applicable to the product and understanding the required manufacturing infrastructure, process controls, quality control and testing capabilities.",
+    "user_guidance": {
+      "industry": [
+        "Identify the applicable Indian Standard.",
+        "Review the relevant product-specific technical information.",
+        "Analyse manufacturing infrastructure, process controls, quality control and testing capabilities.",
+        "Understand the applicable assessment and testing requirements.",
+        "Submit the applicable application through the BIS online portal.",
+        "Review current fees and product-specific requirements before submission."
+      ],
+      "consumer": [
+        "Consumers generally do not apply for a BIS product certification licence.",
+        "Consumers can use BIS resources to understand whether a product has applicable certification."
+      ]
+    },
+    "official_sources": [
+      "apply_license",
+      "certification_process"
+    ]
+  },
+  {
+    "id": "bis-schemes",
+    "category": "Certification Schemes",
+    "title": "BIS Conformity Assessment Schemes",
+    "keywords": [
+      "bis schemes",
+      "certification schemes",
+      "scheme 1",
+      "scheme i",
+      "scheme 2",
+      "scheme ii",
+      "scheme 4",
+      "scheme iv",
+      "scheme 10",
+      "scheme x",
+      "conformity assessment scheme"
+    ],
+    "answer": "BIS operates different conformity-assessment schemes depending on the applicable product and requirements. Official BIS material identifies schemes including Scheme-I (Mark Scheme), Scheme-II (Registration Scheme), Scheme-IV (Certificate of Conformity) and Scheme-X (Certification). The applicable scheme depends on the product and current BIS requirements.",
+    "user_guidance": {
+      "consumer": [
+        "Consumers usually do not need to determine the technical conformity-assessment scheme themselves.",
+        "For product verification, focus on the applicable BIS marking or certification information."
+      ],
+      "industry": [
+        "Determine which conformity-assessment scheme applies to the specific product.",
+        "Do not assume that every product follows Scheme-I or the same certification pathway."
+      ]
+    },
+    "official_sources": [
+      "certification_process",
+      "compulsory_certification"
+    ]
+  },
+  {
+    "id": "scheme-i-isi",
+    "category": "Certification Schemes",
+    "title": "Scheme-I / ISI Mark Scheme",
+    "keywords": [
+      "scheme i",
+      "scheme 1",
+      "isi mark scheme",
+      "mark scheme",
+      "scheme i isi",
+      "product certification scheme"
+    ],
+    "answer": "Scheme-I is the BIS Mark Scheme associated with product certification and use of the Standard Mark for products covered by the applicable requirements. BIS publishes product-specific information and certification requirements under the scheme.",
+    "user_guidance": {
+      "industry": [
+        "Identify the applicable Indian Standard.",
+        "Check whether the product is covered by Scheme-I and whether certification is compulsory or voluntary.",
+        "Review the applicable testing, inspection, marking and licensing requirements."
+      ],
+      "consumer": [
+        "For products using an applicable ISI/Standard Mark, check the relevant certification and product information through official BIS resources."
+      ]
+    },
+    "official_sources": [
+      "certification_process",
+      "compulsory_certification"
+    ]
+  },
+  {
+    "id": "scheme-ii-crs",
+    "category": "Certification Schemes",
+    "title": "Scheme-II / Registration Scheme",
+    "keywords": [
+      "scheme ii",
+      "scheme 2",
+      "registration scheme",
+      "crs",
+      "compulsory registration scheme",
+      "bis crs",
+      "electronics registration",
+      "it products bis"
+    ],
+    "answer": "BIS operates a Registration Scheme for applicable product categories. BIS also identifies the Compulsory Registration Scheme (CRS) for notified Electronics and IT products. The exact products covered and applicable requirements should be checked through current official BIS information.",
+    "user_guidance": {
+      "industry": [
+        "Determine whether the product falls within a notified CRS category.",
+        "Check the applicable Indian Standard and current regulatory notification.",
+        "Review the current registration and testing requirements."
+      ],
+      "consumer": [
+        "For applicable electronic and IT products, check the relevant BIS registration information where required."
+      ]
+    },
+    "official_sources": [
+      "compulsory_certification",
+      "certification_process",
+      "bis_care"
+    ]
+  },
+  {
+    "id": "scheme-iv",
+    "category": "Certification Schemes",
+    "title": "Scheme-IV Certificate of Conformity",
+    "keywords": [
+      "scheme iv",
+      "scheme 4",
+      "certificate of conformity",
+      "coc",
+      "bis coc",
+      "certificate of conformity bis"
+    ],
+    "answer": "Scheme-IV is a BIS conformity-assessment scheme for grant of a Certificate of Conformity. Whether Scheme-IV applies depends on the product and the applicable BIS requirements.",
+    "user_guidance": {
+      "industry": [
+        "Identify whether the product is covered under Scheme-IV.",
+        "Review the applicable Indian Standard and BIS conformity-assessment requirements.",
+        "Follow the current product-specific application, testing and assessment guidance."
+      ],
+      "consumer": [
+        "Consumers should check the applicable product certification information through official BIS resources where relevant."
+      ]
+    },
+    "official_sources": [
+      "certification_process",
+      "compulsory_certification"
+    ]
+  },
+  {
+    "id": "scheme-x",
+    "category": "Certification Schemes",
+    "title": "Scheme-X Certification",
+    "keywords": [
+      "scheme x",
+      "scheme 10",
+      "scheme-x",
+      "bis scheme x",
+      "scheme x certification"
+    ],
+    "answer": "Scheme-X is one of the conformity-assessment schemes operated by BIS. Its applicability depends on the products and requirements notified under the relevant regulatory framework.",
+    "user_guidance": {
+      "industry": [
+        "Check whether the product falls under Scheme-X.",
+        "Review the relevant Indian Standard and current Quality Control Order or other applicable notification.",
+        "Follow the current BIS assessment and certification requirements."
+      ],
+      "consumer": [
+        "Consumers should rely on official BIS product and certification information when checking products covered by Scheme-X."
+      ]
+    },
+    "official_sources": [
+      "compulsory_certification",
+      "certification_process"
+    ]
+  },
+  {
+    "id": "fmcs",
+    "category": "Foreign Manufacturers",
+    "title": "Foreign Manufacturers Certification Scheme",
+    "keywords": [
+      "fmcs",
+      "foreign manufacturer",
+      "foreign manufacturers certification scheme",
+      "bis foreign manufacturer",
+      "export to india bis",
+      "foreign manufacturer bis licence",
+      "foreign manufacturer bis license"
+    ],
+    "answer": "BIS operates the Foreign Manufacturers Certification Scheme (FMCS). Under FMCS, BIS can grant a licence to a foreign manufacturer for use of the Standard Mark on products conforming to relevant Indian Standards, subject to the applicable requirements.",
+    "user_guidance": {
+      "industry": [
+        "Determine the applicable Indian Standard.",
+        "Check whether FMCS applies to the product.",
+        "Review the current FMCS eligibility, application, assessment and licensing requirements.",
+        "Use official BIS FMCS information for the current process."
+      ],
+      "consumer": [
+        "Consumers can check applicable BIS certification information for products manufactured outside India."
+      ]
+    },
+    "official_sources": [
+      "home",
+      "certification_process"
+    ]
+  },
+  {
+    "id": "qco",
+    "category": "Regulatory Requirements",
+    "title": "Quality Control Orders (QCOs)",
+    "keywords": [
+      "qco",
+      "qcos",
+      "quality control order",
+      "quality control orders",
+      "mandatory order",
+      "government quality control order",
+      "bis qco",
+      "product qco"
+    ],
+    "answer": "Quality Control Orders are government-issued regulatory orders that can make compliance with specified Indian Standards compulsory for particular products. BIS publishes information about products under compulsory certification and related QCOs.",
+    "user_guidance": {
+      "industry": [
+        "Check whether the product is covered by a current QCO.",
+        "Check the applicable Indian Standard referenced by the order.",
+        "Check the implementation date and any amendments or current notifications.",
+        "Do not rely on an old QCO list without checking the latest official information."
+      ],
+      "consumer": [
+        "QCOs can affect whether certain products are required to comply with specified standards and certification requirements."
+      ]
+    },
+    "official_sources": [
+      "compulsory_certification",
+      "standards"
+    ]
+  },
+  {
+    "id": "product-specific-information",
+    "category": "Manufacturer Services",
+    "title": "Product-Specific BIS Information",
+    "keywords": [
+      "product specific information",
+      "product manual",
+      "bis product manual",
+      "scheme of inspection and testing",
+      "sit",
+      "grouping guidelines",
+      "technical manual",
+      "product specific guideline"
+    ],
+    "answer": "BIS publishes product-specific information including product manuals, Scheme of Inspection and Testing information, grouping guidelines and other guidance for applicable certification schemes.",
+    "user_guidance": {
+      "industry": [
+        "After identifying the applicable standard, check whether BIS provides a product-specific manual or guidance.",
+        "Review applicable inspection, testing and grouping information before preparing an application."
+      ],
+      "consumer": [
+        "Product-specific technical manuals are generally intended for certification and compliance activities rather than ordinary consumer use."
+      ]
+    },
+    "official_sources": [
+      "certification_process"
+    ]
+  },
+  {
+    "id": "consumer-services",
+    "category": "Consumer Services",
+    "title": "BIS Services for Consumers",
+    "keywords": [
+      "consumer bis",
+      "bis consumer",
+      "consumer services",
+      "consumer complaint bis",
+      "bis complaint",
+      "consumer help",
+      "consumer information"
+    ],
+    "answer": "BIS provides consumer-oriented information and services related to standards, product certification, verification and quality-related matters. BIS also provides consumer engagement channels and the BIS CARE app.",
+    "user_guidance": {
+      "consumer": [
+        "Use official BIS resources to check standards and certification information.",
+        "Use BIS CARE and other official BIS channels for applicable verification and consumer services.",
+        "For complaints or quality-related concerns, use the official BIS consumer or complaint channels."
+      ],
+      "industry": [
+        "Manufacturers should use the relevant BIS certification and standards channels for technical or licensing matters."
+      ]
+    },
+    "official_sources": [
+      "bis_care",
+      "consumer_faq",
+      "home"
+    ]
+  },
+  {
+    "id": "hallmarking",
+    "category": "Hallmarking",
+    "title": "BIS Hallmarking",
+    "keywords": [
+      "hallmark",
+      "hallmarking",
+      "bis hallmark",
+      "gold hallmark",
+      "silver hallmark",
+      "huid",
+      "hallmarked jewellery",
+      "hallmarked jewelry"
+    ],
+    "answer": "BIS operates a hallmarking framework for precious metal articles including gold and silver. BIS CARE provides a facility for verification of hallmarked jewellery using the HUID where applicable.",
+    "user_guidance": {
+      "consumer": [
+        "For applicable hallmarked jewellery, consumers can use official BIS verification facilities such as the HUID verification feature in BIS CARE.",
+        "Use official BIS information for current hallmarking requirements."
+      ],
+      "industry": [
+        "Jewellers and other relevant entities should follow the current BIS hallmarking and registration requirements applicable to their activities."
+      ]
+    },
+    "official_sources": [
+      "bis_care",
+      "home"
+    ]
+  },
+  {
+    "id": "official-verification",
+    "category": "Verification",
+    "title": "Official BIS Verification",
+    "keywords": [
+      "verify bis",
+      "verify bis certificate",
+      "verify bis licence",
+      "verify bis license",
+      "check bis certificate",
+      "check bis licence",
+      "check bis license",
+      "verify product certification",
+      "genuine bis"
+    ],
+    "answer": "BIS provides official resources for checking certification and product-related information. BIS CARE includes a 'Verify Licence Details' feature, while the BIS website also provides access to product certification and licence-related information.",
+    "user_guidance": {
+      "consumer": [
+        "Use official BIS verification facilities rather than relying only on an unofficial website or claim.",
+        "Compare the product, manufacturer and certification information with official BIS information."
+      ],
+      "industry": [
+        "Use official BIS systems for checking licence scope, validity and other certification information.",
+        "Always verify the current status before relying on certification information."
+      ]
+    },
+    "official_sources": [
+      "bis_care",
+      "home"
+    ]
+  },
+  {
+    "id": "official-bis-information",
+    "category": "General Guidance",
+    "title": "Using Official BIS Information",
+    "keywords": [
+      "official bis",
+      "bis website",
+      "bis official website",
+      "official source",
+      "latest bis information",
+      "current bis requirements",
+      "bis latest requirements"
+    ],
+    "answer": "BISathi provides informational guidance, but official BIS portals should be used whenever an exact, current standard, certification requirement, licence status, regulatory order or application requirement is needed.",
+    "user_guidance": {
+      "consumer": [
+        "Use official BIS sources when making a purchase or checking certification-related information.",
+        "For exact verification, prefer current information directly from BIS."
+      ],
+      "industry": [
+        "Use the official BIS Standards portal and relevant BIS certification pages when determining current requirements.",
+        "Check current amendments, QCOs, product manuals and application requirements before taking regulatory action."
+      ]
+    },
+    "official_sources": [
+      "home",
+      "standards",
+      "certification_process",
+      "compulsory_certification"
+    ]
+  }
+]

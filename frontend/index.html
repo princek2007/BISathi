@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="BISathi is an AI-powered assistant for Indian Standards, BIS certification, compliance and consumer guidance."
+    >
+
+    <title>BISathi | AI-Powered BIS Standards Assistant</title>
+
+    <!-- BISathi Logo / Favicon -->
+    <link
+        rel="icon"
+        type="image/jpeg"
+        href="BISathi.jpeg"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- BISathi Logo Image Styling -->
+    <style>
+        .brand-logo-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            border-radius: inherit;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SVG ICON SYSTEM
+         ===================================================== -->
+
+    <svg
+        aria-hidden="true"
+        width="0"
+        height="0"
+        style="position:absolute"
+    >
+
+        <defs>
+
+            <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+                <path
+                    d="M5 12h13M13 6l6 6-6 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+
+            <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+                <path
+                    d="M12 19V5M6 11l6-6 6 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+
+            <symbol id="icon-search" viewBox="0 0 24 24">
+                <circle
+                    cx="11"
+                    cy="11"
+                    r="6.5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                />
+
+                <path
+                    d="M16 16l5 5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </symbol>
+
+            <symbol id="icon-check" viewBox="0 0 24 24">
+                <path
+                    d="M5 12.5l4.5 4.5L19 7"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+
+            <symbol id="icon-document" viewBox="0 0 24 24">
+                <path
+                    d="M7 3h7l4 4v14H7z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M14 3v5h4M10 12h5M10 16h5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                />
+            </symbol>
+
+            <symbol id="icon-shield" viewBox="0 0 24 24">
+                <path
+                    d="M12 3l7 3v5c0 4.6-2.8 8.3-7 10-4.2-1.7-7-5.4-7-10V6z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M8.5 12l2.2 2.2 4.8-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </symbol>
+
+            <symbol id="icon-building" viewBox="0 0 24 24">
+                <path
+                    d="M5 21V5h10v16M15 9h4v12M8 8h3M8 12h3M8 16h3M17 13h1M17 17h1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+
+            <symbol id="icon-user" viewBox="0 0 24 24">
+                <circle
+                    cx="12"
+                    cy="8"
+                    r="3.2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                />
+
+                <path
+                    d="M5.5 20c.7-3.5 3-5.3 6.5-5.3s5.8 1.8 6.5 5.3"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                />
+            </symbol>
+
+            <symbol id="icon-spark" viewBox="0 0 24 24">
+                <path
+                    d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                />
+            </symbol>
+
+            <symbol id="icon-menu" viewBox="0 0 24 24">
+                <path
+                    d="M4 7h16M4 12h16M4 17h16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </symbol>
+
+            <symbol id="icon-close" viewBox="0 0 24 24">
+                <path
+                    d="M6 6l12 12M18 6L6 18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </symbol>
+
+            <symbol id="icon-external" viewBox="0 0 24 24">
+                <path
+                    d="M14 5h5v5M19 5l-8 8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                />
+            </symbol>
+
+        </defs>
+
+    </svg>
+
+
+    <!-- =====================================================
+         TOP INFORMATION BAR
+         ===================================================== -->
+
+    <div class="top-strip">
+
+        <div class="top-strip-inner">
+
+            <span class="top-strip-status">
+                <span class="live-dot"></span>
+                BISathi AI Assistant
+            </span>
+
+            <span class="top-strip-divider"></span>
+
+            <span>
+                Intelligent guidance for Indian Standards &amp; BIS Services
+            </span>
+
+            <a
+                href="https://www.bis.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Official BIS Portal
+
+                <svg class="tiny-icon">
+                    <use href="#icon-external"></use>
+                </svg>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <header class="navbar">
+
+        <a
+            href="#home"
+            class="brand"
+            aria-label="BISathi Home"
+        >
+
+            <!-- BISathi Logo -->
+            <div class="brand-mark">
+                <img
+                    src="BISathi.jpeg"
+                    alt="BISathi Logo"
+                    class="brand-logo-image"
+                >
+            </div>
+
+            <div class="brand-copy">
+                <strong>BISathi</strong>
+                <span>AI-Powered Standards Assistant</span>
+            </div>
+
+        </a>
+
+
+        <nav class="main-nav">
+
+            <a href="#home" class="active">
+                Home
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#how">
+                How It Works
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a
+                class="official-nav-link"
+                href="https://www.bis.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                BIS.gov.in
+
+                <svg class="tiny-icon">
+                    <use href="#icon-external"></use>
+                </svg>
+            </a>
+
+
+            <button
+                class="ask-nav-btn"
+                onclick="openAssistant()"
+            >
+
+                <svg class="button-icon">
+                    <use href="#icon-spark"></use>
+                </svg>
+
+                Ask BISathi
+
+                <svg class="button-arrow">
+                    <use href="#icon-arrow-right"></use>
+                </svg>
+
+            </button>
+
+
+            <button
+                class="mobile-menu-btn"
+                type="button"
+                onclick="toggleMobileNav()"
+                aria-label="Open menu"
+            >
+
+                <svg>
+                    <use href="#icon-menu"></use>
+                </svg>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MOBILE NAV
+         ===================================================== -->
+
+    <div class="mobile-nav" id="mobileNav">
+
+        <a
+            href="#home"
+            onclick="closeMobileNav()"
+        >
+            Home
+        </a>
+
+        <a
+            href="#services"
+            onclick="closeMobileNav()"
+        >
+            Services
+        </a>
+
+        <a
+            href="#how"
+            onclick="closeMobileNav()"
+        >
+            How It Works
+        </a>
+
+        <a
+            href="#about"
+            onclick="closeMobileNav()"
+        >
+            About
+        </a>
+
+        <button
+            onclick="openAssistant(); closeMobileNav()"
+        >
+            Ask BISathi AI
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main id="home">
+
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section class="hero">
+
+            <div class="hero-background-grid"></div>
+
+            <div class="hero-glow hero-glow-one"></div>
+
+            <div class="hero-glow hero-glow-two"></div>
+
+
+            <div class="hero-content">
+
+                <div class="hero-eyebrow">
+
+                    <span class="eyebrow-icon">
+                        <svg>
+                            <use href="#icon-spark"></use>
+                        </svg>
+                    </span>
+
+                    <span>
+                        AI-powered BIS intelligence
+                    </span>
+
+                    <span class="eyebrow-live">
+                        <span></span>
+                        LIVE
+                    </span>
+
+                </div>
+
+
+                <h1>
+                    Indian Standards,
+                    <span>made simple.</span>
+                </h1>
+
+
+                <p class="hero-description">
+                    BISathi helps consumers and industries understand
+                    Indian Standards, BIS certification, compliance
+                    requirements and the next steps — through one
+                    intelligent assistant.
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <button
+                        class="hero-primary-btn"
+                        onclick="openAssistant()"
+                    >
+
+                        <span class="hero-btn-icon">
+                            <svg>
+                                <use href="#icon-spark"></use>
+                            </svg>
+                        </span>
+
+                        Ask BISathi AI
+
+                        <svg class="hero-arrow">
+                            <use href="#icon-arrow-right"></use>
+                        </svg>
+
+                    </button>
+
+
+                    <button
+                        class="hero-secondary-btn"
+                        onclick="scrollToSection('services')"
+                    >
+
+                        Explore services
+
+                        <svg>
+                            <use href="#icon-arrow-right"></use>
+                        </svg>
+
+                    </button>
+
+                </div>
+
+
+                <div class="hero-trust">
+
+                    <div class="trust-item">
+
+                        <div class="trust-icon">
+                            <svg>
+                                <use href="#icon-search"></use>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <strong>Standards</strong>
+                            <span>Discovery</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <div class="trust-icon green">
+                            <svg>
+                                <use href="#icon-shield"></use>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <strong>Certification</strong>
+                            <span>Guidance</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <div class="trust-icon orange">
+                            <svg>
+                                <use href="#icon-document"></use>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <strong>Compliance</strong>
+                            <span>Support</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HERO AI COMMAND CENTER
+                 ================================================= -->
+
+            <div class="hero-visual">
+
+                <div class="visual-orbit orbit-one"></div>
+                <div class="visual-orbit orbit-two"></div>
+
+
+                <div class="ai-dashboard">
+
+                    <div class="dashboard-topbar">
+
+                        <div class="dashboard-brand">
+
+                            <div class="mini-ai-logo">
+                                <svg>
+                                    <use href="#icon-spark"></use>
+                                </svg>
+                            </div>
+
+                            <div>
+                                <strong>BISathi AI</strong>
+                                <span>
+                                    Intelligent standards assistant
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="dashboard-status">
+                            <span class="online-pulse"></span>
+                            Online
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-body">
+
+                        <div class="dashboard-greeting">
+
+                            <span class="greeting-label">
+                                GOOD TO SEE YOU
+                            </span>
+
+                            <h3>
+                                What do you need help with?
+                            </h3>
+
+                            <p>
+                                Choose a service or ask BISathi directly.
+                            </p>
+
+                        </div>
+
+
+                        <div class="dashboard-command">
+
+                            <div class="command-icon">
+                                <svg>
+                                    <use href="#icon-spark"></use>
+                                </svg>
+                            </div>
+
+                            <div class="command-text">
+
+                                <span>
+                                    Ask BISathi
+                                </span>
+
+                                <small>
+                                    Find standards, certification,
+                                    documents &amp; more
+                                </small>
+
+                            </div>
+
+                            <button
+                                onclick="openAssistant()"
+                                aria-label="Ask BISathi"
+                            >
+                                <svg>
+                                    <use href="#icon-arrow-right"></use>
+                                </svg>
+                            </button>
+
+                        </div>
+
+
+                        <!-- 4 SERVICE SHORTCUTS -->
+
+                        <div class="dashboard-services">
+
+
+                            <!-- Standards -->
+
+                            <button
+                                onclick="window.location.href='standards.html'"
+                            >
+
+                                <span class="dashboard-service-icon blue">
+                                    <svg>
+                                        <use href="#icon-search"></use>
+                                    </svg>
+                                </span>
+
+                                <span>
+                                    <strong>Find Standard</strong>
+                                    <small>
+                                        Product → IS
+                                    </small>
+                                </span>
+
+                            </button>
+
+
+                            <!-- Certification -->
+
+                            <button
+                                onclick="window.location.href='certification.html'"
+                            >
+
+                                <span class="dashboard-service-icon green">
+                                    <svg>
+                                        <use href="#icon-shield"></use>
+                                    </svg>
+                                </span>
+
+                                <span>
+                                    <strong>Certification</strong>
+                                    <small>
+                                        Understand the process
+                                    </small>
+                                </span>
+
+                            </button>
+
+
+                            <!-- Documents -->
+
+                            <button
+                                onclick="window.location.href='documents.html'"
+                            >
+
+                                <span class="dashboard-service-icon orange">
+                                    <svg>
+                                        <use href="#icon-document"></use>
+                                    </svg>
+                                </span>
+
+                                <span>
+                                    <strong>Documents</strong>
+                                    <small>
+                                        Get your checklist
+                                    </small>
+                                </span>
+
+                            </button>
+
+
+                            <!-- ISI -->
+
+                            <button
+                                onclick="window.location.href='isi-verification.html'"
+                            >
+
+                                <span class="dashboard-service-icon purple">
+                                    <svg>
+                                        <use href="#icon-check"></use>
+                                    </svg>
+                                </span>
+
+                                <span>
+                                    <strong>ISI Mark</strong>
+                                    <small>
+                                        Know what to check
+                                    </small>
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="dashboard-insight">
+
+                            <div class="insight-mark">
+                                <svg>
+                                    <use href="#icon-check"></use>
+                                </svg>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Official-source aware
+                                </strong>
+
+                                <span>
+                                    BISathi can connect guidance with
+                                    official BIS information and structured
+                                    knowledge.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-footer">
+
+                        <span>
+                            <span class="footer-status-dot"></span>
+                            AI assistance available
+                        </span>
+
+                        <span>
+                            BISathi
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FLOATING CARD 1 -->
+
+                <div class="floating-card floating-card-one">
+
+                    <div class="floating-icon blue">
+                        <svg>
+                            <use href="#icon-search"></use>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <strong>Find a Standard</strong>
+                        <span>Product intelligence</span>
+                    </div>
+
+                    <span class="floating-check">
+                        ✓
+                    </span>
+
+                </div>
+
+
+                <!-- FLOATING CARD 2 -->
+
+                <div class="floating-card floating-card-two">
+
+                    <div class="floating-icon green">
+                        <svg>
+                            <use href="#icon-shield"></use>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <strong>Certification</strong>
+                        <span>Guided pathway</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK VALUE STRIP
+             ================================================= -->
+
+        <section class="value-strip">
+
+            <div class="value-strip-inner">
+
+                <div class="value-heading">
+
+                    <span class="section-mini-label">
+                        ONE ASSISTANT
+                    </span>
+
+                    <strong>
+                        From question to next action.
+                    </strong>
+
+                </div>
+
+
+                <div class="value-point">
+
+                    <span class="value-number">
+                        01
+                    </span>
+
+                    <span>
+                        Understand your requirement
+                    </span>
+
+                </div>
+
+
+                <div class="value-point">
+
+                    <span class="value-number">
+                        02
+                    </span>
+
+                    <span>
+                        Find relevant BIS information
+                    </span>
+
+                </div>
+
+
+                <div class="value-point">
+
+                    <span class="value-number">
+                        03
+                    </span>
+
+                    <span>
+                        Get clear next steps
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SERVICES
+             ================================================= -->
+
+        <section
+            class="services section"
+            id="services"
+        >
+
+            <div class="section-heading-row">
+
+                <div>
+
+                    <span class="section-label">
+                        BIS SERVICES
+                    </span>
+
+                    <h2>
+                        Everything you need to
+                        <span>navigate BIS.</span>
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    One simple interface for standards discovery,
+                    certification guidance, compliance support and
+                    consumer information.
+                </p>
+
+            </div>
+
+
+            <div class="service-grid">
+
+
+                <!-- =========================================
+                     SERVICE 01 — STANDARDS
+                     ========================================= -->
+
+                <article
+                    class="service-card featured-service"
+                    onclick="window.location.href='standards.html'"
+                    tabindex="0"
+                    role="button"
+                    onkeydown="
+                        if(event.key === 'Enter' || event.key === ' ')
+                        {
+                            window.location.href='standards.html';
+                        }
+                    "
+                >
+
+                    <div class="service-card-top">
+
+                        <div class="service-icon blue">
+
+                            <svg>
+                                <use href="#icon-search"></use>
+                            </svg>
+
+                        </div>
+
+                        <span class="service-number">
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <div class="service-card-content">
+
+                        <span class="service-kicker">
+                            DISCOVER
+                        </span>
+
+                        <h3>
+                            Find BIS Standards
+                        </h3>
+
+                        <p>
+                            Find relevant Indian Standards based on
+                            your product, industry or requirement.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card-footer">
+
+                        <span>
+                            Explore standards
+                        </span>
+
+                        <svg>
+                            <use href="#icon-arrow-right"></use>
+                        </svg>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================================
+                     SERVICE 02 — CERTIFICATION
+                     ========================================= -->
+
+                <article
+                    class="service-card"
+                    onclick="window.location.href='certification.html'"
+                    tabindex="0"
+                    role="button"
+                    onkeydown="
+                        if(event.key === 'Enter' || event.key === ' ')
+                        {
+                            window.location.href='certification.html';
+                        }
+                    "
+                >
+
+                    <div class="service-card-top">
+
+                        <div class="service-icon green">
+
+                            <svg>
+                                <use href="#icon-shield"></use>
+                            </svg>
+
+                        </div>
+
+                        <span class="service-number">
+                            02
+                        </span>
+
+                    </div>
+
+
+                    <div class="service-card-content">
+
+                        <span class="service-kicker">
+                            INDUSTRY
+                        </span>
+
+                        <h3>
+                            Certification Guidance
+                        </h3>
+
+                        <p>
+                            Understand the BIS certification pathway,
+                            relevant standards and what to check
+                            before applying.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card-footer">
+
+                        <span>
+                            View guidance
+                        </span>
+
+                        <svg>
+                            <use href="#icon-arrow-right"></use>
+                        </svg>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================================
+                     SERVICE 03 — COMPLIANCE
+                     ========================================= -->
+
+                <article
+                    class="service-card"
+                    onclick="window.location.href='compliance.html'"
+                    tabindex="0"
+                    role="button"
+                    onkeydown="
+                        if(event.key === 'Enter' || event.key === ' ')
+                        {
+                            window.location.href='compliance.html';
+                        }
+                    "
+                >
+
+                    <div class="service-card-top">
+
+                        <div class="service-icon purple">
+
+                            <svg>
+                                <use href="#icon-spark"></use>
+                            </svg>
+
+                        </div>
+
+                        <span class="service-number">
+                            03
+                        </span>
+
+                    </div>
+
+
+                    <div class="service-card-content">
+
+                        <span class="service-kicker">
+                            AI ASSISTANCE
+                        </span>
+
+                        <h3>
+                            Compliance Assistant
+                        </h3>
+
+                        <p>
+                            Ask BISathi about applicable requirements
+                            and understand what your business should check.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card-footer">
+
+                        <span>
+                            Open assistant
+                        </span>
+
+                        <svg>
+                            <use href="#icon-arrow-right"></use>
+                        </svg>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================================
+                     SERVICE 04 — DOCUMENTS
+                     ========================================= -->
+
+                <article
+                    class="service-card"
+                    onclick="window.location.href='documents.html'"
+                    tabindex="0"
+                    role="button"
+                    onkeydown="
+                        if(event.key === 'Enter' || event.key === ' ')
+                        {
+                            window.location.href='documents.html';
+                        }
+                    "
+                >
+
+                    <div class="service-card-top">
+
+                        <div class="service-icon orange">
+
+                            <svg>
+                                <use href="#icon-document"></use>
+                            </svg>
+
+                        </div>
+
+                        <span class="service-number">
+                            04
+                        </span>
+
+                    </div>
+
+
+                    <div class="service-card-content">
+
+                        <span class="service-kicker">
+                            PREPARE
+                        </span>
+
+                        <h3>
+                            Document Checklist
+                        </h3>
+
+                        <p>
+                            Identify documents and information to
+                            prepare for a BIS-related process.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card-footer">
+
+                        <span>
+                            Check documents
+                        </span>
+
+                        <svg>
+                            <use href="#icon-arrow-right"></use>
+                        </svg>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================================
+                     SERVICE 05 — ISI
+                     ========================================= -->
+
+                <article
+                    class="service-card"
+                    onclick="window.location.href='isi-verification.html'"
+                    tabindex="0"
+                    role="button"
+                    onkeydown="
+                        if(event.key === 'Enter' || event.key === ' ')
+                        {
+                            window.location.href='isi-verification.html';
+                        }
+                    "
+                >
+
+                    <div class="service-card-top">
+
+                        <div class="service-icon teal">
+
+                            <svg>
+                                <use href="#icon-check"></use>
+                            </svg>
+
+                        </div>
+
+                        <span class="service-number">
+                            05
+                        </span>
+
+                    </div>
+
+
+                    <div class="service-card-content">
+
+                        <span class="service-kicker">
+                            CONSUMERS
+                        </span>
+
+                        <h3>
+                            ISI Mark Verification
+                        </h3>
+
+                        <p>
+                            Understand what consumers should check
+                            when evaluating an ISI Mark.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card-footer">
+
+                        <span>
+                            Verify information
+                        </span>
+
+                        <svg>
+                            <use href="#icon-arrow-right"></use>
+                        </svg>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HOW IT WORKS
+             ================================================= -->
+
+        <section
+            class="how-section section"
+            id="how"
+        >
+
+            <div class="how-intro">
+
+                <span class="section-label">
+                    HOW BISATHI WORKS
+                </span>
+
+                <h2>
+                    Complex information.
+                    <span>Clear action.</span>
+                </h2>
+
+                <p>
+                    BISathi turns a product or BIS-related question
+                    into understandable guidance through a simple flow.
+                </p>
+
+            </div>
+
+
+            <div class="process-flow">
+
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <div class="process-content">
+
+                        <span>
+                            YOU
+                        </span>
+
+                        <h3>
+                            Tell BISathi your need
+                        </h3>
+
+                        <p>
+                            Ask a question, enter a product or describe
+                            your certification requirement.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="process-connector">
+                    <span></span>
+                </div>
+
+
+                <div class="process-step">
+
+                    <div class="process-number active">
+
+                        <svg>
+                            <use href="#icon-spark"></use>
+                        </svg>
+
+                    </div>
+
+                    <div class="process-content">
+
+                        <span>
+                            BISATHI AI
+                        </span>
+
+                        <h3>
+                            Understand &amp; connect
+                        </h3>
+
+                        <p>
+                            The assistant interprets your need and
+                            connects it with relevant BIS information,
+                            official standards data and structured
+                            product knowledge.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="process-connector">
+                    <span></span>
+                </div>
+
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <div class="process-content">
+
+                        <span>
+                            RESULT
+                        </span>
+
+                        <h3>
+                            Get your next step
+                        </h3>
+
+                        <p>
+                            Receive understandable guidance, checks,
+                            documents and official sources.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="process-note">
+
+                <div class="process-note-icon">
+
+                    <svg>
+                        <use href="#icon-shield"></use>
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Designed around official BIS information
+                    </strong>
+
+                    <span>
+                        BISathi uses official BIS information where
+                        available and provides guidance that should be
+                        verified with the relevant BIS source.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             AUDIENCE
+             ================================================= -->
+
+        <section class="audience-section section">
+
+            <div class="audience-layout">
+
+
+                <div class="audience-copy">
+
+                    <span class="section-label">
+                        ONE PLATFORM
+                    </span>
+
+                    <h2>
+                        Built for the people
+                        <span>who use BIS.</span>
+                    </h2>
+
+                    <p>
+                        Whether you are buying a product or preparing
+                        one for the market, BISathi gives you a simpler
+                        way to understand standards and certification.
+                    </p>
+
+                    <button
+                        class="text-action"
+                        onclick="openAssistant()"
+                    >
+
+                        Start with BISathi
+
+                        <svg>
+                            <use href="#icon-arrow-right"></use>
+                        </svg>
+
+                    </button>
+
+                </div>
+
+
+                <div class="audience-panels">
+
+
+                    <!-- INDUSTRY -->
+
+                    <article class="audience-panel industry-panel">
+
+                        <div class="audience-panel-top">
+
+                            <div class="audience-large-icon">
+
+                                <svg>
+                                    <use href="#icon-building"></use>
+                                </svg>
+
+                            </div>
+
+                            <span>
+                                INDUSTRY
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            For manufacturers &amp; businesses
+                        </h3>
+
+                        <p>
+                            Understand standards, certification
+                            pathways, compliance requirements and
+                            documents.
+                        </p>
+
+
+                        <div class="audience-features">
+
+                            <span>
+                                <svg>
+                                    <use href="#icon-check"></use>
+                                </svg>
+
+                                Standards discovery
+                            </span>
+
+                            <span>
+                                <svg>
+                                    <use href="#icon-check"></use>
+                                </svg>
+
+                                Certification guidance
+                            </span>
+
+                            <span>
+                                <svg>
+                                    <use href="#icon-check"></use>
+                                </svg>
+
+                                Document checklist
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CONSUMER -->
+
+                    <article class="audience-panel consumer-panel">
+
+                        <div class="audience-panel-top">
+
+                            <div class="audience-large-icon">
+
+                                <svg>
+                                    <use href="#icon-user"></use>
+                                </svg>
+
+                            </div>
+
+                            <span>
+                                CONSUMER
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            For consumers &amp; citizens
+                        </h3>
+
+                        <p>
+                            Understand product standards, BIS information
+                            and what to check when looking at an ISI Mark.
+                        </p>
+
+
+                        <div class="audience-features">
+
+                            <span>
+                                <svg>
+                                    <use href="#icon-check"></use>
+                                </svg>
+
+                                Product information
+                            </span>
+
+                            <span>
+                                <svg>
+                                    <use href="#icon-check"></use>
+                                </svg>
+
+                                ISI guidance
+                            </span>
+
+                            <span>
+                                <svg>
+                                    <use href="#icon-check"></use>
+                                </svg>
+
+                                Easy explanations
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ABOUT
+             ================================================= -->
+
+        <section
+            class="about-section section"
+            id="about"
+        >
+
+            <div class="about-shell">
+
+
+                <div class="about-visual">
+
+                    <div class="about-orbit orbit-a"></div>
+
+                    <div class="about-orbit orbit-b"></div>
+
+                    <div class="about-core">
+
+                        <div class="about-core-icon">
+
+                            <svg>
+                                <use href="#icon-spark"></use>
+                            </svg>
+
+                        </div>
+
+                        <strong>
+                            BISathi
+                        </strong>
+
+                        <span>
+                            Intelligence layer
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-content">
+
+                    <span class="section-label">
+                        ABOUT BISATHI
+                    </span>
+
+                    <h2>
+                        Making BIS information
+                        <span>easier to act on.</span>
+                    </h2>
+
+                    <p>
+                        BISathi combines conversational AI with
+                        official BIS information and structured
+                        knowledge to turn complex standards and
+                        service information into practical guidance.
+                    </p>
+
+
+                    <div class="about-points">
+
+
+                        <div>
+
+                            <span class="about-point-icon">
+
+                                <svg>
+                                    <use href="#icon-search"></use>
+                                </svg>
+
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Discover
+                                </strong>
+
+                                <span>
+                                    Find relevant standards.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="about-point-icon">
+
+                                <svg>
+                                    <use href="#icon-spark"></use>
+                                </svg>
+
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Understand
+                                </strong>
+
+                                <span>
+                                    Get simpler explanations.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="about-point-icon">
+
+                                <svg>
+                                    <use href="#icon-arrow-right"></use>
+                                </svg>
+
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Act
+                                </strong>
+
+                                <span>
+                                    Know what to check next.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-main">
+
+
+            <div class="footer-brand">
+
+                <a
+                    href="#home"
+                    class="brand footer-brand-link"
+                >
+
+                    <!-- BISathi Logo -->
+                    <div class="brand-mark footer-mark">
+                        <img
+                            src="BISathi.jpeg"
+                            alt="BISathi Logo"
+                            class="brand-logo-image"
+                        >
+                    </div>
+
+                    <div class="brand-copy">
+
+                        <strong>
+                            BISathi
+                        </strong>
+
+                        <span>
+                            AI-Powered Standards Assistant
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <p>
+                    Making Indian Standards easier to understand,
+                    navigate and act on.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+
+                <div>
+
+                    <span>
+                        PLATFORM
+                    </span>
+
+                    <a href="#services">
+                        Services
+                    </a>
+
+                    <a href="#how">
+                        How It Works
+                    </a>
+
+                    <a href="#about">
+                        About
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        BIS
+                    </span>
+
+                    <a
+                        href="https://www.bis.gov.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Official Portal
+                    </a>
+
+                    <a
+                        href="https://standards.bis.gov.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Standards
+                    </a>
+
+                    <a
+                        href="https://www.bis.gov.in/product-certification/product-certification-process/?lang=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Certification
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        BISATHI SERVICES
+                    </span>
+
+                    <a href="standards.html">
+                        Find Standards
+                    </a>
+
+                    <a href="certification.html">
+                        Certification
+                    </a>
+
+                    <a href="compliance.html">
+                        Compliance
+                    </a>
+
+                    <a href="documents.html">
+                        Documents
+                    </a>
+
+                    <a href="isi-verification.html">
+                        ISI Verification
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 BISathi
+            </span>
+
+            <span>
+                AI-generated guidance should be verified with official BIS information.
+            </span>
+
+            <a
+                href="https://www.bis.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                Visit BIS.gov.in
+
+                <svg>
+                    <use href="#icon-external"></use>
+                </svg>
+
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         AI ASSISTANT MODAL
+         ===================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="assistantModal"
+    >
+
+        <div class="assistant-modal">
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+                <div class="modal-brand">
+
+                    <div class="modal-ai-icon">
+
+                        <svg>
+                            <use href="#icon-spark"></use>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            BISathi AI
+                        </strong>
+
+                        <span>
+                            <span class="online-dot"></span>
+                            Ready to help
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="close-btn"
+                    type="button"
+                    onclick="closeAssistant()"
+                    aria-label="Close assistant"
+                >
+
+                    <svg>
+                        <use href="#icon-close"></use>
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+            <!-- USER TYPE -->
+
+            <div class="user-type-section">
+
+                <div class="user-type-heading">
+
+                    <div>
+
+                        <span>
+                            PERSONALIZE YOUR EXPERIENCE
+                        </span>
+
+                        <strong>
+                            What brings you to BISathi?
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="user-type-options">
+
+
+                    <button
+                        type="button"
+                        class="user-type-btn active"
+                        id="consumerBtn"
+                        onclick="selectUserType('consumer')"
+                    >
+
+                        <span class="user-type-icon">
+
+                            <svg>
+                                <use href="#icon-user"></use>
+                            </svg>
+
+                        </span>
+
+                        <span class="user-type-text">
+
+                            <strong>
+                                Consumer
+                            </strong>
+
+                            <small>
+                                Product &amp; BIS information
+                            </small>
+
+                        </span>
+
+                        <span class="selection-check">
+
+                            <svg>
+                                <use href="#icon-check"></use>
+                            </svg>
+
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="user-type-btn"
+                        id="industryBtn"
+                        onclick="selectUserType('manufacturer')"
+                    >
+
+                        <span class="user-type-icon industry-icon">
+
+                            <svg>
+                                <use href="#icon-building"></use>
+                            </svg>
+
+                        </span>
+
+                        <span class="user-type-text">
+
+                            <strong>
+                                Industry / Manufacturer
+                            </strong>
+
+                            <small>
+                                Certification &amp; compliance
+                            </small>
+
+                        </span>
+
+                        <span class="selection-check">
+
+                            <svg>
+                                <use href="#icon-check"></use>
+                            </svg>
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHAT -->
+
+            <div
+                class="modal-chat"
+                id="chatArea"
+            >
+
+                <div class="chat-welcome">
+
+                    <div class="welcome-ai-icon">
+
+                        <svg>
+                            <use href="#icon-spark"></use>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <span class="chat-time-label">
+                            BISATHI AI
+                        </span>
+
+                        <h3>
+                            How can I help you today?
+                        </h3>
+
+                        <p>
+                            Ask about standards, certification,
+                            documents, compliance or ISI Marks.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="starter-suggestions">
+
+
+                    <button
+                        onclick="askQuestion('Which BIS standard applies to my product?')"
+                    >
+
+                        <svg>
+                            <use href="#icon-search"></use>
+                        </svg>
+
+                        Find a Standard
+
+                    </button>
+
+
+                    <button
+                        onclick="askQuestion('How do I get BIS certification?')"
+                    >
+
+                        <svg>
+                            <use href="#icon-shield"></use>
+                        </svg>
+
+                        BIS Certification
+
+                    </button>
+
+
+                    <button
+                        onclick="askQuestion('What documents are required for BIS certification?')"
+                    >
+
+                        <svg>
+                            <use href="#icon-document"></use>
+                        </svg>
+
+                        Required Documents
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK SUGGESTIONS -->
+
+            <div class="suggestions">
+
+                <button
+                    type="button"
+                    onclick="askQuestion('How do I get BIS certification?')"
+                >
+                    Certification
+                </button>
+
+                <button
+                    type="button"
+                    onclick="askQuestion('Find the standard for my product')"
+                >
+                    Find Standard
+                </button>
+
+                <button
+                    type="button"
+                    onclick="askQuestion('What documents do I need?')"
+                >
+                    Documents
+                </button>
+
+                <button
+                    type="button"
+                    onclick="askQuestion('How can I verify an ISI Mark?')"
+                >
+                    ISI Mark
+                </button>
+
+            </div>
+
+
+            <!-- CHAT INPUT -->
+
+            <div class="chat-input">
+
+                <div class="chat-input-leading">
+
+                    <svg>
+                        <use href="#icon-spark"></use>
+                    </svg>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="userInput"
+                    placeholder="Ask BISathi anything..."
+                    onkeydown="handleEnter(event)"
+                    autocomplete="off"
+                />
+
+
+                <button
+                    type="button"
+                    onclick="sendMessage()"
+                    aria-label="Send message"
+                >
+
+                    <svg>
+                        <use href="#icon-arrow-up"></use>
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+            <div class="ai-disclaimer">
+
+                <span>
+                    AI guidance • Verify important requirements
+                    with official BIS sources
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN JAVASCRIPT
+         ===================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>

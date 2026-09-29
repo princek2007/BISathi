@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISI Mark Verification | BISathi</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+    <!-- Main BISathi stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* =========================================================
+           LOGO STYLING
+           ========================================================= */
+        .brand-mark img,
+        .footer-mark img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            border-radius: inherit;
+        }
+
+        /* =========================================================
+           ISI VERIFICATION PAGE
+           ========================================================= */
+        .isi-page {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 85% 15%,
+                    rgba(24, 76, 160, 0.07),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 10% 45%,
+                    rgba(30, 102, 190, 0.045),
+                    transparent 30%
+                ),
+                #f7f9fc;
+        }
+        /* =========================================================
+           BACK LINK
+           ========================================================= */
+        .isi-back-wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 22px 24px 0;
+        }
+        .isi-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #53657c;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+        .isi-back:hover {
+            color: #164f9e;
+            transform: translateX(-2px);
+        }
+        /* =========================================================
+           PAGE HEADER
+           ========================================================= */
+        .isi-header {
+            max-width: 850px;
+            margin: 38px auto 28px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .isi-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: #eaf2ff;
+            color: #1553a0;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+        .isi-label-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #1d65bd;
+        }
+        .isi-header h1 {
+            margin: 16px 0 12px;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(32px, 4vw, 52px);
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+            color: #10233f;
+        }
+        .isi-header h1 span {
+            color: #155db1;
+        }
+        .isi-header p {
+            margin: 0 auto;
+            max-width: 680px;
+            color: #63738a;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        /* =========================================================
+           VERIFICATION WORKSPACE
+           ========================================================= */
+        .isi-workspace {
+            max-width: 1050px;
+            margin: 0 auto 70px;
+            padding: 0 24px;
+        }
+        .isi-card {
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            box-shadow: 0 18px 55px rgba(18, 42, 72, 0.08);
+            overflow: hidden;
+        }
+        .isi-card-top {
+            padding: 28px 30px 24px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .isi-card-title {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .isi-icon {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            background: #edf4ff;
+            color: #155db1;
+        }
+        .isi-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+        .isi-card-title h2 {
+            margin: 0 0 5px;
+            font-family: "Manrope", sans-serif;
+            font-size: 20px;
+            color: #152945;
+        }
+        .isi-card-title p {
+            margin: 0;
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+        /* =========================================================
+           SEARCH
+           ========================================================= */
+        .isi-search {
+            padding: 26px 30px;
+            background: #fbfcfe;
+        }
+        .isi-search-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px;
+            background: #fff;
+            border: 1px solid #dce4ee;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(17, 41, 72, 0.04);
+            transition: 0.2s ease;
+        }
+        .isi-search-box:focus-within {
+            border-color: #5e91cf;
+            box-shadow: 0 0 0 4px rgba(42, 104, 181, 0.08);
+        }
+        .isi-search-icon {
+            width: 20px;
+            height: 20px;
+            margin-left: 8px;
+            color: #8190a5;
+            flex: 0 0 auto;
+        }
+        .isi-search-box input {
+            flex: 1;
+            min-width: 0;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #1c304b;
+            font-family: "DM Sans", sans-serif;
+            font-size: 15px;
+        }
+        .isi-search-box input::placeholder {
+            color: #9aa7b7;
+        }
+        .isi-search-btn {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 44px;
+            padding: 0 20px;
+            border-radius: 11px;
+            background: #155db1;
+            color: white;
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+        .isi-search-btn:hover {
+            background: #104c92;
+            transform: translateY(-1px);
+        }
+        .isi-search-btn svg {
+            width: 17px;
+            height: 17px;
+        }
+        .isi-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+        .isi-chip {
+            border: 1px solid #dbe4ef;
+            background: white;
+            color: #53667e;
+            border-radius: 999px;
+            padding: 8px 13px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+        .isi-chip:hover {
+            border-color: #9dbbe0;
+            color: #155db1;
+            background: #f4f8ff;
+        }
+        /* =========================================================
+           STATES
+           ========================================================= */
+        .isi-state {
+            padding: 42px 30px;
+            text-align: center;
+            color: #718096;
+        }
+        .isi-state-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
+            display: grid;
+            place-items: center;
+            border-radius: 15px;
+            background: #edf4ff;
+            color: #155db1;
+        }
+        .isi-state-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        .isi-state h3 {
+            margin: 0 0 7px;
+            font-family: "Manrope", sans-serif;
+            font-size: 17px;
+            color: #20334e;
+        }
+        .isi-state p {
+            margin: 0 auto;
+            max-width: 560px;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+        .isi-loading {
+            display: none;
+        }
+        .isi-error {
+            display: none;
+        }
+        /* =========================================================
+           RESULT
+           ========================================================= */
+        .isi-result {
+            display: none;
+            padding: 30px;
+        }
+        .verification-summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 22px;
+            border-radius: 17px;
+            background: #f5f9ff;
+            border: 1px solid #dce9f8;
+            margin-bottom: 24px;
+        }
+        .verification-product {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .verification-badge {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: #155db1;
+            color: white;
+            font-family: "Manrope", sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .verification-product strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #182c47;
+            font-family: "Manrope", sans-serif;
+            font-size: 17px;
+        }
+        .verification-product span {
+            color: #718096;
+            font-size: 13px;
+        }
+        .verification-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #e9f7ef;
+            color: #197342;
+            font-size: 12px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        .verification-status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #2a9d5b;
+        }
+        .isi-result-content {
+            color: #455970;
+            font-size: 14px;
+            line-height: 1.75;
+        }
+        .isi-result-content h2,
+        .isi-result-content h3 {
+            color: #182c47;
+            font-family: "Manrope", sans-serif;
+            margin-top: 22px;
+            margin-bottom: 10px;
+        }
+        .isi-result-content h2 {
+            font-size: 19px;
+        }
+        .isi-result-content h3 {
+            font-size: 16px;
+        }
+        .isi-result-content p {
+            margin: 0 0 10px;
+        }
+        .isi-result-content ul {
+            margin: 8px 0 16px;
+            padding-left: 20px;
+        }
+        .isi-result-content li {
+            margin-bottom: 7px;
+        }
+        .isi-result-content strong {
+            color: #243852;
+        }
+        /* =========================================================
+           CONSUMER TRUST CHECKS
+           ========================================================= */
+        .trust-section {
+            max-width: 1050px;
+            margin: 0 auto 70px;
+            padding: 0 24px;
+        }
+        .trust-heading {
+            margin-bottom: 20px;
+        }
+        .trust-heading .section-label {
+            color: #155db1;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+        .trust-heading h2 {
+            margin: 8px 0 0;
+            font-family: "Manrope", sans-serif;
+            color: #162a45;
+            font-size: 27px;
+            letter-spacing: -0.025em;
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .trust-item {
+            padding: 22px;
+            background: white;
+            border: 1px solid #e3e9f1;
+            border-radius: 17px;
+            transition: 0.2s ease;
+        }
+        .trust-item:hover {
+            transform: translateY(-3px);
+            border-color: #cbd9e9;
+            box-shadow: 0 12px 30px rgba(24, 48, 80, 0.07);
+        }
+        .trust-item-icon {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            background: #edf4ff;
+            color: #155db1;
+            margin-bottom: 14px;
+        }
+        .trust-item-icon svg {
+            width: 19px;
+            height: 19px;
+        }
+        .trust-item h3 {
+            margin: 0 0 7px;
+            color: #20334e;
+            font-family: "Manrope", sans-serif;
+            font-size: 15px;
+        }
+        .trust-item p {
+            margin: 0;
+            color: #748399;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+        /* =========================================================
+           OFFICIAL SOURCES
+           ========================================================= */
+        .isi-sources {
+            max-width: 1050px;
+            margin: 0 auto 70px;
+            padding: 0 24px;
+        }
+        .source-box {
+            padding: 25px;
+            border: 1px solid #dce6f1;
+            border-radius: 18px;
+            background: #f9fbfe;
+        }
+        .source-box h3 {
+            margin: 0 0 6px;
+            color: #1d304a;
+            font-family: "Manrope", sans-serif;
+            font-size: 17px;
+        }
+        .source-box > p {
+            margin: 0 0 16px;
+            color: #748399;
+            font-size: 13px;
+        }
+        .source-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+        .source-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 12px;
+            border-radius: 10px;
+            border: 1px solid #d9e3ee;
+            background: white;
+            color: #155db1;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+        .source-links a:hover {
+            border-color: #9db9da;
+            background: #f3f7fd;
+        }
+        .source-links svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* =========================================================
+           COMPLIANCE FOOTER STYLE
+           ========================================================= */
+        .compliance-footer {
+            min-height: 110px;
+            background: linear-gradient(105deg, #123e78, #1765d1);
+            color: #ffffff;
+        }
+
+        .compliance-footer-inner {
+            width: min(1180px, calc(100% - 48px));
+            min-height: 110px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .footer-mark {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            font-family: "Manrope", sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            overflow: hidden;
+        }
+
+        .footer-brand-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .footer-brand-copy strong {
+            font-family: "Manrope", sans-serif;
+            font-size: 17px;
+        }
+
+        .footer-brand-copy span {
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 11px;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+        }
+
+        .footer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-link svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+        @media (max-width: 900px) {
+            .compliance-footer-inner {
+                width: min(100% - 36px, 1180px);
+                min-height: auto;
+                padding: 24px 0;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                width: 100%;
+                justify-content: space-between;
+                gap: 15px;
+            }
+
+            .footer-description {
+                display: none;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .isi-back-wrap {
+                padding: 18px 16px 0;
+            }
+            .isi-header {
+                margin-top: 28px;
+            }
+            .isi-header h1 {
+                font-size: 34px;
+            }
+            .isi-workspace,
+            .trust-section,
+            .isi-sources {
+                padding: 0 15px;
+            }
+            .isi-card-top,
+            .isi-search,
+            .isi-result {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+            .isi-search-box {
+                flex-wrap: wrap;
+                padding: 8px;
+            }
+            .isi-search-icon {
+                margin-left: 7px;
+            }
+            .isi-search-box input {
+                width: calc(100% - 50px);
+            }
+            .isi-search-btn {
+                width: 100%;
+            }
+            .verification-summary {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="isi-page">
+        <!-- =====================================================
+             TOP INFORMATION BAR
+             Same structure as homepage
+             ===================================================== -->
+        <div class="top-strip">
+            <div class="top-strip-inner">
+                <span class="top-strip-status">
+                    <span class="live-dot"></span>
+                    BISathi AI Assistant
+                </span>
+                <span class="top-strip-divider"></span>
+                <span>
+                    Intelligent guidance for Indian Standards & BIS Services
+                </span>
+                <a
+                    href="https://www.bis.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Official BIS Portal
+                    <svg class="tiny-icon">
+                        <use href="#icon-external"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <!-- =====================================================
+             SVG ICON SYSTEM
+             Same icons used by homepage
+             ===================================================== -->
+        <svg
+            width="0"
+            height="0"
+            style="position:absolute"
+            aria-hidden="true"
+            focusable="false"
+        >
+            <symbol id="icon-external" viewBox="0 0 24 24">
+                <path
+                    d="M14 5h5v5M19 5l-8 8M19 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+            <symbol id="icon-spark" viewBox="0 0 24 24">
+                <path
+                    d="M12 2l1.7 6.3L20 10l-6.3 1.7L12 18l-1.7-6.3L4 10l6.3-1.7L12 2z"
+                    fill="currentColor"
+                />
+                <path
+                    d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z"
+                    fill="currentColor"
+                />
+            </symbol>
+            <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+                <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+            <symbol id="icon-menu" viewBox="0 0 24 24">
+                <path
+                    d="M4 7h16M4 12h16M4 17h16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </symbol>
+        </svg>
+        <!-- =====================================================
+             NAVBAR
+             Same structure as homepage
+             ===================================================== -->
+        <header class="navbar">
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="BISathi Home"
+            >
+                <div class="brand-mark">
+                    <img
+                        src="BISathi.jpeg"
+                        alt="BISathi logo"
+                    />
+                    <i></i>
+                </div>
+                <div class="brand-copy">
+                    <strong>BISathi</strong>
+                    <span>AI-Powered Standards Assistant</span>
+                </div>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a
+                    href="index.html#services"
+                    class="active"
+                >
+                    Services
+                </a>
+                <a href="index.html#how">How It Works</a>
+                <a href="index.html#about">About</a>
+            </nav>
+            <div class="nav-actions">
+                <a
+                    class="official-nav-link"
+                    href="https://www.bis.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    BIS.gov.in
+                    <svg class="tiny-icon">
+                        <use href="#icon-external"></use>
+                    </svg>
+                </a>
+                <button
+                    class="ask-nav-btn"
+                    onclick="openAssistant()"
+                >
+                    <svg class="button-icon">
+                        <use href="#icon-spark"></use>
+                    </svg>
+                    Ask BISathi
+                    <svg class="button-arrow">
+                        <use href="#icon-arrow-right"></use>
+                    </svg>
+                </button>
+                <button
+                    class="mobile-menu-btn"
+                    type="button"
+                    onclick="toggleMobileNav()"
+                    aria-label="Open menu"
+                >
+                    <svg>
+                        <use href="#icon-menu"></use>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <!-- =====================================================
+             MOBILE NAV
+             Same structure as homepage
+             ===================================================== -->
+        <div
+            class="mobile-nav"
+            id="mobileNav"
+        >
+            <a
+                href="index.html"
+                onclick="closeMobileNav()"
+            >
+                Home
+            </a>
+            <a
+                href="index.html#services"
+                onclick="closeMobileNav()"
+            >
+                Services
+            </a>
+            <a
+                href="index.html#how"
+                onclick="closeMobileNav()"
+            >
+                How It Works
+            </a>
+            <a
+                href="index.html#about"
+                onclick="closeMobileNav()"
+            >
+                About
+            </a>
+            <button
+                onclick="openAssistant(); closeMobileNav()"
+            >
+                Ask BISathi AI
+            </button>
+        </div>
+        <!-- =====================================================
+             BACK LINK
+             ===================================================== -->
+        <div class="isi-back-wrap">
+            <a
+                href="index.html#services"
+                class="isi-back"
+            >
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                >
+                    <path
+                        d="M19 12H5M11 18l-6-6 6-6"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+                Back to BISathi services
+            </a>
+        </div>
+        <!-- =====================================================
+             PAGE HEADER
+             ===================================================== -->
+        <header class="isi-header">
+            <div class="isi-label">
+                <span class="isi-label-dot"></span>
+                ISI MARK VERIFICATION
+            </div>
+            <h1>
+                Check before you
+                <span>trust the mark.</span>
+            </h1>
+            <p>
+                Understand the BIS requirements associated with a product,
+                learn what consumers should check, and get guidance from
+                BISathi before making a purchase.
+            </p>
+        </header>
+        <!-- =====================================================
+             VERIFICATION WORKSPACE
+             ===================================================== -->
+        <main class="isi-workspace">
+            <section class="isi-card">
+                <!-- Card heading -->
+                <div class="isi-card-top">
+                    <div class="isi-card-title">
+                        <div class="isi-icon">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M12 3l7 3v5c0 4.6-2.9 8.6-7 10-4.1-1.4-7-5.4-7-10V6l7-3z"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M9 12l2 2 4-4"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2>Verify a product</h2>
+                            <p>
+                                Enter a product name to see BISathi's verification guidance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Search -->
+                <div class="isi-search">
+                    <div class="isi-search-box">
+                        <svg
+                            class="isi-search-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="6.5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                            <path
+                                d="M16 16l5 5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                        <input
+                            id="isiProductInput"
+                            type="text"
+                            placeholder="Enter a product, e.g. pressure cooker"
+                            autocomplete="off"
+                        />
+                        <button
+                            class="isi-search-btn"
+                            id="isiVerifyBtn"
+                            type="button"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M12 3l7 3v5c0 4.6-2.9 8.6-7 10-4.1-1.4-7-5.4-7-10V6l7-3z"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M9 12l2 2 4-4"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                            Verify
+                        </button>
+                    </div>
+                    <div class="isi-chips">
+                        <button
+                            class="isi-chip"
+                            data-product="Pressure Cooker"
+                            type="button"
+                        >
+                            Pressure Cooker
+                        </button>
+                        <button
+                            class="isi-chip"
+                            data-product="Electric Iron"
+                            type="button"
+                        >
+                            Electric Iron
+                        </button>
+                        <button
+                            class="isi-chip"
+                            data-product="Cement"
+                            type="button"
+                        >
+                            Cement
+                        </button>
+                        <button
+                            class="isi-chip"
+                            data-product="Room Heater"
+                            type="button"
+                        >
+                            Room Heater
+                        </button>
+                        <button
+                            class="isi-chip"
+                            data-product="Electric Water Heater"
+                            type="button"
+                        >
+                            Water Heater
+                        </button>
+                    </div>
+                </div>
+                <!-- Empty state -->
+                <div
+                    class="isi-state"
+                    id="isiEmptyState"
+                >
+                    <div class="isi-state-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="6.5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                            <path
+                                d="M16 16l5 5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </div>
+                    <h3>Start with a product</h3>
+                    <p>
+                        Search for a product above to understand its applicable
+                        Indian Standard, certification context and consumer checks.
+                    </p>
+                </div>
+                <!-- Loading state -->
+                <div
+                    class="isi-state isi-loading"
+                    id="isiLoading"
+                >
+                    <div class="isi-state-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </div>
+                    <h3>Checking product guidance...</h3>
+                    <p>
+                        BISathi is preparing the available BIS verification guidance.
+                    </p>
+                </div>
+                <!-- Error state -->
+                <div
+                    class="isi-state isi-error"
+                    id="isiError"
+                >
+                    <div class="isi-state-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="9"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                            <path
+                                d="M12 7v6"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                            <circle
+                                cx="12"
+                                cy="16.5"
+                                r="1"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </div>
+                    <h3>Verification guidance unavailable</h3>
+                    <p id="isiErrorText">
+                        Something went wrong while checking the product.
+                    </p>
+                </div>
+                <!-- Result -->
+                <div
+                    class="isi-result"
+                    id="isiResult"
+                >
+                    <div class="verification-summary">
+                        <div class="verification-product">
+                            <div class="verification-badge">
+                                ISI
+                            </div>
+                            <div>
+                                <strong id="isiProductName">
+                                    Product
+                                </strong>
+                                <span id="isiStandardName">
+                                    Indian Standard
+                                </span>
+                            </div>
+                        </div>
+                        <div class="verification-status">
+                            <span class="verification-status-dot"></span>
+                            Guidance available
+                        </div>
+                    </div>
+                    <div
+                        class="isi-result-content"
+                        id="isiResultContent"
+                    ></div>
+                </div>
+            </section>
+        </main>
+        <!-- =====================================================
+             CONSUMER TRUST CHECKS
+             ===================================================== -->
+        <section class="trust-section">
+            <div class="trust-heading">
+                <span class="section-label">
+                    CONSUMER CHECKS
+                </span>
+                <h2>
+                    What to look for before buying
+                </h2>
+            </div>
+            <div class="trust-grid">
+                <!-- Check 1 -->
+                <article class="trust-item">
+                    <div class="trust-item-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M5 5h14v14H5z"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M8 9h8M8 13h5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </div>
+                    <h3>Check the marking</h3>
+                    <p>
+                        Look for the relevant BIS/ISI marking information
+                        associated with the product.
+                    </p>
+                </article>
+                <!-- Check 2 -->
+                <article class="trust-item">
+                    <div class="trust-item-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M7 4h10v16H7z"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M10 8h4M10 12h4M10 16h2"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </div>
+                    <h3>Check product details</h3>
+                    <p>
+                        Compare the product information, manufacturer details
+                        and applicable standard information.
+                    </p>
+                </article>
+                <!-- Check 3 -->
+                <article class="trust-item">
+                    <div class="trust-item-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M12 3l7 3v5c0 4.6-2.9 8.6-7 10-4.1-1.4-7-5.4-7-10V6l7-3z"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M9 12l2 2 4-4"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </div>
+                    <h3>Use official information</h3>
+                    <p>
+                        When in doubt, use official BIS resources for
+                        certification and verification-related information.
+                    </p>
+                </article>
+            </div>
+        </section>
+        <!-- =====================================================
+             OFFICIAL SOURCES
+             ===================================================== -->
+        <section class="isi-sources">
+            <div class="source-box">
+                <h3>
+                    Official BIS resources
+                </h3>
+                <p>
+                    BISathi provides guidance while official BIS resources remain
+                    the authoritative source for BIS services and verification.
+                </p>
+                <div class="source-links">
+                    <a
+                        href="https://www.bis.gov.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        BIS Official Portal
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M14 5h5v5M19 5l-8 8"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://www.bis.gov.in/product-certification/product-certification-faq/?lang=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Certification FAQ
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M14 5h5v5M19 5l-8 8"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://www.bis.gov.in/bis-apps/?lang=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        BIS Apps / Services
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M14 5h5v5M19 5l-8 8"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- =====================================================
+             FOOTER (COMPLIANCE STYLE)
+             ===================================================== -->
+        <footer class="compliance-footer">
+            <div class="compliance-footer-inner">
+                <div class="footer-brand">
+                    <div class="footer-mark">
+                        <img
+                            src="BISathi.jpeg"
+                            alt="BISathi logo"
+                        >
+                    </div>
+                    <div class="footer-brand-copy">
+                        <strong>BISathi</strong>
+                        <span>AI-Powered Standards Assistant</span>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <span class="footer-description">
+                        Built around BIS information and services.
+                    </span>
+                    <a
+                        href="https://www.bis.gov.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-link"
+                    >
+                        Visit BIS.gov.in
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <path
+                                d="M14 5H19V10"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M19 5L11 13"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            />
+                            <path
+                                d="M19 14V18C19 18.55 18.55 19 18 19H6C5.45 19 5 18.55 5 18V6C5 5.45 5.45 5 6 5H10"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+   
+    <!-- =======================================================
+         SHARED SCRIPT
+         ======================================================= -->
+    <script src="script.js"></script>
+    <!-- =======================================================
+         ISI VERIFICATION SCRIPT
+         ======================================================= -->
+    <script>
+        const isiProductInput =
+            document.getElementById("isiProductInput");
+        const isiVerifyBtn =
+            document.getElementById("isiVerifyBtn");
+        const isiEmptyState =
+            document.getElementById("isiEmptyState");
+        const isiLoading =
+            document.getElementById("isiLoading");
+        const isiError =
+            document.getElementById("isiError");
+        const isiErrorText =
+            document.getElementById("isiErrorText");
+        const isiResult =
+            document.getElementById("isiResult");
+        const isiProductName =
+            document.getElementById("isiProductName");
+        const isiStandardName =
+            document.getElementById("isiStandardName");
+        const isiResultContent =
+            document.getElementById("isiResultContent");
+        /* =====================================================
+           STATE MANAGEMENT
+           ===================================================== */
+        function showIsiState(state) {
+            isiEmptyState.style.display = "none";
+            isiLoading.style.display = "none";
+            isiError.style.display = "none";
+            isiResult.style.display = "none";
+            if (state === "empty") {
+                isiEmptyState.style.display = "block";
+            }
+            if (state === "loading") {
+                isiLoading.style.display = "block";
+            }
+            if (state === "error") {
+                isiError.style.display = "block";
+            }
+            if (state === "result") {
+                isiResult.style.display = "block";
+            }
+        }
+        /* =====================================================
+           RESPONSE FORMATTING
+           ===================================================== */
+        function formatIsiText(text) {
+            if (!text) {
+                return "";
+            }
+            let html = text;
+            /*
+             * Escape HTML first so backend content
+             * cannot directly inject HTML.
+             */
+            html = html.replace(/&/g, "&amp;");
+            html = html.replace(/</g, "&lt;");
+            html = html.replace(/>/g, "&gt;");
+            /* Bold markdown */
+            html = html.replace(
+                /\*\*(.*?)\*\*/g,
+                "<strong>$1</strong>"
+            );
+            /* H3 markdown */
+            html = html.replace(
+                /^### (.*)$/gm,
+                "<h3>$1</h3>"
+            );
+            /* H2 markdown */
+            html = html.replace(
+                /^## (.*)$/gm,
+                "<h2>$1</h2>"
+            );
+            const lines = html.split("\n");
+            let output = "";
+            let listOpen = false;
+            for (const line of lines) {
+                /*
+                 * Backend uses "- item" for
+                 * unordered Markdown lists.
+                 */
+                if (/^\s*-\s+/.test(line)) {
+                    if (!listOpen) {
+                        output += "<ul>";
+                        listOpen = true;
+                    }
+                    output +=
+                        "<li>" +
+                        line.replace(/^\s*-\s+/, "") +
+                        "</li>";
+                } else {
+                    if (listOpen) {
+                        output += "</ul>";
+                        listOpen = false;
+                    }
+                    if (line.trim()) {
+                        /*
+                         * Do not wrap already-created headings
+                         * inside paragraphs.
+                         */
+                        if (
+                            !line.startsWith("<h2>") &&
+                            !line.startsWith("<h3>")
+                        ) {
+                            output += "<p>" + line + "</p>";
+                        } else {
+                            output += line;
+                        }
+                    }
+                }
+            }
+            if (listOpen) {
+                output += "</ul>";
+            }
+            return output;
+        }
+        /* =====================================================
+           VERIFY PRODUCT
+           ===================================================== */
+        async function verifyIsiProduct(product) {
+            if (!product) {
+                showIsiState("empty");
+                return;
+            }
+            showIsiState("loading");
+            try {
+                const response = await fetch(
+                    "http://127.0.0.1:8000/api/verify-isi",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            product: product,
+                            user_type: "consumer"
+                        })
+                    }
+                );
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(
+                        data.detail ||
+                        "Unable to verify product."
+                    );
+                }
+                isiProductName.textContent =
+                    data.product_name ||
+                    product;
+                isiStandardName.textContent =
+                    data.standard ||
+                    "Applicable Indian Standard";
+                isiResultContent.innerHTML =
+                    formatIsiText(
+                        data.guidance ||
+                        data.answer ||
+                        data.message ||
+                        "No verification guidance was returned."
+                    );
+                showIsiState("result");
+            } catch (error) {
+                console.error(
+                    "ISI verification error:",
+                    error
+                );
+                isiErrorText.textContent =
+                    error.message ||
+                    "Unable to connect to the BISathi backend.";
+                showIsiState("error");
+            }
+        }
+        /* =====================================================
+           VERIFY BUTTON
+           ===================================================== */
+        isiVerifyBtn.addEventListener(
+            "click",
+            () => {
+                const product =
+                    isiProductInput.value.trim();
+                verifyIsiProduct(product);
+            }
+        );
+        /* =====================================================
+           ENTER KEY
+           ===================================================== */
+        isiProductInput.addEventListener(
+            "keydown",
+            (event) => {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    const product =
+                        isiProductInput.value.trim();
+                    verifyIsiProduct(product);
+                }
+            }
+        );
+        /* =====================================================
+           QUICK PRODUCT CHIPS
+           ===================================================== */
+        document
+            .querySelectorAll(".isi-chip")
+            .forEach((chip) => {
+                chip.addEventListener(
+                    "click",
+                    () => {
+                        const product =
+                            chip.dataset.product;
+                        isiProductInput.value =
+                            product;
+                        verifyIsiProduct(product);
+                    }
+                );
+            });
+    </script>
+</body>
+</html>

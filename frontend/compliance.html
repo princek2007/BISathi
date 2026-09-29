@@ -1,0 +1,2133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="BISathi Compliance Assistant - Understand BIS standards, certification and compliance requirements."
+    >
+
+    <title>Compliance Assistant | BISathi</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- MAIN WEBSITE CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- COMPLIANCE PAGE CSS -->
+    <style>
+
+        /* =========================================================
+           COMPLIANCE PAGE
+        ========================================================= */
+
+        .compliance-page {
+            min-height: calc(100vh - 120px);
+            padding: 42px 24px 80px;
+
+            background:
+                radial-gradient(
+                    circle at 85% 8%,
+                    rgba(18, 99, 214, 0.055),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    180deg,
+                    #f7faff 0%,
+                    #ffffff 48%,
+                    #ffffff 100%
+                );
+        }
+
+        .compliance-container {
+            width: min(1080px, 100%);
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           BACK LINK
+        ========================================================= */
+
+        .page-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 42px;
+
+            color: #5b708c;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .page-back:hover {
+            color: #1263d6;
+            transform: translateX(-2px);
+        }
+
+        .page-back svg {
+            width: 17px;
+            height: 17px;
+        }
+
+
+        /* =========================================================
+           PAGE HEADER
+        ========================================================= */
+
+        .compliance-header {
+            margin-bottom: 34px;
+        }
+
+        .compliance-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            margin-bottom: 13px;
+
+            color: #075bd0;
+
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+        }
+
+        .compliance-label::before {
+            content: "";
+
+            width: 23px;
+            height: 1px;
+
+            background: #075bd0;
+        }
+
+        .compliance-header h1 {
+            max-width: 800px;
+
+            margin: 0;
+
+            color: #0d1d3a;
+
+            font-family: "Manrope", sans-serif;
+
+            font-size: clamp(38px, 5vw, 56px);
+            line-height: 1.08;
+
+            letter-spacing: -0.045em;
+        }
+
+        .compliance-header h1 span {
+            color: #1263d6;
+        }
+
+        .compliance-header p {
+            max-width: 680px;
+
+            margin: 18px 0 0;
+
+            color: #60728a;
+
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           COMPLIANCE WORKSPACE
+        ========================================================= */
+
+        .compliance-workspace {
+            overflow: hidden;
+
+            background: #ffffff;
+
+            border: 1px solid #dce5ef;
+            border-radius: 20px;
+
+            box-shadow:
+                0 18px 50px rgba(16, 43, 76, 0.075),
+                0 2px 8px rgba(16, 43, 76, 0.025);
+        }
+
+
+        /* =========================================================
+           WORKSPACE HEADER
+        ========================================================= */
+
+        .workspace-head {
+            padding: 25px 28px 21px;
+
+            background: #fbfcfe;
+
+            border-bottom: 1px solid #e8edf3;
+        }
+
+        .workspace-label {
+            margin-bottom: 6px;
+
+            color: #315d8f;
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.13em;
+        }
+
+        .workspace-title {
+            margin: 0;
+
+            color: #183858;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 22px;
+        }
+
+        .workspace-description {
+            margin: 7px 0 0;
+
+            color: #718096;
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           CHAT AREA
+        ========================================================= */
+
+        .chat-area {
+            min-height: 380px;
+
+            padding: 30px 28px;
+
+            background: #ffffff;
+        }
+
+        .chat-welcome {
+            max-width: 680px;
+
+            margin: 0 auto 30px;
+
+            text-align: center;
+        }
+
+        .chat-icon {
+            width: 50px;
+            height: 50px;
+
+            margin: 0 auto 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: #edf4ff;
+            color: #1263d6;
+        }
+
+        .chat-icon svg {
+            width: 25px;
+            height: 25px;
+        }
+
+        .chat-welcome h2 {
+            margin: 0;
+
+            color: #284663;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 19px;
+        }
+
+        .chat-welcome p {
+            margin: 8px auto 0;
+
+            color: #8492a3;
+
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           QUICK QUESTIONS
+        ========================================================= */
+
+        .quick-questions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 19px;
+        }
+
+        .quick-question {
+            padding: 8px 13px;
+
+            border: 1px solid #d9e2ec;
+            border-radius: 999px;
+
+            background: #f8fafc;
+            color: #49627c;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .quick-question:hover {
+            border-color: #abc5e6;
+
+            background: #f1f6fb;
+            color: #174d82;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================================
+           CONVERSATION
+        ========================================================= */
+
+        .conversation {
+            display: none;
+
+            max-width: 800px;
+
+            margin: 0 auto;
+        }
+
+        .conversation.active {
+            display: block;
+        }
+
+        .message {
+            display: flex;
+
+            margin-bottom: 18px;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.ai {
+            justify-content: flex-start;
+        }
+
+        .message-bubble {
+            max-width: 78%;
+
+            padding: 14px 16px;
+
+            border-radius: 13px;
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .message.user .message-bubble {
+            background: #123e6b;
+            color: #ffffff;
+
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.ai .message-bubble {
+            background: #f4f7fa;
+            color: #53677d;
+
+            border: 1px solid #e3e9ef;
+
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.ai .message-bubble h2,
+        .message.ai .message-bubble h3 {
+            margin: 16px 0 7px;
+
+            color: #284663;
+
+            font-family: "Manrope", sans-serif;
+        }
+
+        .message.ai .message-bubble h2:first-child,
+        .message.ai .message-bubble h3:first-child {
+            margin-top: 0;
+        }
+
+        .message.ai .message-bubble h2 {
+            font-size: 18px;
+        }
+
+        .message.ai .message-bubble h3 {
+            font-size: 15px;
+        }
+
+        .message.ai .message-bubble p {
+            margin: 0 0 10px;
+        }
+
+        .message.ai .message-bubble ul {
+            margin: 7px 0 12px;
+            padding-left: 20px;
+        }
+
+        .message.ai .message-bubble li {
+            margin-bottom: 5px;
+        }
+
+        .message.ai .message-bubble strong {
+            color: #294d70;
+        }
+
+
+        /* =========================================================
+           TYPING INDICATOR
+        ========================================================= */
+
+        .typing {
+            display: none;
+
+            align-items: center;
+            gap: 5px;
+
+            width: fit-content;
+
+            margin-bottom: 18px;
+            padding: 13px 16px;
+
+            border: 1px solid #e3e9ef;
+            border-radius: 13px;
+            border-bottom-left-radius: 4px;
+
+            background: #f4f7fa;
+        }
+
+        .typing.active {
+            display: flex;
+        }
+
+        .typing span {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #7992aa;
+
+            animation: typing 1.2s infinite ease-in-out;
+        }
+
+        .typing span:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .typing span:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes typing {
+            0%,
+            60%,
+            100% {
+                opacity: 0.35;
+                transform: translateY(0);
+            }
+
+            30% {
+                opacity: 1;
+                transform: translateY(-3px);
+            }
+        }
+
+
+        /* =========================================================
+           INPUT AREA
+        ========================================================= */
+
+        .chat-input-area {
+            padding: 20px 28px 24px;
+
+            border-top: 1px solid #e8edf3;
+
+            background: #fbfcfe;
+        }
+
+        .chat-input-row {
+            display: flex;
+            gap: 10px;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+        }
+
+        .chat-input {
+            flex: 1;
+
+            min-width: 0;
+            min-height: 50px;
+
+            padding: 13px 15px;
+
+            resize: vertical;
+
+            border: 1px solid #ccd8e5;
+            border-radius: 10px;
+
+            background: #ffffff;
+            color: #183858;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.2s ease;
+        }
+
+        .chat-input::placeholder {
+            color: #9aa8b8;
+        }
+
+        .chat-input:focus {
+            border-color: #4f82b8;
+
+            box-shadow:
+                0 0 0 3px rgba(79, 130, 184, 0.1);
+        }
+
+        .ask-button {
+            align-self: flex-end;
+
+            height: 50px;
+
+            padding: 0 22px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #1263d6;
+            color: #ffffff;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .ask-button:hover {
+            background: #0755c2;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 7px 18px rgba(18, 99, 214, 0.18);
+        }
+
+        .ask-button:disabled {
+            opacity: 0.65;
+
+            cursor: wait;
+
+            transform: none;
+
+            box-shadow: none;
+        }
+
+        .input-note {
+            max-width: 900px;
+
+            margin: 9px auto 0;
+
+            color: #9aa6b4;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           SOURCES
+        ========================================================= */
+
+        .compliance-sources {
+            display: none;
+
+            padding: 22px 28px;
+
+            border-top: 1px solid #e8edf3;
+        }
+
+        .compliance-sources.active {
+            display: block;
+        }
+
+        .sources-title {
+            margin: 0 0 12px;
+
+            color: #284663;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 15px;
+        }
+
+        .source-list {
+            display: flex;
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .source-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 12px;
+
+            padding: 11px 13px;
+
+            border: 1px solid #e0e7ee;
+            border-radius: 9px;
+
+            background: #fbfcfd;
+
+            color: #315d8f;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .source-link:hover {
+            border-color: #adc4da;
+            background: #f4f8fc;
+        }
+
+        .source-link svg {
+            width: 15px;
+            height: 15px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =========================================================
+           LOGO
+        ========================================================= */
+
+        .brand-mark img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: contain;
+
+            border-radius: inherit;
+        }
+
+        .footer-mark img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: contain;
+
+            border-radius: inherit;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .compliance-footer {
+            min-height: 110px;
+
+            background:
+                linear-gradient(
+                    105deg,
+                    #123e78,
+                    #1765d1
+                );
+
+            color: #ffffff;
+        }
+
+        .compliance-footer-inner {
+            width: min(1180px, calc(100% - 48px));
+
+            min-height: 110px;
+
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+        }
+
+        .footer-mark {
+            width: 43px;
+            height: 43px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            font-family: "Manrope", sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+
+            overflow: hidden;
+        }
+
+        .footer-brand-copy {
+            display: flex;
+            flex-direction: column;
+
+            gap: 3px;
+        }
+
+        .footer-brand-copy strong {
+            font-family: "Manrope", sans-serif;
+            font-size: 17px;
+        }
+
+        .footer-brand-copy span {
+            color: rgba(255, 255, 255, 0.68);
+
+            font-size: 11px;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+
+            gap: 25px;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+
+            font-size: 11px;
+        }
+
+        .footer-link {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 7px;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-link svg {
+            width: 13px;
+            height: 13px;
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .compliance-page {
+                padding: 30px 18px 60px;
+            }
+
+            .page-back {
+                margin-bottom: 35px;
+            }
+
+            .compliance-header h1 {
+                font-size: clamp(34px, 9vw, 48px);
+            }
+
+            .compliance-header p {
+                font-size: 14px;
+            }
+
+            .workspace-head,
+            .chat-area,
+            .chat-input-area,
+            .compliance-sources {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .message-bubble {
+                max-width: 88%;
+            }
+
+            .compliance-footer-inner {
+                width: min(100% - 36px, 1180px);
+
+                min-height: auto;
+
+                padding: 24px 0;
+
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                width: 100%;
+
+                justify-content: space-between;
+
+                gap: 15px;
+            }
+
+            .footer-description {
+                display: none;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .chat-input-row {
+                flex-direction: column;
+            }
+
+            .ask-button {
+                width: 100%;
+            }
+
+            .quick-questions {
+                justify-content: flex-start;
+            }
+
+            .quick-question {
+                font-size: 11px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .compliance-page {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .workspace-head,
+            .chat-area,
+            .chat-input-area,
+            .compliance-sources {
+                padding-left: 17px;
+                padding-right: 17px;
+            }
+
+            .chat-area {
+                min-height: 340px;
+            }
+
+            .message-bubble {
+                max-width: 94%;
+
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         TOP STRIP
+    ========================================================= -->
+
+    <div class="top-strip">
+
+        <div class="top-strip-inner">
+
+            <span class="top-strip-status">
+
+                <span class="live-dot"></span>
+
+                BISathi AI Assistant
+
+            </span>
+
+            <span class="top-strip-divider"></span>
+
+            <span>
+                Intelligent guidance for Indian Standards &amp; BIS Services
+            </span>
+
+            <a
+                href="https://www.bis.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                Official BIS Portal
+
+                <svg class="tiny-icon">
+                    <use href="#icon-external"></use>
+                </svg>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         ICON SYSTEM
+    ========================================================= -->
+
+    <svg
+        aria-hidden="true"
+        width="0"
+        height="0"
+        style="position:absolute"
+    >
+
+        <defs>
+
+            <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+
+                <path
+                    d="M5 12h13M13 6l6 6-6 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+            </symbol>
+
+
+            <symbol id="icon-spark" viewBox="0 0 24 24">
+
+                <path
+                    d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                />
+
+            </symbol>
+
+
+            <symbol id="icon-menu" viewBox="0 0 24 24">
+
+                <path
+                    d="M4 7h16M4 12h16M4 17h16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+
+            </symbol>
+
+
+            <symbol id="icon-external" viewBox="0 0 24 24">
+
+                <path
+                    d="M14 5h5v5M19 5l-8 8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                />
+
+            </symbol>
+
+        </defs>
+
+    </svg>
+
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
+
+    <header class="navbar">
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="BISathi Home"
+        >
+
+            <div class="brand-mark">
+                <img
+                    src="BISathi.jpeg"
+                    alt="BISathi logo"
+                >
+                <i></i>
+            </div>
+
+            <div class="brand-copy">
+
+                <strong>
+                    BISathi
+                </strong>
+
+                <span>
+                    AI-Powered Standards Assistant
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav class="main-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a
+                href="index.html#services"
+                class="active"
+            >
+                Services
+            </a>
+
+            <a href="index.html#how">
+                How It Works
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+        </nav>
+
+
+        <!-- NAV ACTIONS -->
+
+        <div class="nav-actions">
+
+            <a
+                class="official-nav-link"
+                href="https://www.bis.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                BIS.gov.in
+
+                <svg class="tiny-icon">
+                    <use href="#icon-external"></use>
+                </svg>
+
+            </a>
+
+
+            <button
+                class="ask-nav-btn"
+                type="button"
+                onclick="openAssistant()"
+            >
+
+                <svg class="button-icon">
+                    <use href="#icon-spark"></use>
+                </svg>
+
+                Ask BISathi
+
+                <svg class="button-arrow">
+                    <use href="#icon-arrow-right"></use>
+                </svg>
+
+            </button>
+
+
+            <button
+                class="mobile-menu-btn"
+                type="button"
+                onclick="toggleMobileNav()"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+
+                <svg>
+                    <use href="#icon-menu"></use>
+                </svg>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MOBILE NAV
+    ========================================================= -->
+
+    <div
+        class="mobile-nav"
+        id="mobileNav"
+    >
+
+        <a
+            href="index.html"
+            onclick="closeMobileNav()"
+        >
+            Home
+        </a>
+
+        <a
+            href="index.html#services"
+            onclick="closeMobileNav()"
+        >
+            Services
+        </a>
+
+        <a
+            href="index.html#how"
+            onclick="closeMobileNav()"
+        >
+            How It Works
+        </a>
+
+        <a
+            href="index.html#about"
+            onclick="closeMobileNav()"
+        >
+            About
+        </a>
+
+        <a
+            href="https://www.bis.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="closeMobileNav()"
+        >
+            Official BIS Portal
+        </a>
+
+        <button
+            type="button"
+            onclick="openAssistant(); closeMobileNav();"
+        >
+            Ask BISathi AI
+        </button>
+
+    </div>
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================= -->
+
+    <main class="compliance-page">
+
+        <div class="compliance-container">
+
+
+            <!-- BACK -->
+
+            <a
+                href="index.html"
+                class="page-back"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M19 12H5M12 19L5 12L12 5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
+                </svg>
+
+                Back to BISathi
+
+            </a>
+
+
+            <!-- PAGE HEADER -->
+
+            <section class="compliance-header">
+
+                <div class="compliance-label">
+                    COMPLIANCE ASSISTANT
+                </div>
+
+                <h1>
+                    Understand what
+                    <span>compliance requires.</span>
+                </h1>
+
+                <p>
+                    Ask BISathi about product requirements, standards,
+                    certification, testing or BIS compliance steps.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 COMPLIANCE WORKSPACE
+            ================================================= -->
+
+            <section class="compliance-workspace">
+
+
+                <!-- WORKSPACE HEADER -->
+
+                <div class="workspace-head">
+
+                    <div class="workspace-label">
+                        BIS COMPLIANCE
+                    </div>
+
+                    <h2 class="workspace-title">
+                        Ask about BIS compliance
+                    </h2>
+
+                    <p class="workspace-description">
+                        Describe your product or requirement and BISathi
+                        will provide relevant guidance.
+                    </p>
+
+                </div>
+
+
+                <!-- CHAT AREA -->
+
+                <div class="chat-area">
+
+
+                    <!-- WELCOME -->
+
+                    <div
+                        class="chat-welcome"
+                        id="chatWelcome"
+                    >
+
+                        <div class="chat-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+
+                                <path
+                                    d="M5 5H19V16H13L9 20V16H5V5Z"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linejoin="round"
+                                />
+
+                                <path
+                                    d="M9 9H15M9 12H13"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                />
+
+                            </svg>
+
+                        </div>
+
+
+                        <h2>
+                            What do you need to understand?
+                        </h2>
+
+                        <p>
+                            Ask a BIS-related compliance question to get
+                            practical guidance.
+                        </p>
+
+
+                        <!-- QUICK QUESTIONS -->
+
+                        <div class="quick-questions">
+
+                            <button
+                                type="button"
+                                class="quick-question"
+                                data-question="What BIS standard applies to a pressure cooker?"
+                            >
+                                Pressure cooker requirements
+                            </button>
+
+                            <button
+                                type="button"
+                                class="quick-question"
+                                data-question="What are the BIS certification requirements for an electric iron?"
+                            >
+                                Electric iron compliance
+                            </button>
+
+                            <button
+                                type="button"
+                                class="quick-question"
+                                data-question="What is required to get BIS certification for cement?"
+                            >
+                                Cement certification
+                            </button>
+
+                            <button
+                                type="button"
+                                class="quick-question"
+                                data-question="What does the ISI Mark mean for a product?"
+                            >
+                                ISI Mark requirements
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONVERSATION -->
+
+                    <div
+                        class="conversation"
+                        id="conversation"
+                    ></div>
+
+
+                    <!-- TYPING -->
+
+                    <div
+                        class="typing"
+                        id="typing"
+                    >
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INPUT -->
+
+                <div class="chat-input-area">
+
+                    <div class="chat-input-row">
+
+                        <textarea
+                            id="complianceInput"
+                            class="chat-input"
+                            rows="1"
+                            placeholder="Ask a BIS compliance question..."
+                        ></textarea>
+
+
+                        <button
+                            type="button"
+                            id="askButton"
+                            class="ask-button"
+                        >
+                            Ask BISathi
+                        </button>
+
+                    </div>
+
+
+                    <div class="input-note">
+                        BISathi provides guidance based on available BIS
+                        information. Refer to official BIS sources for
+                        final regulatory requirements.
+                    </div>
+
+                </div>
+
+
+                <!-- SOURCES -->
+
+                <div
+                    class="compliance-sources"
+                    id="complianceSources"
+                >
+
+                    <h3 class="sources-title">
+                        Official BIS sources
+                    </h3>
+
+                    <div
+                        class="source-list"
+                        id="sourceList"
+                    ></div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer class="compliance-footer">
+
+        <div class="compliance-footer-inner">
+
+            <div class="footer-brand">
+
+                <div class="footer-mark">
+                    <img
+                        src="BISathi.jpeg"
+                        alt="BISathi logo"
+                    >
+                </div>
+
+                <div class="footer-brand-copy">
+
+                    <strong>
+                        BISathi
+                    </strong>
+
+                    <span>
+                        AI-Powered Standards Assistant
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-right">
+
+                <span class="footer-description">
+                    Built around BIS information and services.
+                </span>
+
+                <a
+                    href="https://www.bis.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link"
+                >
+
+                    Visit BIS.gov.in
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
+
+                        <path
+                            d="M14 5H19V10"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M19 5L11 13"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+
+                        <path
+                            d="M19 14V18C19 18.55 18.55 19 18 19H6C5.45 19 5 18.55 5 18V6C5 5.45 5.45 5 6 5H10"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+
+                    </svg>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- MAIN BISATHI SCRIPT -->
+
+    <script src="script.js"></script>
+
+
+    <!-- =========================================================
+         COMPLIANCE SCRIPT
+    ========================================================= -->
+
+    <script>
+
+        const COMPLIANCE_API =
+            "http://127.0.0.1:8000/api/ask";
+
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
+
+        const complianceInput =
+            document.getElementById("complianceInput");
+
+        const askButton =
+            document.getElementById("askButton");
+
+        const chatWelcome =
+            document.getElementById("chatWelcome");
+
+        const conversation =
+            document.getElementById("conversation");
+
+        const typing =
+            document.getElementById("typing");
+
+        const complianceSources =
+            document.getElementById("complianceSources");
+
+        const sourceList =
+            document.getElementById("sourceList");
+
+
+        /* =====================================================
+           ESCAPE HTML
+        ===================================================== */
+
+        function escapeHTML(value) {
+
+            if (
+                value === null ||
+                value === undefined
+            ) {
+                return "";
+            }
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+
+        /* =====================================================
+           FORMAT AI ANSWER
+        ===================================================== */
+
+        function formatAnswer(text) {
+
+            if (!text) {
+                return "";
+            }
+
+            let safe =
+                escapeHTML(text);
+
+
+            safe =
+                safe.replace(
+                    /^### (.*)$/gm,
+                    "<h3>$1</h3>"
+                );
+
+
+            safe =
+                safe.replace(
+                    /^## (.*)$/gm,
+                    "<h2>$1</h2>"
+                );
+
+
+            safe =
+                safe.replace(
+                    /\*\*(.*?)\*\*/g,
+                    "<strong>$1</strong>"
+                );
+
+
+            safe =
+                safe.replace(
+                    /^\s*[-•]\s+(.*)$/gm,
+                    "<li>$1</li>"
+                );
+
+
+            safe =
+                safe.replace(
+                    /(<li>.*?<\/li>)/gs,
+                    "<ul>$1</ul>"
+                );
+
+
+            safe =
+                safe.replace(
+                    /\n\n+/g,
+                    "</p><p>"
+                );
+
+
+            safe =
+                safe.replace(
+                    /\n/g,
+                    "<br>"
+                );
+
+
+            return "<p>" + safe + "</p>";
+        }
+
+
+        /* =====================================================
+           USER MESSAGE
+        ===================================================== */
+
+        function addUserMessage(question) {
+
+            const message =
+                document.createElement("div");
+
+            message.className =
+                "message user";
+
+
+            message.innerHTML = `
+                <div class="message-bubble">
+                    ${escapeHTML(question)}
+                </div>
+            `;
+
+
+            conversation.appendChild(message);
+
+            conversation.scrollTop =
+                conversation.scrollHeight;
+        }
+
+
+        /* =====================================================
+           AI MESSAGE
+        ===================================================== */
+
+        function addAIMessage(answer) {
+
+            const message =
+                document.createElement("div");
+
+            message.className =
+                "message ai";
+
+
+            message.innerHTML = `
+                <div class="message-bubble">
+                    ${formatAnswer(answer)}
+                </div>
+            `;
+
+
+            conversation.appendChild(message);
+
+            conversation.scrollTop =
+                conversation.scrollHeight;
+        }
+
+
+        /* =====================================================
+           GET SOURCES
+        ===================================================== */
+
+        function getSources(data) {
+
+            if (
+                data &&
+                Array.isArray(data.official_sources)
+            ) {
+                return data.official_sources;
+            }
+
+
+            if (
+                data &&
+                Array.isArray(data.sources)
+            ) {
+                return data.sources;
+            }
+
+
+            return [];
+        }
+
+
+        /* =====================================================
+           NORMALIZE SOURCE
+        ===================================================== */
+
+        function normalizeSource(source) {
+
+            if (!source) {
+                return null;
+            }
+
+
+            if (typeof source === "string") {
+
+                return {
+                    title: "BIS Official Source",
+                    url: source
+                };
+
+            }
+
+
+            return {
+
+                title:
+                    source.title ||
+                    source.name ||
+                    source.label ||
+                    "BIS Official Source",
+
+                url:
+                    source.url ||
+                    source.link ||
+                    source.href ||
+                    ""
+
+            };
+        }
+
+
+        /* =====================================================
+           RENDER SOURCES
+        ===================================================== */
+
+        function renderSources(data) {
+
+            const sources =
+                getSources(data)
+                    .map(normalizeSource)
+                    .filter(
+                        source =>
+                            source &&
+                            source.url
+                    );
+
+
+            if (!sources.length) {
+
+                complianceSources.classList.remove(
+                    "active"
+                );
+
+                return;
+            }
+
+
+            sourceList.innerHTML =
+                sources
+                    .map(source => `
+
+                        <a
+                            class="source-link"
+                            href="${escapeHTML(source.url)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <span>
+                                ${escapeHTML(source.title)}
+                            </span>
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+
+                                <use href="#icon-external"></use>
+
+                            </svg>
+
+                        </a>
+
+                    `)
+                    .join("");
+
+
+            complianceSources.classList.add(
+                "active"
+            );
+        }
+
+
+        /* =====================================================
+           ASK BISATHI
+        ===================================================== */
+
+        async function askCompliance(
+            questionOverride = null
+        ) {
+
+            const question =
+                questionOverride ||
+                complianceInput.value.trim();
+
+
+            if (!question) {
+
+                complianceInput.focus();
+
+                return;
+            }
+
+
+            chatWelcome.style.display =
+                "none";
+
+
+            conversation.classList.add(
+                "active"
+            );
+
+
+            complianceSources.classList.remove(
+                "active"
+            );
+
+
+            addUserMessage(question);
+
+
+            complianceInput.value = "";
+
+
+            typing.classList.add(
+                "active"
+            );
+
+
+            askButton.disabled =
+                true;
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        COMPLIANCE_API,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify({
+                                    question:
+                                        question,
+
+                                    user_type:
+                                        "manufacturer"
+                                })
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.detail ||
+                        data.message ||
+                        "Unable to get a BISathi response."
+                    );
+                }
+
+
+                typing.classList.remove(
+                    "active"
+                );
+
+
+                const answer =
+                    data.answer ||
+                    data.response ||
+                    data.message ||
+                    "I could not find relevant guidance for this question.";
+
+
+                addAIMessage(answer);
+
+
+                renderSources(data);
+
+
+            } catch (error) {
+
+                typing.classList.remove(
+                    "active"
+                );
+
+
+                addAIMessage(
+                    error.message ||
+                    "Unable to connect to BISathi backend."
+                );
+
+
+            } finally {
+
+                askButton.disabled =
+                    false;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           ASK BUTTON
+        ===================================================== */
+
+        askButton.addEventListener(
+            "click",
+            function () {
+
+                askCompliance();
+
+            }
+        );
+
+
+        /* =====================================================
+           ENTER TO SEND
+        ===================================================== */
+
+        complianceInput.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Enter" &&
+                    !event.shiftKey
+                ) {
+
+                    event.preventDefault();
+
+                    askCompliance();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           QUICK QUESTIONS
+        ===================================================== */
+
+        document
+            .querySelectorAll(".quick-question")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const question =
+                            this.dataset.question;
+
+                        askCompliance(
+                            question
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           MOBILE NAV FALLBACK
+        ===================================================== */
+
+        const mobileNav =
+            document.getElementById(
+                "mobileNav"
+            );
+
+        const mobileMenuButton =
+            document.querySelector(
+                ".mobile-menu-btn"
+            );
+
+
+        if (
+            typeof window.toggleMobileNav !==
+            "function"
+        ) {
+
+            window.toggleMobileNav =
+                function () {
+
+                    if (!mobileNav) {
+                        return;
+                    }
+
+
+                    const isOpen =
+                        mobileNav.classList.toggle(
+                            "open"
+                        );
+
+
+                    if (mobileMenuButton) {
+
+                        mobileMenuButton.setAttribute(
+                            "aria-expanded",
+                            isOpen
+                                ? "true"
+                                : "false"
+                        );
+
+                    }
+
+                };
+
+        }
+
+
+        if (
+            typeof window.closeMobileNav !==
+            "function"
+        ) {
+
+            window.closeMobileNav =
+                function () {
+
+                    if (mobileNav) {
+
+                        mobileNav.classList.remove(
+                            "open"
+                        );
+
+                    }
+
+
+                    if (mobileMenuButton) {
+
+                        mobileMenuButton.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
+
+                };
+
+        }
+
+    </script>
+
+</body>
+
+</html>
