@@ -8,7 +8,8 @@
    CONFIGURATION
    ========================================================= */
 
-const API_BASE_URL = "https://bisathi-backend.onrender.com";
+const API_BASE_URL = "https://bisathi.onrender.com";
+
 const API_ASK_URL =
     `${API_BASE_URL}/api/ask`;
 
@@ -43,7 +44,6 @@ function openAssistant(initialQuestion = "") {
     }
 
     modal.classList.add("show");
-
     document.body.classList.add("modal-open");
 
     if (userInput) {
@@ -70,7 +70,6 @@ function closeAssistant() {
     }
 
     modal.classList.remove("show");
-
     document.body.classList.remove("modal-open");
 }
 
@@ -91,7 +90,6 @@ if (modal) {
 
         }
     );
-
 }
 
 
@@ -160,7 +158,6 @@ function selectUserType(type) {
         consumerBtn.classList.remove("active");
     }
 
-
     if (industryBtn) {
         industryBtn.classList.remove("active");
     }
@@ -179,7 +176,6 @@ function selectUserType(type) {
         }
 
     }
-
 }
 
 
@@ -193,15 +189,12 @@ async function sendMessage() {
         return;
     }
 
-
     const message =
         userInput.value.trim();
-
 
     if (!message) {
         return;
     }
-
 
     addUserMessage(message);
 
@@ -261,7 +254,6 @@ async function sendMessage() {
             addAIMessage(
                 data.answer ||
                 "Sorry, I could not process your question right now.",
-
                 data.official_sources ||
                 data.sources ||
                 []
@@ -277,16 +269,12 @@ async function sendMessage() {
             error
         );
 
-
         removeThinking();
-
 
         addAIMessage(
             "I could not connect to the BISathi AI service. Please make sure the FastAPI backend is running."
         );
-
     }
-
 }
 
 
@@ -301,9 +289,7 @@ function handleEnter(event) {
         event.preventDefault();
 
         sendMessage();
-
     }
-
 }
 
 
@@ -315,7 +301,6 @@ function askQuestion(question) {
 
     openAssistant();
 
-
     if (userInput) {
 
         userInput.value = question;
@@ -326,9 +311,7 @@ function askQuestion(question) {
             },
             100
         );
-
     }
-
 }
 
 
@@ -341,7 +324,6 @@ function addUserMessage(message) {
     if (!chatArea) {
         return;
     }
-
 
     const wrapper =
         document.createElement("div");
@@ -365,9 +347,7 @@ function addUserMessage(message) {
 
     chatArea.appendChild(wrapper);
 
-
     scrollChat();
-
 }
 
 
@@ -402,9 +382,7 @@ function formatMarkdown(message) {
             output.push("</ul>");
 
             insideList = false;
-
         }
-
     }
 
 
@@ -420,7 +398,6 @@ function formatMarkdown(message) {
                 closeList();
 
                 return;
-
             }
 
 
@@ -429,7 +406,6 @@ function formatMarkdown(message) {
                 closeList();
 
                 return;
-
             }
 
 
@@ -449,9 +425,7 @@ function formatMarkdown(message) {
                     `<h4>${heading}</h4>`
                 );
 
-
                 return;
-
             }
 
 
@@ -471,9 +445,7 @@ function formatMarkdown(message) {
                     `<h3>${heading}</h3>`
                 );
 
-
                 return;
-
             }
 
 
@@ -496,7 +468,6 @@ function formatMarkdown(message) {
                     output.push("<ul>");
 
                     insideList = true;
-
                 }
 
 
@@ -504,9 +475,7 @@ function formatMarkdown(message) {
                     `<li>${item}</li>`
                 );
 
-
                 return;
-
             }
 
 
@@ -529,7 +498,6 @@ function formatMarkdown(message) {
                     output.push("<ul>");
 
                     insideList = true;
-
                 }
 
 
@@ -537,9 +505,7 @@ function formatMarkdown(message) {
                     `<li>${item}</li>`
                 );
 
-
                 return;
-
             }
 
 
@@ -549,7 +515,6 @@ function formatMarkdown(message) {
             output.push(
                 `<p>${line}</p>`
             );
-
         }
     );
 
@@ -577,13 +542,12 @@ function formatMarkdown(message) {
 
     formatted =
         formatted.replace(
-            /\\([\*_])/g,
+            /\\([*_])/g,
             "$1"
         );
 
 
     return formatted.trim();
-
 }
 
 
@@ -603,7 +567,6 @@ function formatOfficialSources(sources) {
 
 
     let html = `
-
         <div class="official-sources">
 
             <h4>
@@ -611,7 +574,6 @@ function formatOfficialSources(sources) {
             </h4>
 
             <div class="official-source-list">
-
     `;
 
 
@@ -629,7 +591,6 @@ function formatOfficialSources(sources) {
 
 
             html += `
-
                 <a
                     href="${escapeHTML(source.url)}"
                     target="_blank"
@@ -646,24 +607,19 @@ function formatOfficialSources(sources) {
                     </span>
 
                 </a>
-
             `;
-
         }
     );
 
 
     html += `
-
             </div>
 
         </div>
-
     `;
 
 
     return html;
-
 }
 
 
@@ -690,11 +646,9 @@ function addAIMessage(
 
 
     wrapper.innerHTML = `
-
         <div class="small-avatar"></div>
 
         <div class="message-box"></div>
-
     `;
 
 
@@ -709,15 +663,12 @@ function addAIMessage(
         messageBox.innerHTML =
             formatMarkdown(message) +
             formatOfficialSources(sources);
-
     }
 
 
     chatArea.appendChild(wrapper);
 
-
     scrollChat();
-
 }
 
 
@@ -748,7 +699,6 @@ function showThinking() {
 
 
     wrapper.innerHTML = `
-
         <div class="small-avatar"></div>
 
         <div class="message-box loading-message">
@@ -760,15 +710,12 @@ function showThinking() {
             </span>
 
         </div>
-
     `;
 
 
     chatArea.appendChild(wrapper);
 
-
     scrollChat();
-
 }
 
 
@@ -785,7 +732,6 @@ function removeThinking() {
     if (thinking) {
         thinking.remove();
     }
-
 }
 
 
@@ -802,7 +748,6 @@ function scrollChat() {
 
     chatArea.scrollTop =
         chatArea.scrollHeight;
-
 }
 
 
@@ -828,7 +773,6 @@ function scrollToSection(id) {
         behavior: "smooth",
         block: "start"
     });
-
 }
 
 
@@ -847,7 +791,6 @@ function escapeHTML(text) {
 
 
     return div.innerHTML;
-
 }
 
 
@@ -881,7 +824,6 @@ async function searchProduct() {
     if (!product) {
 
         result.innerHTML = `
-
             <div class="search-result-card">
 
                 <p>
@@ -889,11 +831,9 @@ async function searchProduct() {
                 </p>
 
             </div>
-
         `;
 
         return;
-
     }
 
 
@@ -908,12 +848,10 @@ async function searchProduct() {
 
         guidanceLabel =
             "Industry / Manufacturer Guidance";
-
     }
 
 
     result.innerHTML = `
-
         <div class="search-result-card">
 
             <div class="loading-message">
@@ -921,19 +859,15 @@ async function searchProduct() {
                 <span class="loading-dot"></span>
 
                 <span>
-
                     Searching official BIS information for
-
                     <strong>
                         ${escapeHTML(product)}
                     </strong>
-
                 </span>
 
             </div>
 
         </div>
-
     `;
 
 
@@ -950,13 +884,9 @@ async function searchProduct() {
                     },
 
                     body: JSON.stringify({
-
                         product: product,
-
                         user_type: selectedUserType
-
                     })
-
                 }
             );
 
@@ -967,7 +897,6 @@ async function searchProduct() {
                 "Server returned HTTP " +
                 response.status
             );
-
         }
 
 
@@ -978,7 +907,6 @@ async function searchProduct() {
         if (!data.success) {
 
             result.innerHTML = `
-
                 <div class="search-result-card">
 
                     <h3>
@@ -999,11 +927,9 @@ async function searchProduct() {
                     )}
 
                 </div>
-
             `;
 
             return;
-
         }
 
 
@@ -1030,7 +956,6 @@ async function searchProduct() {
 
             sourceLabel =
                 "BISathi Product Knowledge Base";
-
         }
 
 
@@ -1073,7 +998,6 @@ async function searchProduct() {
         ) {
 
             liveBadge = `
-
                 <div class="live-bis-badge">
 
                     <span class="live-bis-dot"></span>
@@ -1081,9 +1005,7 @@ async function searchProduct() {
                     Live Official BIS Data
 
                 </div>
-
             `;
-
         }
 
 
@@ -1102,7 +1024,6 @@ async function searchProduct() {
            ================================================= */
 
         result.innerHTML = `
-
             <div class="search-result-card">
 
                 <div class="search-result-header">
@@ -1116,15 +1037,11 @@ async function searchProduct() {
                         <div class="search-result-meta">
 
                             <span class="search-source">
-
                                 ${escapeHTML(sourceLabel)}
-
                             </span>
 
                             <span class="search-guidance-type">
-
                                 ${escapeHTML(guidanceLabel)}
-
                             </span>
 
                         </div>
@@ -1139,38 +1056,30 @@ async function searchProduct() {
                 ${
                     totalRecords > 0
                         ? `
-
                             <div class="standards-count">
 
                                 ${totalRecords}
-
                                 BIS standard record${totalRecords === 1 ? "" : "s"}
                                 found
 
                             </div>
-
                         `
                         : ""
                 }
 
 
                 <div class="search-ai-answer">
-
                     ${formatted}
-
                 </div>
 
 
                 ${formatOfficialSources(
-
                     data.official_sources ||
                     data.sources ||
                     []
-
                 )}
 
             </div>
-
         `;
 
 
@@ -1183,7 +1092,6 @@ async function searchProduct() {
 
 
         result.innerHTML = `
-
             <div class="search-result-card error-box">
 
                 <h3>
@@ -1196,11 +1104,8 @@ async function searchProduct() {
                 </p>
 
             </div>
-
         `;
-
     }
-
 }
 
 
@@ -1234,7 +1139,6 @@ async function getCertificationGuidance() {
     if (!product) {
 
         result.innerHTML = `
-
             <div class="search-result-card">
 
                 <p>
@@ -1242,16 +1146,13 @@ async function getCertificationGuidance() {
                 </p>
 
             </div>
-
         `;
 
         return;
-
     }
 
 
     result.innerHTML = `
-
         <div class="search-result-card">
 
             <div class="loading-message">
@@ -1265,7 +1166,6 @@ async function getCertificationGuidance() {
             </div>
 
         </div>
-
     `;
 
 
@@ -1285,7 +1185,6 @@ async function getCertificationGuidance() {
                         product: product,
                         user_type: "manufacturer"
                     })
-
                 }
             );
 
@@ -1296,7 +1195,6 @@ async function getCertificationGuidance() {
                 "Server returned HTTP " +
                 response.status
             );
-
         }
 
 
@@ -1307,16 +1205,13 @@ async function getCertificationGuidance() {
         if (!data.success) {
 
             result.innerHTML = `
-
                 <div class="search-result-card error-box">
 
                     <p>
-
                         ${escapeHTML(
                             data.answer ||
                             "BISathi could not prepare the guidance."
                         )}
-
                     </p>
 
                     ${formatOfficialSources(
@@ -1326,11 +1221,9 @@ async function getCertificationGuidance() {
                     )}
 
                 </div>
-
             `;
 
             return;
-
         }
 
 
@@ -1341,7 +1234,6 @@ async function getCertificationGuidance() {
 
 
         result.innerHTML = `
-
             <div class="certification-result-card">
 
                 ${formatted}
@@ -1353,7 +1245,6 @@ async function getCertificationGuidance() {
                 )}
 
             </div>
-
         `;
 
 
@@ -1366,7 +1257,6 @@ async function getCertificationGuidance() {
 
 
         result.innerHTML = `
-
             <div class="search-result-card error-box">
 
                 <h3>
@@ -1378,11 +1268,8 @@ async function getCertificationGuidance() {
                 </p>
 
             </div>
-
         `;
-
     }
-
 }
 
 
@@ -1416,7 +1303,6 @@ async function getDocumentChecklist() {
     if (!product) {
 
         result.innerHTML = `
-
             <div class="search-result-card">
 
                 <p>
@@ -1424,16 +1310,13 @@ async function getDocumentChecklist() {
                 </p>
 
             </div>
-
         `;
 
         return;
-
     }
 
 
     result.innerHTML = `
-
         <div class="search-result-card">
 
             <div class="loading-message">
@@ -1447,7 +1330,6 @@ async function getDocumentChecklist() {
             </div>
 
         </div>
-
     `;
 
 
@@ -1467,7 +1349,6 @@ async function getDocumentChecklist() {
                         product: product,
                         user_type: "manufacturer"
                     })
-
                 }
             );
 
@@ -1478,7 +1359,6 @@ async function getDocumentChecklist() {
                 "Server returned HTTP " +
                 response.status
             );
-
         }
 
 
@@ -1489,16 +1369,13 @@ async function getDocumentChecklist() {
         if (!data.success) {
 
             result.innerHTML = `
-
                 <div class="search-result-card error-box">
 
                     <p>
-
                         ${escapeHTML(
                             data.answer ||
                             "BISathi could not prepare the checklist."
                         )}
-
                     </p>
 
                     ${formatOfficialSources(
@@ -1508,11 +1385,9 @@ async function getDocumentChecklist() {
                     )}
 
                 </div>
-
             `;
 
             return;
-
         }
 
 
@@ -1523,7 +1398,6 @@ async function getDocumentChecklist() {
 
 
         result.innerHTML = `
-
             <div class="certification-result-card">
 
                 ${formatted}
@@ -1535,7 +1409,6 @@ async function getDocumentChecklist() {
                 )}
 
             </div>
-
         `;
 
 
@@ -1548,7 +1421,6 @@ async function getDocumentChecklist() {
 
 
         result.innerHTML = `
-
             <div class="search-result-card error-box">
 
                 <h3>
@@ -1556,15 +1428,12 @@ async function getDocumentChecklist() {
                 </h3>
 
                 <p>
-                    Please make sure the FastAPI server is running.
+                    Please make sure the FastAPI backend is running.
                 </p>
 
             </div>
-
         `;
-
     }
-
 }
 
 
@@ -1598,7 +1467,6 @@ async function verifyISI() {
     if (!question) {
 
         result.innerHTML = `
-
             <div class="search-result-card">
 
                 <p>
@@ -1606,16 +1474,13 @@ async function verifyISI() {
                 </p>
 
             </div>
-
         `;
 
         return;
-
     }
 
 
     result.innerHTML = `
-
         <div class="search-result-card">
 
             <div class="loading-message">
@@ -1629,15 +1494,20 @@ async function verifyISI() {
             </div>
 
         </div>
-
     `;
 
 
     try {
 
+        /*
+         * IMPORTANT:
+         * ISI verification uses the dedicated
+         * /api/verify-isi backend endpoint.
+         */
+
         const response =
             await fetch(
-                `${API_BASE_URL}/api/ask`,
+                `${API_BASE_URL}/api/verify-isi`,
                 {
                     method: "POST",
 
@@ -1649,7 +1519,6 @@ async function verifyISI() {
                         question: question,
                         user_type: "consumer"
                     })
-
                 }
             );
 
@@ -1660,7 +1529,6 @@ async function verifyISI() {
                 "Server returned HTTP " +
                 response.status
             );
-
         }
 
 
@@ -1671,16 +1539,13 @@ async function verifyISI() {
         if (!data.success) {
 
             result.innerHTML = `
-
                 <div class="search-result-card error-box">
 
                     <p>
-
                         ${escapeHTML(
                             data.answer ||
                             "BISathi could not process the question."
                         )}
-
                     </p>
 
                     ${formatOfficialSources(
@@ -1690,11 +1555,9 @@ async function verifyISI() {
                     )}
 
                 </div>
-
             `;
 
             return;
-
         }
 
 
@@ -1705,7 +1568,6 @@ async function verifyISI() {
 
 
         result.innerHTML = `
-
             <div class="certification-result-card">
 
                 ${formatted}
@@ -1717,7 +1579,6 @@ async function verifyISI() {
                 )}
 
             </div>
-
         `;
 
 
@@ -1730,7 +1591,6 @@ async function verifyISI() {
 
 
         result.innerHTML = `
-
             <div class="search-result-card error-box">
 
                 <h3>
@@ -1738,15 +1598,12 @@ async function verifyISI() {
                 </h3>
 
                 <p>
-                    Please make sure the FastAPI server is running.
+                    Please make sure the FastAPI backend is running.
                 </p>
 
             </div>
-
         `;
-
     }
-
 }
 
 
@@ -1777,12 +1634,10 @@ function attachEnterHandler(
                 event.preventDefault();
 
                 callback();
-
             }
 
         }
     );
-
 }
 
 
@@ -1846,7 +1701,6 @@ window.addEventListener(
                             section.getAttribute(
                                 "id"
                             );
-
                     }
 
                 }
@@ -1869,7 +1723,6 @@ window.addEventListener(
                     link.classList.add(
                         "active"
                     );
-
                 }
 
             }
@@ -1905,7 +1758,6 @@ document.addEventListener(
         ) {
 
             closeMobileNav();
-
         }
 
     }
@@ -1921,11 +1773,9 @@ const modalStyle =
 
 
 modalStyle.textContent = `
-
     body.modal-open {
         overflow: hidden;
     }
-
 `;
 
 
